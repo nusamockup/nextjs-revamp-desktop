@@ -13,7 +13,7 @@ import {
     TextInput,
 } from '@ns-ui/core';
 import { upperFirst, useDisclosure, useToggle } from '@ns-ui/hooks';
-import { useForm } from '@mantine/form';
+import { useForm } from '@ns-ui/form';
 import { FacebookButton, GoogleButton } from '../social-buttons/SocialButtons';
 import Link from 'next/link';
 
