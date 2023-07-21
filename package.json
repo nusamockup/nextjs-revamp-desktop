@@ -17,6 +17,7 @@
         "@emotion/cache": "^11.11.0",
         "@emotion/react": "^11.10.4",
         "@emotion/server": "^11.10.0",
+        "@mantine/form": "^6.0.17",
         "@next/bundle-analyzer": "^13.1.6",
         "@ns-ui/carousel": "file:src/comps/@ns-ui/carousel",
         "@ns-ui/core": "file:src/comps/@ns-ui/core",

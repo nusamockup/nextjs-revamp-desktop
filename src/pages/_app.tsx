@@ -6,7 +6,7 @@ import { ReactElement, ReactNode } from 'react';
 // import { FooterLinks } from '@/components/Footer';
 // import MainHeader from '@/components/header/MainHeader';
 import { NextPage } from 'next';
-// import MainHeader from '../comps/header/mainheader';
+import MainHeader from '../comps/header/mainheader';
 // import { NsFooter } from '../comps/footer/ns-footer';
 
 // let links = [
@@ -107,7 +107,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                 }}
                 // emotionCache={cache}
             >
-                {/* <MainHeader /> */}
+                <MainHeader />
                 {/* <NsHeader links={links} /> */}
                 <Component {...pageProps} />
                 {/* <NsFooter /> */}
