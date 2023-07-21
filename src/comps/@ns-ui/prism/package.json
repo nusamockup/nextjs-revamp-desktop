@@ -1,0 +1,36 @@
+{
+  "name": "@ns-ui/prism",
+  "description": "Code highlight with NsUI theme",
+  "version": "6.0.2",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "author": "Vitaly Rtishchev <rtivital@gmail.com>",
+  "sideEffects": false,
+  "keywords": [
+    "react",
+    "next",
+    "nextjs",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "code",
+    "highlight",
+    "syntax",
+    "syntax-highlight"
+  ],
+  "peerDependencies": {
+    "@ns-ui/core": "file:../core",
+    "@ns-ui/hooks": "file:../hooks",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "dependencies": {
+    "prism-react-renderer": "^1.2.1",
+    "@ns-ui/utils": "file:../utils"
+  },
+  "devDependencies": {}
+}

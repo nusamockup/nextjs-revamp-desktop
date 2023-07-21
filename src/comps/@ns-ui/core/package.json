@@ -1,0 +1,37 @@
+{
+  "name": "@ns-ui/core",
+  "description": "React components library focused on usability, accessibility and developer experience",
+  "version": "6.0.2",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "author": "Vitaly Rtishchev <rtivital@gmail.com>",
+  "sideEffects": false,
+  "keywords": [
+    "react",
+    "next",
+    "nextjs",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design",
+    "emotion"
+  ],
+  "peerDependencies": {
+    "@ns-ui/hooks": "file:../hooks",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "dependencies": {
+    "@ns-ui/utils": "file:../utils",
+    "@ns-ui/styles": "file:../styles",
+    "@radix-ui/react-scroll-area": "1.0.2",
+    "react-textarea-autosize": "8.3.4",
+    "react-remove-scroll": "^2.5.5",
+    "@floating-ui/react": "^0.19.1"
+  },
+  "devDependencies": {}
+}

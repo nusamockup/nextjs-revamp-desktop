@@ -1,0 +1,25 @@
+{
+    "name": "@ns-ui/ds",
+    "description": "Internal NsUI components used on *.ns-ui.dev websites",
+    "version": "6.0.16",
+    "main": "cjs/index.js",
+    "module": "esm/index.js",
+    "types": "lib/index.d.ts",
+    "license": "MIT",
+    "author": "Vitaly Rtishchev <rtivital@gmail.com>",
+    "sideEffects": false,
+    "keywords": [
+        "react"
+    ],
+    "peerDependencies": {
+        "@ns-ui/core": "file:../core",
+        "@ns-ui/hooks": "file:../hooks",
+        "@ns-ui/prism": "file:../prism",
+        "@tabler/icons-react": "*",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "dependencies": {
+        "@ns-ui/utils": "file:../utils"
+    }
+}

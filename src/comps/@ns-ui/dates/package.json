@@ -1,0 +1,35 @@
+{
+    "name": "@ns-ui/dates",
+    "description": "Calendars, date and time pickers based on NsUI components",
+    "version": "6.0.16",
+    "main": "cjs/index.js",
+    "module": "esm/index.js",
+    "types": "lib/index.d.ts",
+    "license": "MIT",
+    "sideEffects": false,
+    "author": "Vitaly Rtishchev <rtivital@gmail.com>",
+    "keywords": [
+        "react",
+        "next",
+        "nextjs",
+        "ui",
+        "components",
+        "ui-kit",
+        "library",
+        "frontend",
+        "calendar",
+        "date",
+        "time",
+        "picker"
+    ],
+    "peerDependencies": {
+        "@ns-ui/core": "file:../core",
+        "@ns-ui/hooks": "file:../hooks",
+        "dayjs": ">=1.0.0",
+        "react": ">=16.8.0"
+    },
+    "dependencies": {
+        "@ns-ui/utils": "file:../utils"
+    },
+    "devDependencies": {}
+}
