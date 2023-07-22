@@ -71,13 +71,12 @@ export const Hotel = () => {
                                 shadow: 'lg',
                             }}
                             numberOfColumns={2}
-                            // value={value}
-                            // onChange={setValue}
                             valueFormat="DD MMM YYYY"
                             label="When"
                             placeholder="Add Date"
                             classNames={classes}
                             clearable={true}
+                            id="checkindate"
                         />
                     </div>
 
@@ -85,7 +84,6 @@ export const Hotel = () => {
                         <Popover
                             width={300}
                             position="bottom"
-                            // withArrow
                             shadow="md"
                             opened={opened}
                             onChange={guestOpened}
@@ -109,8 +107,6 @@ export const Hotel = () => {
                                         {adultvalue} Adult
                                         {Number(adultvalue) > 1 ? 's' : ''}{' '}
                                         {childvalue} Children
-                                        {/* {totalpax} Passenger
-                                        {totalpax > 1 ? 's' : ''}, {classvalue} */}
                                     </Input.Placeholder>
                                 </InputBase>
                             </Popover.Target>
@@ -118,12 +114,7 @@ export const Hotel = () => {
                                 <Stack>
                                     <Group>
                                         <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text
-                                                // ta="center"
-                                                fw={500}
-                                                fz={14}
-                                                // className={classes.title}
-                                            >
+                                            <Text fw={500} fz={14}>
                                                 Rooms
                                             </Text>
                                             <Text c="dimmed" fz="12px">
@@ -178,12 +169,7 @@ export const Hotel = () => {
 
                                     <Group>
                                         <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text
-                                                // ta="center"
-                                                fw={500}
-                                                fz={14}
-                                                // className={classes.title}
-                                            >
+                                            <Text fw={500} fz={14}>
                                                 Adults
                                             </Text>
                                             <Text c="dimmed" fz="12px">
@@ -238,12 +224,7 @@ export const Hotel = () => {
 
                                     <Group>
                                         <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text
-                                                // ta="center"
-                                                fw={500}
-                                                fz={14}
-                                                // className={classes.title}
-                                            >
+                                            <Text fw={500} fz={14}>
                                                 Children
                                             </Text>
                                             <Text c="dimmed" fz="12px">
@@ -304,21 +285,17 @@ export const Hotel = () => {
                                         sx={{ borderRadius: '5px' }}
                                     >
                                         <Text
-                                            // ta="center"
                                             fw={500}
                                             fz={14}
                                             ml={8}
                                             sx={{ flex: '1' }}
-                                            // className={classes.title}
                                         >
                                             Age of Child 1
                                         </Text>
                                         <Select
                                             maw={100}
                                             data={childAge}
-                                            // label="Select with native scrollbars"
                                             placeholder="Child Age"
-                                            // value="O year"
                                             variant="unstyled"
                                             sx={{ textAlign: 'right' }}
                                         />
@@ -328,21 +305,17 @@ export const Hotel = () => {
                                         sx={{ borderRadius: '5px' }}
                                     >
                                         <Text
-                                            // ta="center"
                                             fw={500}
                                             fz={14}
                                             ml={8}
                                             sx={{ flex: '1' }}
-                                            // className={classes.title}
                                         >
                                             Age of Child 2
                                         </Text>
                                         <Select
                                             maw={100}
                                             data={childAge}
-                                            // label="Select with native scrollbars"
                                             placeholder="Child Age"
-                                            // value="O year"
                                             variant="unstyled"
                                             sx={{ textAlign: 'right' }}
                                         />

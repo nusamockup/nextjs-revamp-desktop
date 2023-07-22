@@ -44,7 +44,6 @@ const LoginBTN = () => {
                 compact
                 styles={{
                     label: {
-                        // fontWeight: 400,
                         fontSize: '13px',
                     },
                 }}
@@ -229,7 +228,6 @@ const LoginBTN = () => {
                                 </Flex>
                                 <Checkbox
                                     label="I accept terms and conditions"
-                                    // checked={form.values.terms}
                                     onChange={(event) =>
                                         form.setFieldValue(
                                             'terms',

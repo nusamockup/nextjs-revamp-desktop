@@ -21,13 +21,13 @@ import {
 import { DatePickerInput } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
 import useStyles from './search-widget.styles';
-// import useStyles from '../home/home-search.styles';
+
 
 export const Flight = () => {
     const { classes, cx } = useStyles();
     const [opened, paxOpened] = useState(false);
     const [section, setSection] = useState<'oneway' | 'roundtrip'>('oneway');
-    // const { classes } = useStyles();
+
     const child = <Skeleton height={30} radius="md" animate={false} />;
     const [value, setValue] = useState<[Date | null, Date | null]>([
         null,
@@ -83,11 +83,6 @@ export const Flight = () => {
                                 />
                             </div>
                             <div style={{ flexGrow: 1 }}>
-                                {/* <TextInput
-                                    label="Going to"
-                                    placeholder="City Name"
-                                    classNames={classes}
-                                /> */}
                                 <Autocomplete
                                     label="Going to"
                                     placeholder="City name"
@@ -110,13 +105,12 @@ export const Flight = () => {
                                 shadow: 'lg',
                             }}
                             numberOfColumns={2}
-                            // value={value}
-                            // onChange={setValue}
                             valueFormat="DD MMM YYYY"
                             label="Departing"
                             placeholder="Add Date"
                             classNames={classes}
                             clearable={true}
+                            id="departing"
                         />
                     </div>
                     <div
@@ -136,13 +130,13 @@ export const Flight = () => {
                             placeholder="Add Date"
                             classNames={classes}
                             clearable={true}
+                            id="returning"
                         />
                     </div>
                     <div style={{ minWidth: '186px' }}>
                         <Popover
                             width={300}
                             position="bottom"
-                            // withArrow
                             shadow="md"
                             opened={opened}
                             onChange={paxOpened}
@@ -170,12 +164,7 @@ export const Flight = () => {
                                 <Stack>
                                     <Group>
                                         <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text
-                                                // ta="center"
-                                                fw={500}
-                                                fz={14}
-                                                // className={classes.title}
-                                            >
+                                            <Text fw={500} fz={14}>
                                                 Adults
                                             </Text>
                                             <Text c="dimmed" fz="12px">
@@ -230,12 +219,7 @@ export const Flight = () => {
 
                                     <Group>
                                         <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text
-                                                // ta="center"
-                                                fw={500}
-                                                fz={14}
-                                                // className={classes.title}
-                                            >
+                                            <Text fw={500} fz={14}>
                                                 Children
                                             </Text>
                                             <Text c="dimmed" fz="12px">
@@ -290,12 +274,7 @@ export const Flight = () => {
 
                                     <Group>
                                         <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text
-                                                // ta="center"
-                                                fw={500}
-                                                fz={14}
-                                                // className={classes.title}
-                                            >
+                                            <Text fw={500} fz={14}>
                                                 Infants
                                             </Text>
                                             <Text c="dimmed" fz="12px">
@@ -357,74 +336,20 @@ export const Flight = () => {
                                     <Group grow>
                                         <Chip
                                             value="Economy"
-                                            // variant="filled"
                                             radius="sm"
                                             className={classes.classChip}
-                                            // sx={{ width: '100%', flex: '1' }}
                                         >
                                             Economy
                                         </Chip>
                                         <Chip
                                             value="Business"
-                                            // variant="filled"
                                             radius="sm"
-                                            // sx={{ width: '100%', flex: '1' }}
                                             className={classes.classChip}
                                         >
                                             Business
                                         </Chip>
                                     </Group>
                                 </Chip.Group>
-                                {/* <Stack spacing="5px">
-                                    <Group
-                                        bg="#f8f9fa"
-                                        sx={{ borderRadius: '5px' }}
-                                    >
-                                        <Text
-                                            // ta="center"
-                                            fw={500}
-                                            fz={14}
-                                            ml={8}
-                                            sx={{ flex: '1' }}
-                                            // className={classes.title}
-                                        >
-                                            Age of Child 1
-                                        </Text>
-                                        <Select
-                                            maw={100}
-                                            data={childAge}
-                                            // label="Select with native scrollbars"
-                                            placeholder="Child Age"
-                                            // value="O year"
-                                            variant="unstyled"
-                                            sx={{ textAlign: 'right' }}
-                                        />
-                                    </Group>
-                                    <Group
-                                        bg="#f8f9fa"
-                                        sx={{ borderRadius: '5px' }}
-                                    >
-                                        <Text
-                                            // ta="center"
-                                            fw={500}
-                                            fz={14}
-                                            ml={8}
-                                            sx={{ flex: '1' }}
-                                            // className={classes.title}
-                                        >
-                                            Age of Child 2
-                                        </Text>
-                                        <Select
-                                            maw={100}
-                                            data={childAge}
-                                            // label="Select with native scrollbars"
-                                            placeholder="Child Age"
-                                            // value="O year"
-                                            variant="unstyled"
-                                            sx={{ textAlign: 'right' }}
-                                        />
-                                    </Group>
-                                </Stack> */}
                                 <Divider
                                     my="sm"
                                     sx={{ borderColor: '#ececec' }}
