@@ -32,6 +32,7 @@ export default createStyles((theme) => ({
         paddingTop: `calc(${theme.spacing.sm} / 2)`,
         zIndex: 1,
     },
+
     widgetButton: {
         margin: '4px',
         height: `calc(100% - 8px)`,
@@ -51,9 +52,18 @@ export default createStyles((theme) => ({
             backgroundColor: 'transparent',
             border: '2px solid #FFF',
         },
+        cursor: 'pointer',
+    },
+    radioLabel: {
+        cursor: 'pointer',
+        color: 'white',
+        fontSize: '16px',
+        fontWeight: 600,
     },
     dropdown: {
         color: '#000',
+        left: 0,
+        top: 0,
     },
     labelWrapper: {
         label: {
@@ -66,21 +76,10 @@ export default createStyles((theme) => ({
         },
     },
     classChip: {
-        // width: '100%',
         label: {
             display: 'flex',
             justifyContent: 'center',
             justifyItems: 'flex-start',
-        },
-        // span: {
-        //     background: 'red',
-        // },
-    },
-    departing: {
-        dropdown: {
-            // position: 'relative',
-            width: 'auto!important',
-            minWidth: '400px!important',
         },
     },
     widgetRootAutocomplete: {
