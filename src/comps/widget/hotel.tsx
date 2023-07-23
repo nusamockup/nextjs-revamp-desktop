@@ -81,6 +81,7 @@ export const Hotel = () => {
                             classNames={{
                                 input: classes.widgetInput,
                                 label: classes.widgetLabel,
+                                rightSection: classes.rightSection,
                             }}
                             clearable={true}
                             id="checkindate"

@@ -131,6 +131,7 @@ export const Flight = () => {
                             classNames={{
                                 input: classes.widgetInput,
                                 label: classes.widgetLabel,
+                                rightSection: classes.rightSection,
                             }}
                             clearable={true}
                             id="departing"
@@ -154,6 +155,7 @@ export const Flight = () => {
                             classNames={{
                                 input: classes.widgetInput,
                                 label: classes.widgetLabel,
+                                rightSection: classes.rightSection,
                             }}
                             clearable={true}
                             id="returning"
