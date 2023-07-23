@@ -50,8 +50,10 @@ export const Hotel = () => {
                             label="Hotel location"
                             placeholder="City or location"
                             classNames={{
+                                root: classes.widgetRootAutocomplete,
                                 input: classes.widgetInput,
                                 label: classes.widgetLabel,
+                                dropdown: classes.dropdownAutocomplete,
                             }}
                             data={[
                                 'Denpasar, Bali Indonesia',
