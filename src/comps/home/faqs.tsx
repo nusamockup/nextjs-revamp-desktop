@@ -9,6 +9,7 @@ import {
     Title,
     createStyles,
     rem,
+    Space,
 } from '@ns-ui/core';
 import React from 'react';
 import SectionTitle from '../section-title/section-title';
@@ -46,6 +47,7 @@ const Faqs = () => {
     const { classes } = useStyles();
     return (
         <>
+            <Space h="64px" />
             <Container size="lg" py="32px">
                 <SectionTitle
                     title="Frequently Asked Question (FAQ)"

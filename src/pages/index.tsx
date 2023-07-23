@@ -12,6 +12,13 @@ import { Global, css } from '@emotion/react';
 const Home = () => {
     return (
         <>
+            <Global
+                styles={css`
+                    body {
+                        background-color: #f8f9fa;
+                    }
+                `}
+            />
             <main>
                 <Box mt="-1.25rem">
                     <BackgroundImage
@@ -50,20 +57,10 @@ const Home = () => {
                 </Container>
                 <Space h="64px" />
                 <AirlineLogo />
-                <Space h="64px" />
                 <WhyChoose />
-                <Space h="64px" />
                 <MobileBanner />
-                <Space h="64px" />
                 <Faqs />
             </main>
-            <Global
-                styles={css`
-                    body {
-                        background-color: #f8f9fa;
-                    }
-                `}
-            />
         </>
     );
 };

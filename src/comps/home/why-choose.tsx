@@ -7,6 +7,7 @@ import {
     Text,
     createStyles,
     rem,
+    Space,
 } from '@ns-ui/core';
 import Image from 'next/image';
 import SectionTitle from '../section-title/section-title';
@@ -45,17 +46,20 @@ const WhyChoose = () => {
     ));
 
     return (
-        <Container size="lg" py="32px">
-            <SectionTitle title="Why Choose Nusatrip" align="center" />
-            <SimpleGrid
-                cols={3}
-                spacing="xl"
-                mt={50}
-                // breakpoints={[{ maxWidth: 'md', cols: 1 }]}
-            >
-                {features}
-            </SimpleGrid>
-        </Container>
+        <>
+            <Space h="64px" />
+            <Container size="lg" py="32px">
+                <SectionTitle title="Why Choose Nusatrip" align="center" />
+                <SimpleGrid
+                    cols={3}
+                    spacing="xl"
+                    mt={50}
+                    // breakpoints={[{ maxWidth: 'md', cols: 1 }]}
+                >
+                    {features}
+                </SimpleGrid>
+            </Container>
+        </>
     );
 };
 

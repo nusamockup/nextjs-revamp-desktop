@@ -4,6 +4,7 @@ import {
     Container,
     Flex,
     Overlay,
+    Space,
     Text,
     Title,
 } from '@ns-ui/core';
@@ -13,6 +14,7 @@ import React from 'react';
 const MobileBanner = () => {
     return (
         <>
+            <Space h="64px" />
             <Container size="lg">
                 <BackgroundImage
                     src="/img/banner/3153d25d96ef43bd7fc22e361139e5cc.webp"
