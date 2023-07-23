@@ -55,9 +55,19 @@ export const Flight = () => {
                 onChange={(value: 'oneway' | 'roundtrip') => setSection(value)}
             >
                 <Group>
-                    <Radio classNames={classes} value="oneway" label="Oneway" />
                     <Radio
-                        classNames={classes}
+                        classNames={{
+                            radio: classes.radio,
+                            label: classes.radioLabel,
+                        }}
+                        value="oneway"
+                        label="Oneway"
+                    />
+                    <Radio
+                        classNames={{
+                            radio: classes.radio,
+                            label: classes.radioLabel,
+                        }}
                         value="roundtrip"
                         label="Roundtrip"
                     />
@@ -84,6 +94,7 @@ export const Flight = () => {
                                         label: classes.widgetLabel,
                                         dropdown: classes.dropdownAutocomplete,
                                     }}
+                                    withinPortal={false}
                                 />
                             </div>
                             <div style={{ flexGrow: 1 }}>
