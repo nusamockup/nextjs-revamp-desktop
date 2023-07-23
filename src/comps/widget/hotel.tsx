@@ -1,9 +1,7 @@
-import React, { useRef, useState } from 'react';
 import {
     ActionIcon,
     Autocomplete,
     Button,
-    Chip,
     Container,
     Divider,
     Flex,
@@ -19,8 +17,9 @@ import {
     Text,
     rem,
 } from '@ns-ui/core';
-import useStyles from './search-widget.styles';
 import { DatePickerInput } from '@ns-ui/dates';
+import { useRef, useState } from 'react';
+import useStyles from './search-widget.styles';
 
 export const Hotel = () => {
     const { classes } = useStyles();
@@ -50,7 +49,10 @@ export const Hotel = () => {
                         <Autocomplete
                             label="Hotel location"
                             placeholder="City or location"
-                            classNames={classes}
+                            classNames={{
+                                input: classes.widgetInput,
+                                label: classes.widgetLabel,
+                            }}
                             data={[
                                 'Denpasar, Bali Indonesia',
                                 'Dengkil, Selangor Malaysia',
@@ -74,7 +76,10 @@ export const Hotel = () => {
                             valueFormat="DD MMM YYYY"
                             label="When"
                             placeholder="Add Date"
-                            classNames={classes}
+                            classNames={{
+                                input: classes.widgetInput,
+                                label: classes.widgetLabel,
+                            }}
                             clearable={true}
                             id="checkindate"
                         />
@@ -90,7 +95,10 @@ export const Hotel = () => {
                         >
                             <Popover.Target>
                                 <InputBase
-                                    classNames={classes}
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                    }}
                                     component="button"
                                     label="Rooms & Guest"
                                     sx={{ cursor: 'pointer' }}

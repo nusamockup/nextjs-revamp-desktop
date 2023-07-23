@@ -15,7 +15,7 @@ export default createStyles((theme) => ({
         top: '16px',
     },
 
-    input: {
+    widgetInput: {
         height: rem(54),
         paddingTop: rem(18),
         border: '0px',
@@ -23,7 +23,7 @@ export default createStyles((theme) => ({
         textOverflow: 'ellipsis',
     },
 
-    label: {
+    widgetLabel: {
         color: '#868e96',
         position: 'absolute',
         pointerEvents: 'none',

@@ -22,17 +22,16 @@ import { DatePickerInput } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
 import useStyles from './search-widget.styles';
 
-
 export const Flight = () => {
     const { classes, cx } = useStyles();
     const [opened, paxOpened] = useState(false);
     const [section, setSection] = useState<'oneway' | 'roundtrip'>('oneway');
 
-    const child = <Skeleton height={30} radius="md" animate={false} />;
-    const [value, setValue] = useState<[Date | null, Date | null]>([
-        null,
-        null,
-    ]);
+    // const child = <Skeleton height={30} radius="md" animate={false} />;
+    // const [value, setValue] = useState<[Date | null, Date | null]>([
+    //     null,
+    //     null,
+    // ]);
     const childAge = Array(18)
         .fill(0)
         .map((_, index) => `${index} year`);
@@ -72,7 +71,6 @@ export const Flight = () => {
                                 <Autocomplete
                                     label="Flying from"
                                     placeholder="City name"
-                                    classNames={classes}
                                     data={[
                                         'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
                                         'JKT : All Airports, Jakarta Indonesia',
@@ -80,13 +78,20 @@ export const Flight = () => {
                                         'HLP : Halim Perdana Kusuma, Jakarta Indonesia',
                                         'SRG : Ahmad Yani, Semarang Central Java Indonesia',
                                     ]}
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                    }}
                                 />
                             </div>
                             <div style={{ flexGrow: 1 }}>
                                 <Autocomplete
                                     label="Going to"
                                     placeholder="City name"
-                                    classNames={classes}
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                    }}
                                     data={[
                                         'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
                                         'JKT : All Airports, Jakarta Indonesia',
@@ -108,7 +113,10 @@ export const Flight = () => {
                             valueFormat="DD MMM YYYY"
                             label="Departing"
                             placeholder="Add Date"
-                            classNames={classes}
+                            classNames={{
+                                input: classes.widgetInput,
+                                label: classes.widgetLabel,
+                            }}
                             clearable={true}
                             id="departing"
                         />
@@ -128,7 +136,10 @@ export const Flight = () => {
                             valueFormat="DD MMM YYYY"
                             label="Returning"
                             placeholder="Add Date"
-                            classNames={classes}
+                            classNames={{
+                                input: classes.widgetInput,
+                                label: classes.widgetLabel,
+                            }}
                             clearable={true}
                             id="returning"
                         />
@@ -143,7 +154,10 @@ export const Flight = () => {
                         >
                             <Popover.Target>
                                 <InputBase
-                                    classNames={classes}
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                    }}
                                     component="button"
                                     label="Passengers & Class"
                                     sx={{ cursor: 'pointer' }}

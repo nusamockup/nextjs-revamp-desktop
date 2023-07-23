@@ -13,8 +13,6 @@ const PRIMARY_COL_HEIGHT = 350;
 const SECONDARY_COL_HEIGHT = 385;
 
 const FlightSection = () => {
-    // const { classes, cx, theme } = useStyles();
-
     return (
         <>
             <SectionTitle
