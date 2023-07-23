@@ -79,8 +79,10 @@ export const Flight = () => {
                                         'SRG : Ahmad Yani, Semarang Central Java Indonesia',
                                     ]}
                                     classNames={{
+                                        root: classes.widgetRootAutocomplete,
                                         input: classes.widgetInput,
                                         label: classes.widgetLabel,
+                                        dropdown: classes.dropdownAutocomplete,
                                     }}
                                 />
                             </div>
@@ -89,8 +91,10 @@ export const Flight = () => {
                                     label="Going to"
                                     placeholder="City name"
                                     classNames={{
+                                        root: classes.widgetRootAutocomplete,
                                         input: classes.widgetInput,
                                         label: classes.widgetLabel,
+                                        dropdown: classes.dropdownAutocomplete,
                                     }}
                                     data={[
                                         'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',

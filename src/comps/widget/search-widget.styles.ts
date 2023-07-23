@@ -83,17 +83,12 @@ export default createStyles((theme) => ({
             minWidth: '400px!important',
         },
     },
-    suggestion: {
-        position: 'absolute',
-        left: 0,
-        color: '#000',
-        cursor: 'pointer',
-        '&:hover': {
-            background: 'red',
-        },
+    widgetRootAutocomplete: {
+        position: 'relative',
     },
-    '.ns-Autocomplete-dropdown': {
+    dropdownAutocomplete: {
         width: 'auto!important',
         minWidth: '400px!important',
+        left: '0px !important',
     },
 }));
