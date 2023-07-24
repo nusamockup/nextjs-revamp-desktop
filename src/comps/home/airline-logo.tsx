@@ -1,4 +1,4 @@
-import { Anchor, Container, Flex } from '@ns-ui/core';
+import { Anchor, Box, Container, Flex } from '@ns-ui/core';
 import Marquee from 'react-fast-marquee';
 import useStyles from './airline-logo.styles';
 import Image from 'next/image';
@@ -25,8 +25,8 @@ const AirlineLogo = () => {
 
     return (
         <>
-            <div
-                style={{
+            <Box
+                sx={{
                     paddingTop: '40px',
                     paddingBottom: '40px',
                     backgroundColor: '#f2f4f6',
@@ -48,7 +48,7 @@ const AirlineLogo = () => {
                         </Marquee>
                     </Flex>
                 </Container>
-            </div>
+            </Box>
         </>
     );
 };

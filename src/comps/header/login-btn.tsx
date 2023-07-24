@@ -1,5 +1,6 @@
 import {
     Anchor,
+    Box,
     Button,
     Checkbox,
     Divider,
@@ -52,7 +53,7 @@ const LoginBTN = () => {
                 Login | Register
             </Button>
             <Modal opened={opened} onClose={close} title={upperFirst(type)}>
-                <div style={{ padding: '20px' }}>
+                <Box sx={{ padding: '20px' }}>
                     {type === 'login' && (
                         <form onSubmit={form.onSubmit(() => {})}>
                             <Stack>
@@ -216,14 +217,14 @@ const LoginBTN = () => {
                                             form.errors.password &&
                                             'Password should include at least 6 characters'
                                         }
-                                        style={{ width: '100%' }}
+                                        sx={{ width: '100%' }}
                                     />
                                     <PasswordInput
                                         required
                                         label="Verify Password"
                                         placeholder="Verify Password"
                                         radius="sm"
-                                        style={{ width: '100%' }}
+                                        sx={{ width: '100%' }}
                                     />
                                 </Flex>
                                 <Checkbox
@@ -275,7 +276,7 @@ const LoginBTN = () => {
                             Continue with Google
                         </GoogleButton>
                     </Flex>
-                </div>
+                </Box>
             </Modal>
         </>
     );

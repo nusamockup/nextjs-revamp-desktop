@@ -48,7 +48,7 @@ const LangSelector = ({ className }: { className?: string }) => {
                         color="gray"
                         radius="sm"
                         compact
-                        styles={{
+                        sx={{
                             label: {
                                 fontSize: '12px',
                             },
@@ -62,7 +62,7 @@ const LangSelector = ({ className }: { className?: string }) => {
                         </Center>
                     </Button>
                 </Menu.Target>
-                <Menu.Dropdown style={{ width: 200 }}>{items}</Menu.Dropdown>
+                <Menu.Dropdown sx={{ width: 200 }}>{items}</Menu.Dropdown>
             </Menu>
         </>
     );

@@ -60,7 +60,7 @@ const Faqs = () => {
                 >
                     <div>
                         <Title
-                            style={{
+                            sx={{
                                 color: '#333',
                                 fontSize: '18px',
                                 fontStyle: 'normal',
@@ -126,7 +126,7 @@ const Faqs = () => {
                     </div>
                     <div>
                         <Title
-                            style={{
+                            sx={{
                                 color: '#333',
                                 fontSize: '18px',
                                 fontStyle: 'normal',

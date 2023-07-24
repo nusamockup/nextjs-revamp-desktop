@@ -1,6 +1,7 @@
 import {
     ActionIcon,
     Autocomplete,
+    Box,
     Button,
     Chip,
     Container,
@@ -75,9 +76,9 @@ export const Flight = () => {
             </Radio.Group>
             <Container size="lg" maw={`calc(100% + 32px)`} mx="-16px" mt={16}>
                 <Flex className={classes.widgetWrapper}>
-                    <div style={{ flexGrow: 1 }}>
+                    <Box sx={{ flexGrow: 1 }}>
                         <Flex>
-                            <div style={{ flexGrow: 1 }}>
+                            <Box sx={{ flexGrow: 1 }}>
                                 <Autocomplete
                                     label="Flying from"
                                     placeholder="City name"
@@ -96,8 +97,8 @@ export const Flight = () => {
                                     }}
                                     withinPortal={false}
                                 />
-                            </div>
-                            <div style={{ flexGrow: 1 }}>
+                            </Box>
+                            <Box sx={{ flexGrow: 1 }}>
                                 <Autocomplete
                                     label="Going to"
                                     placeholder="City name"
@@ -115,10 +116,10 @@ export const Flight = () => {
                                         'SRG : Ahmad Yani, Semarang Central Java Indonesia',
                                     ]}
                                 />
-                            </div>
+                            </Box>
                         </Flex>
-                    </div>
-                    <div style={{ minWidth: '140px' }}>
+                    </Box>
+                    <Box sx={{ minWidth: '140px' }}>
                         <DatePickerInput
                             popoverProps={{
                                 withinPortal: true,
@@ -136,9 +137,9 @@ export const Flight = () => {
                             clearable={true}
                             id="departing"
                         />
-                    </div>
-                    <div
-                        style={{ minWidth: '140px' }}
+                    </Box>
+                    <Box
+                        sx={{ minWidth: '140px' }}
                         className={cx(classes.hide, {
                             [classes.show]: section === 'roundtrip',
                         })}
@@ -160,8 +161,8 @@ export const Flight = () => {
                             clearable={true}
                             id="returning"
                         />
-                    </div>
-                    <div style={{ minWidth: '186px' }}>
+                    </Box>
+                    <Box sx={{ minWidth: '186px' }}>
                         <Popover
                             width={300}
                             position="bottom"
@@ -395,10 +396,10 @@ export const Flight = () => {
                                 </Flex>
                             </Popover.Dropdown>
                         </Popover>
-                    </div>
-                    <div>
+                    </Box>
+                    <Box>
                         <Button className={classes.widgetButton}>Search</Button>
-                    </div>
+                    </Box>
                 </Flex>
             </Container>
         </>

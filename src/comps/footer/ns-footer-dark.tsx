@@ -101,7 +101,7 @@ export function NsFooterDark() {
                             </Text>
                         </Grid.Col>
                         <Group
-                            style={{ flexWrap: 'nowrap' }}
+                            sx={{ flexWrap: 'nowrap' }}
                             // c="dimmed"
                             fz="xs"
                             p={8}
@@ -144,7 +144,7 @@ export function NsFooterDark() {
                             </Text>
                             {/* <MobileBtn /> */}
                             <Group
-                                style={{
+                                sx={{
                                     flexWrap: 'nowrap',
                                     minWidth: '265px',
                                 }}
@@ -229,11 +229,11 @@ export function NsFooterDark() {
                 </Group>
             </Container>
             <Container size="lg" className={classes.afterFooter}>
-                <Group style={{ flexWrap: 'nowrap' }} spacing="5px">
+                <Group sx={{ flexWrap: 'nowrap' }} spacing="5px">
                     {bankitems}
                 </Group>
                 <Text
-                    style={{ whiteSpace: 'nowrap' }}
+                    sx={{ whiteSpace: 'nowrap' }}
                     // color="dimmed"
                     align="end"
                     size="sm"

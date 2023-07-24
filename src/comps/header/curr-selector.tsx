@@ -43,7 +43,7 @@ const CurrSelector = ({ className }: { className?: string }) => {
             <Group noWrap align="flex-start">
                 <Avatar size={40} color="blue">
                     <Center
-                        style={{
+                        sx={{
                             width: '100%',
                             height: '100%',
                             textAlign: 'center',
@@ -57,7 +57,7 @@ const CurrSelector = ({ className }: { className?: string }) => {
                     </Center>
                 </Avatar>
                 <div>
-                    <Text size="14px" style={{ fontWeight: 600 }}>
+                    <Text size="14px" sx={{ fontWeight: 600 }}>
                         {item.title}
                     </Text>
                     <Text size="xs" color="dimmed">

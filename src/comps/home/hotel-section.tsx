@@ -1,4 +1,4 @@
-import { Container, Space, Tabs, Title } from '@ns-ui/core';
+import { Box, Container, Space, Tabs, Title } from '@ns-ui/core';
 import HotelBali from './hotel-section/hotel-bali';
 import HotelJakarta from './hotel-section/hotel-jakarta';
 import HotelTabs from './hotel-tabs';
@@ -27,7 +27,7 @@ const HotelSection = () => {
                         <Tabs.Tab value="Singapore">Singapore</Tabs.Tab>
                     </Tabs.List>
 
-                    <div style={{ marginTop: '20px' }}>
+                    <Box sx={{ marginTop: '20px' }}>
                         <Tabs.Panel value="Jakarta">
                             <HotelJakarta />
                         </Tabs.Panel>
@@ -47,7 +47,7 @@ const HotelSection = () => {
                         <Tabs.Panel value="Singapore">
                             <HotelSingapore />
                         </Tabs.Panel>
-                    </div>
+                    </Box>
                 </HotelTabs>
             </Container>
         </>

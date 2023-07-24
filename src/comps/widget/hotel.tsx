@@ -16,6 +16,7 @@ import {
     Stack,
     Text,
     rem,
+    Box,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
@@ -45,7 +46,7 @@ export const Hotel = () => {
         <>
             <Container size="lg" maw={`calc(100% + 32px)`} mx="-16px" mt={68}>
                 <Flex className={classes.widgetWrapper}>
-                    <div style={{ flexGrow: 1 }}>
+                    <Box sx={{ flexGrow: 1 }}>
                         <Autocomplete
                             label="Hotel location"
                             placeholder="City or location"
@@ -63,9 +64,9 @@ export const Hotel = () => {
                                 'Malacca City, Malacca Malaysia',
                             ]}
                         />
-                    </div>
+                    </Box>
 
-                    <div style={{ minWidth: '220px' }}>
+                    <Box sx={{ minWidth: '220px' }}>
                         <DatePickerInput
                             type="range"
                             value={value}
@@ -86,9 +87,9 @@ export const Hotel = () => {
                             clearable={true}
                             id="checkindate"
                         />
-                    </div>
+                    </Box>
 
-                    <div style={{ minWidth: '220px' }}>
+                    <Box sx={{ minWidth: '220px' }}>
                         <Popover
                             width={300}
                             position="bottom"
@@ -346,10 +347,10 @@ export const Hotel = () => {
                                 </Flex>
                             </Popover.Dropdown>
                         </Popover>
-                    </div>
-                    <div>
+                    </Box>
+                    <Box>
                         <Button className={classes.widgetButton}>Search</Button>
-                    </div>
+                    </Box>
                 </Flex>
             </Container>
         </>

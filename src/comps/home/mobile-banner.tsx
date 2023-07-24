@@ -20,7 +20,6 @@ const MobileBanner = () => {
                     src="/img/banner/3153d25d96ef43bd7fc22e361139e5cc.webp"
                     radius="md"
                     h={420}
-                    // style={{ aspectRatio: 16 / 9 }}
                     pos="relative"
                 >
                     <Flex
@@ -46,7 +45,7 @@ const MobileBanner = () => {
                         <Flex
                             direction="column"
                             justify="flex-start"
-                            style={{
+                            sx={{
                                 paddingTop: '78px',
                                 marginLeft: '-67px',
                                 height: '100%',
@@ -55,7 +54,7 @@ const MobileBanner = () => {
                         >
                             <Text
                                 mt={24}
-                                style={{
+                                sx={{
                                     color: '#FFF',
                                     fontFamily: 'Roboto',
                                     fontSize: '18px',
@@ -69,7 +68,7 @@ const MobileBanner = () => {
                             <Title
                                 order={2}
                                 mt={24}
-                                style={{
+                                sx={{
                                     color: '#FFF',
                                     fontFamily: 'Roboto',
                                     fontSize: '48px',

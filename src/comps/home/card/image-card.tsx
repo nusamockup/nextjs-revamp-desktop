@@ -6,6 +6,7 @@ import {
     createStyles,
     getStylesRef,
     rem,
+    Box,
 } from '@ns-ui/core';
 
 const useStyles = createStyles((theme) => ({
@@ -84,22 +85,22 @@ export function ImageCard({ image, title, link, ratio }: ImageCardProps) {
             component="a"
             href={link}
             target="_blank"
-            style={{ aspectRatio: `${ratio}` }}
+            sx={{ aspectRatio: `${ratio}` }}
         >
-            <div
+            <Box
                 className={classes.image}
-                style={{ backgroundImage: `url(${image})` }}
+                sx={{ backgroundImage: `url(${image})` }}
             />
-            <div className={classes.overlay} />
+            <Box className={classes.overlay} />
 
-            <div className={classes.content}>
-                <div>
+            <Box className={classes.content}>
+                <Box>
                     <Image mb={10} width={42} src="/img/icons/plane-icon.svg" />
                     <Text size="md" className={classes.title} weight={500}>
                         {title}
                     </Text>
-                </div>
-            </div>
+                </Box>
+            </Box>
         </Card>
     );
 }
