@@ -18,10 +18,10 @@
         "@emotion/react": "^11.10.4",
         "@emotion/server": "^11.10.0",
         "@next/bundle-analyzer": "^13.1.6",
-        "@ns-ui/form": "file:src/comps/@ns-ui/form",
         "@ns-ui/carousel": "file:src/comps/@ns-ui/carousel",
         "@ns-ui/core": "file:src/comps/@ns-ui/core",
         "@ns-ui/dates": "file:src/comps/@ns-ui/dates",
+        "@ns-ui/form": "file:src/comps/@ns-ui/form",
         "@ns-ui/hooks": "file:src/comps/@ns-ui/hooks",
         "@ns-ui/next": "file:src/comps/@ns-ui/next",
         "@ns-ui/notifications": "file:src/comps/@ns-ui/notifications",
@@ -41,6 +41,7 @@
         "react-circle-flags": "^0.0.18",
         "react-dom": "18.2.0",
         "react-fast-marquee": "^1.6.0",
+        "react-icons": "^4.10.1",
         "react-scale-text": "^1.2.2"
     },
     "devDependencies": {

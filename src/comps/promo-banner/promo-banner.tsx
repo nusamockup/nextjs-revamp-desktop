@@ -26,27 +26,16 @@ const PromoBanner = () => {
     return (
         <>
             <Carousel
-                slideSize="33.3333%"
-                // breakpoints={[
-                //     { maxWidth: 'sm', slideSize: '100%', slideGap: 'sm' },
-                //     { maxWidth: 'md', slideSize: '50%', slideGap: 'md' },
-                // ]}
-                // slideSize={432}
+                slideSize="432px"
                 height="100%"
                 align="start"
                 slideGap="md"
                 controlSize={40}
-                // loop
                 loop={true}
                 withIndicators
                 previousControlIcon={<IconChevronLeft size={rem(40)} />}
                 nextControlIcon={<IconChevronRight size={rem(40)} />}
                 classNames={classes}
-                // classNames={{
-                //     root: classes.carousel,
-                //     controls: classes.carouselControls,
-                //     indicator: classes.carouselIndicator,
-                // }}
             >
                 {slides}
             </Carousel>

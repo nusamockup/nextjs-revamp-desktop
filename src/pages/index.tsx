@@ -8,6 +8,7 @@ import WhyChoose from 'src/comps/home/why-choose';
 import MobileBanner from 'src/comps/home/mobile-banner';
 import Faqs from 'src/comps/home/faqs';
 import { Global, css } from '@emotion/react';
+import HotelSection from 'src/comps/home/hotel-section';
 
 const Home = () => {
     return (
@@ -60,6 +61,7 @@ const Home = () => {
                 <WhyChoose />
                 <MobileBanner />
                 <Faqs />
+                <HotelSection />
             </main>
         </>
     );
