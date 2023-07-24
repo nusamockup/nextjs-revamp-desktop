@@ -19,7 +19,7 @@ const _DEFAULT_THEME = {
     colors: DEFAULT_COLORS,
     lineHeight: 1.55,
     fontFamily:
-        '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+        '"Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
     fontFamilyMonospace:
         'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
     primaryColor: 'blue',
@@ -67,7 +67,7 @@ const _DEFAULT_THEME = {
     },
     headings: {
         fontFamily:
-            '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+            '"Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
         fontWeight: 700,
         sizes: {
             h1: { fontSize: '2.125rem', lineHeight: 1.3, fontWeight: void 0 },

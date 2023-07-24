@@ -1,5 +1,5 @@
 import { Carousel } from '@ns-ui/carousel';
-import { Flex, Text, rem } from '@ns-ui/core';
+import { Flex, Text, rem, Group, Divider } from '@ns-ui/core';
 import { IconCircleChevronLeft, IconCircleChevronRight } from '@tabler/icons';
 import { HotelCard } from '../card/hotel-card';
 import useStyles from '../card/hotel-carousel.styles';
@@ -89,11 +89,15 @@ const HotelBangkok = () => {
             >
                 {slides}
             </Carousel>
-            <Flex mt="md" justify="flex-end">
+            <Group mt="md" position="right">
                 <Text size="sm" c="dimmed" component="a" href="#" weight={600}>
                     View all hotel in Bangkok
                 </Text>
-            </Flex>
+                <Divider orientation="vertical" />
+                <Text size="sm" c="dimmed" component="a" href="#" weight={600}>
+                    View all hotel
+                </Text>
+            </Group>
         </>
     );
 };

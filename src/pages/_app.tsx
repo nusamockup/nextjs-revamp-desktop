@@ -2,19 +2,21 @@ import Head from 'next/head';
 import { NsUIProvider } from '@ns-ui/core';
 import { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
+import { Roboto } from 'next/font/google';
 
 // import { FooterLinks } from '@/components/Footer';
 // import MainHeader from '@/components/header/MainHeader';
 import { NextPage } from 'next';
 import MainHeader from '../comps/header/mainheader';
+import { NsFooterDark } from 'src/comps/footer/ns-footer-dark';
 // import { NsFooter } from '../comps/footer/ns-footer';
 
-// let links = [
-//     { link: '/flights', label: 'Flights' },
-//     { link: '/hotels', label: 'Hotels' },
-//     { link: '/my-booking', label: 'My Booking' },
-//     { link: '/support', label: 'Customer Care' },
-// ];
+const roboto = Roboto({
+    weight: ['400', '500', '700'],
+    subsets: ['latin'],
+    style: ['normal', 'italic'],
+    display: 'swap',
+});
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
     getLayout?: (page: ReactElement) => ReactNode;
@@ -31,6 +33,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     if (Component.getLayout) {
         return Component.getLayout(
             <>
+                <style jsx global>{`
+                    html {
+                        font-family: ${roboto.style.fontFamily};
+                    }
+                `}</style>
                 <Head>
                     <title>
                         NusaTrip - Flights & Hotels - Online travel - domestic &
@@ -90,9 +97,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                     },
                     globalStyles: (theme) => ({
                         body: {
-                            // overflow: 'hidden',
                             minWidth: '1024px',
-                            overflow: 'scroll',
+                            overflow: 'auto',
+                            fontFamily:
+                                '"Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
                         },
                         '.ns-Popover-dropdown': {
                             boxShadow:
@@ -103,9 +111,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                 // emotionCache={cache}
             >
                 <MainHeader />
-                {/* <NsHeader links={links} /> */}
                 <Component {...pageProps} />
-                {/* <NsFooter /> */}
+                <NsFooterDark />
             </NsUIProvider>
         </>
     );
