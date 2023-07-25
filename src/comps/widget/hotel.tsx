@@ -19,7 +19,9 @@ import {
     Box,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
+import { useCounter } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
+import ChildAge from './child-age';
 import useStyles from './search-widget.styles';
 
 export const Hotel = () => {
@@ -41,6 +43,13 @@ export const Hotel = () => {
     const childAge = Array(18)
         .fill(0)
         .map((_, index) => `${index} year`);
+
+    const [count, { increment, decrement }] = useCounter(0, { min: 0 });
+    const text = 'Age of Child ';
+    const childAgeInputs = Array(count)
+        .fill(0)
+        .map((_, index) => <ChildAge key={index} label="Age of child" />);
+    // .map((_, index) => <Badge key={index}>Badge {index}</Badge>);
 
     return (
         <>
@@ -248,9 +257,10 @@ export const Hotel = () => {
                                                 size={36}
                                                 variant="light"
                                                 radius="xl"
-                                                onClick={() =>
-                                                    handlerChild.current.decrement()
-                                                }
+                                                onClick={() => {
+                                                    decrement();
+                                                    handlerChild.current.decrement();
+                                                }}
                                             >
                                                 –
                                             </ActionIcon>
@@ -280,9 +290,10 @@ export const Hotel = () => {
                                                 size={36}
                                                 variant="light"
                                                 radius="xl"
-                                                onClick={() =>
-                                                    handlerChild.current.increment()
-                                                }
+                                                onClick={() => {
+                                                    increment();
+                                                    handlerChild.current.increment();
+                                                }}
                                             >
                                                 +
                                             </ActionIcon>
@@ -292,7 +303,11 @@ export const Hotel = () => {
                                 <Space h="md" />
 
                                 <Stack spacing="5px">
-                                    <Group
+                                    {childAgeInputs}
+
+                                    {/* <ChildAge label="Age of Child 1" />
+                                    <ChildAge label="Age of Child 2" /> */}
+                                    {/* <Group
                                         bg="#f8f9fa"
                                         sx={{ borderRadius: '5px' }}
                                     >
@@ -331,7 +346,7 @@ export const Hotel = () => {
                                             variant="unstyled"
                                             sx={{ textAlign: 'right' }}
                                         />
-                                    </Group>
+                                    </Group> */}
                                 </Stack>
                                 <Divider
                                     my="sm"

@@ -28,11 +28,6 @@ export const Flight = () => {
     const [opened, paxOpened] = useState(false);
     const [section, setSection] = useState<'oneway' | 'roundtrip'>('oneway');
 
-    // const child = <Skeleton height={30} radius="md" animate={false} />;
-    // const [value, setValue] = useState<[Date | null, Date | null]>([
-    //     null,
-    //     null,
-    // ]);
     const childAge = Array(18)
         .fill(0)
         .map((_, index) => `${index} year`);
