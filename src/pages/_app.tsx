@@ -33,11 +33,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     if (Component.getLayout) {
         return Component.getLayout(
             <>
-                <style jsx global>{`
+                {/* <style jsx global>{`
                     html {
                         font-family: ${roboto.style.fontFamily};
                     }
-                `}</style>
+                `}</style> */}
                 <Head>
                     <title>
                         NusaTrip - Flights & Hotels - Online travel - domestic &
@@ -101,6 +101,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                             overflow: 'auto',
                             fontFamily:
                                 '"Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+                            WebkitFontSmoothing: 'antialiased',
+                            MozOsxFontSmoothing: 'grayscale',
                         },
                         '.ns-Popover-dropdown': {
                             boxShadow:

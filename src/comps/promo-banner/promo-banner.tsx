@@ -1,16 +1,16 @@
 import { Carousel } from '@ns-ui/carousel';
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Virtual } from 'swiper/modules';
-import { Box, Image, rem, useNsUITheme } from '@ns-ui/core';
-import { useMediaQuery } from '@ns-ui/hooks';
+import { Box, rem, useNsUITheme } from '@ns-ui/core';
+import { IconCircleChevronLeft, IconCircleChevronRight } from '@tabler/icons';
+import Image from 'next/image';
 import useStyles from './promo-banner.styles';
-import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 
 const images = [
-    'https://sta.nusatrip.net/cmsimg/ba/17/917/Tunggu%20promosi%20hotel%20Promo%20Banner.png',
-    'https://sta.nusatrip.net/cmsimg/ba/19/919/Liburan%20kemanapun%20Promo%20Banner.png',
-    'https://sta.nusatrip.net/cmsimg/ba/56/1156/ana_web.png',
-    'https://sta.nusatrip.net/cmsimg/ba/33/1133/NGINAPJKTdesktop.png',
+    'PromoBanner1.png',
+    'PromoBanner2.png',
+    'PromoBanner3.png',
+    'PromoBanner4.png',
 ];
 
 const PromoBanner = () => {
@@ -18,24 +18,40 @@ const PromoBanner = () => {
     const theme = useNsUITheme();
     const slides = images.map((url) => (
         <Carousel.Slide key={url}>
-            <Image src={url} alt="promo banner" radius="sm" />
+            {/* <Image src={`/img/promo/${url}`} alt="promo banner" radius="sm" /> */}
+            <Image
+                src={`/img/promo/${url}`}
+                alt="promo banner"
+                width={432}
+                height={226}
+                style={{ borderRadius: '8px' }}
+            />
         </Carousel.Slide>
     ));
 
     return (
         <>
-            <Box mx={40}>
+            <Box>
                 <Carousel
                     slideSize="432px"
                     height="100%"
                     align="start"
                     slideGap="md"
-                    controlSize={40}
+                    controlSize={34}
                     loop={true}
                     withIndicators
-                    previousControlIcon={<IconChevronLeft size={rem(40)} />}
-                    nextControlIcon={<IconChevronRight size={rem(40)} />}
-                    classNames={classes}
+                    // previousControlIcon={<IconChevronLeft size={rem(40)} />}
+                    // nextControlIcon={<IconChevronRight size={rem(40)} />}
+                    // classNames={classes}
+                    previousControlIcon={
+                        <IconCircleChevronLeft size={rem(34)} />
+                    }
+                    nextControlIcon={<IconCircleChevronRight size={rem(34)} />}
+                    classNames={{
+                        control: classes.hotelCarControl,
+                        controls: classes.hotelCarControls,
+                        indicators: classes.indicators,
+                    }}
                 >
                     {slides}
                 </Carousel>

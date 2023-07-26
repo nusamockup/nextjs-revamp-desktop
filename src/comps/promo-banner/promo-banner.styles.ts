@@ -21,35 +21,20 @@ export default createStyles((theme) => ({
         background: 'none',
         border: 'none',
         color: '#0A73B7',
-        marginLeft: '-60px',
-        marginRight: '-60px',
+        // marginLeft: '-60px',
+        // marginRight: '-60px',
         boxShadow: 'none',
     },
 
-    // carouselControls: {
-    //     ref: getStylesRef('carouselControls'),
-    //     transition: 'opacity 150ms ease',
-    //     opacity: 0,
-    //     background: 'none!important',
-    //     boder: '0px',
-    //     color: '#0A73B7',
-    // },
-    // carousel: {
-    //     '&:hover': {
-    //         [`& .${getStylesRef('carouselControls')}`]: {
-    //             opacity: 1,
-    //         },
-    //     },
-    // },
-    // carouselIndicator: {
-    //     width: rem(4),
-    //     height: rem(4),
-    //     transition: 'width 250ms ease',
-    //     bottom: '-2rem',
-    //     backgroundColor: theme.fn.lighten('#0A73B7', 0.7),
-    //     '&[data-active]': {
-    //         width: rem(16),
-    //         backgroundColor: '#0A73B7',
-    //     },
-    // },
+    hotelCarControl: {
+        background: 'none',
+        border: 'none',
+        color: '#0A73B7',
+        boxShadow: 'none',
+    },
+    hotelCarControls: {
+        position: 'absolute',
+        top: '-55px!important',
+        justifyContent: 'end',
+    },
 }));

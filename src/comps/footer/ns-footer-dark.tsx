@@ -5,7 +5,6 @@ import {
     Container,
     Grid,
     Group,
-    Image,
     Stack,
     Text,
     Tooltip,
@@ -17,6 +16,7 @@ import {
     IconBrandTiktok,
     IconBrandTwitter,
 } from '@tabler/icons-react';
+import Image from 'next/image';
 import { banks, data, langs } from '../constants';
 import useStyles from './ns-footer-dark.styles';
 import SubInput from './sub-input';
@@ -54,16 +54,34 @@ export function NsFooterDark() {
     const bankitems = banks.map((bankitem) => (
         <Box
             key={bankitem.name}
-            p="8px"
+            p="4px 8px"
             bg={bankitem.bgcolor}
             sx={(theme) => ({
                 borderRadius: '5px',
-                flexWrap: 'nowrap',
+                // flexWrap: 'nowrap',
                 // border: '.4px solid #cdd3d9',
             })}
         >
             <Tooltip label={bankitem.name} offset={13} withArrow arrowSize={8}>
-                <Image height="14px" src={bankitem.img} />
+                <img
+                    src={bankitem.img}
+                    alt="bank logo"
+                    style={{
+                        height: '14px!important',
+                        width: 'auto !important',
+                    }}
+                />
+
+                {/* <Image
+                    height={0}
+                    width={0}
+                    src={bankitem.img}
+                    alt="bank logo"
+                    style={{
+                        height: '14px!important',
+                        width: 'auto !important',
+                    }}
+                /> */}
             </Tooltip>
         </Box>
     ));
@@ -78,10 +96,12 @@ export function NsFooterDark() {
                     <Grid.Col span={5}>
                         <Grid.Col span={11}>
                             <Image
-                                mb={10}
-                                height="76px"
-                                width="240px"
+                                // mb={10}
+                                style={{ marginBottom: '10px' }}
+                                height="76"
+                                width="240"
                                 src="/img/logo/sopa-logo@2x.png"
+                                alt="SoPa Logo"
                             />
                             <Text
                                 size="xs"
@@ -89,10 +109,10 @@ export function NsFooterDark() {
                                 className={classes.description}
                             >
                                 <Stack spacing="xs">
-                                    <Text component="span" weight={700}>
+                                    <Text span weight={700}>
                                         Member of Society Pass Inc. Ecosystem
                                     </Text>
-                                    <Text component="span">
+                                    <Text span>
                                         NusaTrip connects to low-cost carriers
                                         in Asia, full-service airlines globally
                                         with cheap fares for travelers​
@@ -101,7 +121,7 @@ export function NsFooterDark() {
                             </Text>
                         </Grid.Col>
                         <Group
-                            sx={{ flexWrap: 'nowrap' }}
+                            // sx={{ flexWrap: 'nowrap' }}
                             // c="dimmed"
                             fz="xs"
                             p={8}
@@ -117,7 +137,7 @@ export function NsFooterDark() {
                             >
                                 Member of
                                 <Text
-                                    component="span"
+                                    span
                                     // color="dimmed"
                                     size="xs"
                                     ml={5}
@@ -152,15 +172,26 @@ export function NsFooterDark() {
                                 <UnstyledButton>
                                     <Image
                                         height={36}
-                                        // width={100}
+                                        width={115}
                                         src="/img/mobile-badge/badge_appstore-light.png"
+                                        alt="App Store Logo"
+                                        // style={{
+                                        //     height: '36px!important',
+                                        //     width: 'auto!important',
+                                        //     objectFit: 'contain',
+                                        // }}
                                     />
                                 </UnstyledButton>
                                 <UnstyledButton>
                                     <Image
                                         height={36}
-                                        // width={100}
+                                        width={115}
                                         src="/img/mobile-badge/badge_googleplay-light.png"
+                                        alt="GooglePlay Logo"
+                                        // style={{
+                                        //     height: '36px!important',
+                                        //     width: 'auto!important',
+                                        // }}
                                     />
                                 </UnstyledButton>
                             </Group>
@@ -226,11 +257,14 @@ export function NsFooterDark() {
                 </Group>
             </Container>
             <Container size="xl" className={classes.afterFooter}>
-                <Group sx={{ flexWrap: 'nowrap' }} spacing="5px">
+                <Group
+                    // sx={{ flexWrap: 'nowrap' }}
+                    spacing="5px"
+                >
                     {bankitems}
                 </Group>
                 <Text
-                    sx={{ whiteSpace: 'nowrap' }}
+                    sx={{ whiteSpace: 'nowrap', marginTop: '5px' }}
                     // color="dimmed"
                     align="end"
                     size="sm"

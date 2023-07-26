@@ -5,7 +5,8 @@ export default createStyles((theme) => ({
         fontFamily: 'Roboto',
         fontSize: '14px',
         fontStyle: 'normal',
-        fontWeight: 600,
+        // fontWeight: 600,
+        fontWeight: 'normal',
         lineHeight: '22.4px',
         backgroundColor: '#0B2254',
         marginTop: rem(120),
@@ -80,7 +81,6 @@ export default createStyles((theme) => ({
         fontSize: theme.fontSizes.sm,
         paddingTop: rem(3),
         paddingBottom: rem(3),
-
         '&:hover': {
             textDecoration: 'underline',
         },
@@ -104,7 +104,7 @@ export default createStyles((theme) => ({
     afterFooter: {
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         marginTop: theme.spacing.sm,
         paddingTop: theme.spacing.md,
         paddingBottom: theme.spacing.xl,

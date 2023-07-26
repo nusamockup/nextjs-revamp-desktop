@@ -49,6 +49,9 @@ const MobileBanner = () => {
                             marginLeft: '-67px',
                             height: '100%',
                             width: '100%',
+                            overflow: 'hidden',
+                            whiteSpace: 'nowrap',
+                            textOverflow: 'ellipsis',
                         }}
                     >
                         <Text
@@ -77,7 +80,8 @@ const MobileBanner = () => {
                                 width: '620px',
                             }}
                         >
-                            Download our app for easy bookings.
+                            Download our app for easy
+                            <br /> bookings.
                         </Title>
                         <Flex gap="md" mt={32}>
                             <Anchor href="#">
