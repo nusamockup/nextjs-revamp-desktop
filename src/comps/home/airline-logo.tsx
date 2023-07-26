@@ -33,21 +33,21 @@ const AirlineLogo = () => {
                     borderTop: '0.0625rem solid #e9ecef',
                 }}
             >
-                <Container size="xl">
-                    <Flex gap={100}>
-                        <Marquee
-                            autoFill
-                            pauseOnHover
-                            gradient
-                            gradientColor={[242, 244, 246]}
-                            speed={40}
-                            loop={0}
-                            className={classes.marque}
-                        >
-                            {airlines}
-                        </Marquee>
-                    </Flex>
-                </Container>
+                {/* <Container size="xl"> */}
+                <Flex gap={100}>
+                    <Marquee
+                        autoFill
+                        pauseOnHover
+                        gradient
+                        gradientColor={[242, 244, 246]}
+                        speed={40}
+                        loop={0}
+                        className={classes.marque}
+                    >
+                        {airlines}
+                    </Marquee>
+                </Flex>
+                {/* </Container> */}
             </Box>
         </>
     );

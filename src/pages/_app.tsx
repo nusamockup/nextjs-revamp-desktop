@@ -106,6 +106,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                             boxShadow:
                                 'rgba(0, 0, 0, 0.05) 0px 0.0625rem 0.1875rem, rgba(0, 0, 0, 0.05) 0px 2.25rem 1.75rem -0.4375rem, rgba(0, 0, 0, 0.04) 0px 1.0625rem 1.0625rem -0.4375rem;',
                         },
+                        '.ns-Container-root': {
+                            [theme.fn.smallerThan('xl')]: {
+                                paddingLeft: '64px',
+                                paddingRight: '64px',
+                            },
+                        },
                     }),
                 }}
                 // emotionCache={cache}

@@ -73,7 +73,7 @@ export function NsFooterDark() {
 
     return (
         <footer className={classes.footer}>
-            <Container size="lg">
+            <Container size="xl">
                 <Grid>
                     <Grid.Col span={5}>
                         <Grid.Col span={11}>
@@ -176,11 +176,8 @@ export function NsFooterDark() {
                     </Grid.Col>
                 </Grid>
             </Container>
-            <Container mt={20} size="lg" className={classes.middleFooter}>
-                <Text
-                    // color="dimmed"
-                    size="xs"
-                >
+            <Container mt={20} size="xl" className={classes.middleFooter}>
+                <Text size="xs">
                     This site is protected by reCAPTCHA and the Google{' '}
                     <Anchor href="https://policies.google.com/privacy">
                         Privacy Policy
@@ -228,7 +225,7 @@ export function NsFooterDark() {
                     </ActionIcon>
                 </Group>
             </Container>
-            <Container size="lg" className={classes.afterFooter}>
+            <Container size="xl" className={classes.afterFooter}>
                 <Group sx={{ flexWrap: 'nowrap' }} spacing="5px">
                     {bankitems}
                 </Group>

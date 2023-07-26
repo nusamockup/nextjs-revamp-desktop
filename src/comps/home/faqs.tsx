@@ -48,168 +48,160 @@ const Faqs = () => {
     return (
         <>
             <Space h="64px" />
-            <Container size="lg" py="32px">
-                <SectionTitle
-                    title="Frequently Asked Question (FAQ)"
-                    align="center"
-                />
-                <SimpleGrid
-                    cols={2}
-                    mt={50}
-                    // breakpoints={[{ maxWidth: 'md', cols: 1 }]}
-                >
-                    <div>
-                        <Title
-                            sx={{
-                                color: '#333',
-                                fontSize: '18px',
-                                fontStyle: 'normal',
-                                // fontWeight: 400,
-                                lineHeight: '28.8px',
-                                marginBottom: '30px',
-                            }}
-                        >
-                            Flight
-                        </Title>
-                        <Accordion variant="separated">
-                            <Accordion.Item
-                                className={classes.item}
-                                value="reset-password"
-                            >
-                                <Accordion.Control>
-                                    How can I reset my password?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="another-account"
-                            >
-                                <Accordion.Control>
-                                    Can I create more that one account?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="newsletter"
-                            >
-                                <Accordion.Control>
-                                    How can I subscribe to monthly newsletter?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="credit-card"
-                            >
-                                <Accordion.Control>
-                                    Do you store credit card information
-                                    securely?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="payment"
-                            >
-                                <Accordion.Control>
-                                    What payment systems to you work with?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-                        </Accordion>
-                    </div>
-                    <div>
-                        <Title
-                            sx={{
-                                color: '#333',
-                                fontSize: '18px',
-                                fontStyle: 'normal',
-                                // fontWeight: 400,
-                                lineHeight: '28.8px',
-                                marginBottom: '30px',
-                            }}
-                        >
-                            Hotel
-                        </Title>
-                        <Accordion variant="separated">
-                            <Accordion.Item
-                                className={classes.item}
-                                value="reset-password"
-                            >
-                                <Accordion.Control>
-                                    How can I reset my password?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="another-account"
-                            >
-                                <Accordion.Control>
-                                    Can I create more that one account?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="newsletter"
-                            >
-                                <Accordion.Control>
-                                    How can I subscribe to monthly newsletter?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="credit-card"
-                            >
-                                <Accordion.Control>
-                                    Do you store credit card information
-                                    securely?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-
-                            <Accordion.Item
-                                className={classes.item}
-                                value="payment"
-                            >
-                                <Accordion.Control>
-                                    What payment systems to you work with?
-                                </Accordion.Control>
-                                <Accordion.Panel>{placeholder}</Accordion.Panel>
-                            </Accordion.Item>
-                        </Accordion>
-                    </div>
-                </SimpleGrid>
-                <Divider my="lg" />
-                <Group position="apart" spacing="sm">
-                    <Text size="sm" c="dimmed">
-                        Find Topic: Payment | Flight Cancelation & Reschedule |
-                        Reschedule Request | Cancel & Refund Request | Travel
-                        Insurance
-                    </Text>
-                    <Text
-                        size="sm"
-                        c="dimmed"
-                        component="a"
-                        href="#"
-                        align="end"
-                        weight={600}
+            <SectionTitle
+                title="Frequently Asked Question (FAQ)"
+                align="center"
+            />
+            <SimpleGrid cols={2} mt={50}>
+                <div>
+                    <Title
+                        sx={{
+                            color: '#333',
+                            fontSize: '18px',
+                            fontStyle: 'normal',
+                            // fontWeight: 400,
+                            lineHeight: '28.8px',
+                            marginBottom: '30px',
+                        }}
                     >
-                        View more
-                    </Text>
-                </Group>
-            </Container>
+                        Flight
+                    </Title>
+                    <Accordion variant="separated">
+                        <Accordion.Item
+                            className={classes.item}
+                            value="reset-password"
+                        >
+                            <Accordion.Control>
+                                How can I reset my password?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="another-account"
+                        >
+                            <Accordion.Control>
+                                Can I create more that one account?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="newsletter"
+                        >
+                            <Accordion.Control>
+                                How can I subscribe to monthly newsletter?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="credit-card"
+                        >
+                            <Accordion.Control>
+                                Do you store credit card information securely?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="payment"
+                        >
+                            <Accordion.Control>
+                                What payment systems to you work with?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+                    </Accordion>
+                </div>
+                <div>
+                    <Title
+                        sx={{
+                            color: '#333',
+                            fontSize: '18px',
+                            fontStyle: 'normal',
+                            // fontWeight: 400,
+                            lineHeight: '28.8px',
+                            marginBottom: '30px',
+                        }}
+                    >
+                        Hotel
+                    </Title>
+                    <Accordion variant="separated">
+                        <Accordion.Item
+                            className={classes.item}
+                            value="reset-password"
+                        >
+                            <Accordion.Control>
+                                How can I reset my password?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="another-account"
+                        >
+                            <Accordion.Control>
+                                Can I create more that one account?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="newsletter"
+                        >
+                            <Accordion.Control>
+                                How can I subscribe to monthly newsletter?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="credit-card"
+                        >
+                            <Accordion.Control>
+                                Do you store credit card information securely?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+
+                        <Accordion.Item
+                            className={classes.item}
+                            value="payment"
+                        >
+                            <Accordion.Control>
+                                What payment systems to you work with?
+                            </Accordion.Control>
+                            <Accordion.Panel>{placeholder}</Accordion.Panel>
+                        </Accordion.Item>
+                    </Accordion>
+                </div>
+            </SimpleGrid>
+            <Divider my="lg" />
+            <Group position="apart" spacing="sm">
+                <Text size="sm" c="dimmed">
+                    Find Topic: Payment | Flight Cancelation & Reschedule |
+                    Reschedule Request | Cancel & Refund Request | Travel
+                    Insurance
+                </Text>
+                <Text
+                    size="sm"
+                    c="dimmed"
+                    component="a"
+                    href="#"
+                    align="end"
+                    weight={600}
+                >
+                    View more
+                </Text>
+            </Group>
         </>
     );
 };

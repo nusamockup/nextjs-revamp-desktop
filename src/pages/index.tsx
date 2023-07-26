@@ -31,7 +31,7 @@ const Home = () => {
                         // bg="rgba(0, 0, 0, 0.5)
                     >
                         <Container
-                            size="lg"
+                            size="xl"
                             pt={60}
                             px={80}
                             c="#FFF"
@@ -48,20 +48,26 @@ const Home = () => {
                         />
                     </BackgroundImage>
                 </Box>
-                <Container size="lg">
+                <Container
+                    size="xl"
+                    sx={{}}
+                    // px="64px"
+                >
+                    {/* <Space h="64px" /> */}
+                    {/* <SectionTitle title="Offer for your trip" align="center" /> */}
                     <Space h="64px" />
-                    <SectionTitle title="Offer for your trip" align="center" />
-                    <Space h="32px" />
                     <PromoBanner />
                     <Space h="64px" />
                     <FlightSection />
                 </Container>
                 <Space h="64px" />
                 <AirlineLogo />
-                <WhyChoose />
-                <MobileBanner />
-                <Faqs />
-                <HotelSection />
+                <Container size="xl">
+                    <WhyChoose />
+                    <MobileBanner />
+                    <Faqs />
+                    <HotelSection />
+                </Container>
             </main>
         </>
     );

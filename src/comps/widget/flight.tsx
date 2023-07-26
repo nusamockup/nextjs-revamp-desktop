@@ -69,7 +69,7 @@ export const Flight = () => {
                     />
                 </Group>
             </Radio.Group>
-            <Container size="lg" maw={`calc(100% + 32px)`} mx="-16px" mt={16}>
+            <Box maw={`calc(100% + 32px)`} mt={16}>
                 <Flex className={classes.widgetWrapper}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Flex>
@@ -396,7 +396,7 @@ export const Flight = () => {
                         <Button className={classes.widgetButton}>Search</Button>
                     </Box>
                 </Flex>
-            </Container>
+            </Box>
         </>
     );
 };

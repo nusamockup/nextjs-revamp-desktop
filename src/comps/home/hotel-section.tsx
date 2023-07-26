@@ -11,45 +11,43 @@ const HotelSection = () => {
     return (
         <>
             <Space h="64px" />
-            <Container size="lg">
-                <SectionTitle
-                    title="Popular Hotels and Accommodations"
-                    desc="Exploring new places and meeting strangers."
-                    sectionname="Hotels"
-                />
+            <SectionTitle
+                title="Popular Hotels and Accommodations"
+                desc="Exploring new places and meeting strangers."
+                sectionname="Hotels"
+            />
 
-                <HotelTabs defaultValue="Jakarta" keepMounted={false}>
-                    <Tabs.List>
-                        <Tabs.Tab value="Jakarta">Jakarta</Tabs.Tab>
-                        <Tabs.Tab value="Bali">Bali</Tabs.Tab>
-                        <Tabs.Tab value="Seoul">Seoul</Tabs.Tab>
-                        <Tabs.Tab value="Bangkok">Bangkok</Tabs.Tab>
-                        <Tabs.Tab value="Singapore">Singapore</Tabs.Tab>
-                    </Tabs.List>
+            <HotelTabs defaultValue="Jakarta" keepMounted={false}>
+                <Tabs.List>
+                    <Tabs.Tab value="Jakarta">Jakarta</Tabs.Tab>
+                    <Tabs.Tab value="Bali">Bali</Tabs.Tab>
+                    <Tabs.Tab value="Seoul">Seoul</Tabs.Tab>
+                    <Tabs.Tab value="Bangkok">Bangkok</Tabs.Tab>
+                    <Tabs.Tab value="Singapore">Singapore</Tabs.Tab>
+                </Tabs.List>
 
-                    <Box sx={{ marginTop: '20px' }}>
-                        <Tabs.Panel value="Jakarta">
-                            <HotelJakarta />
-                        </Tabs.Panel>
+                <Box sx={{ marginTop: '20px' }}>
+                    <Tabs.Panel value="Jakarta">
+                        <HotelJakarta />
+                    </Tabs.Panel>
 
-                        <Tabs.Panel value="Bali">
-                            <HotelBali />
-                        </Tabs.Panel>
+                    <Tabs.Panel value="Bali">
+                        <HotelBali />
+                    </Tabs.Panel>
 
-                        <Tabs.Panel value="Seoul">
-                            <HotelSeoul />
-                        </Tabs.Panel>
+                    <Tabs.Panel value="Seoul">
+                        <HotelSeoul />
+                    </Tabs.Panel>
 
-                        <Tabs.Panel value="Bangkok">
-                            <HotelBangkok />
-                        </Tabs.Panel>
+                    <Tabs.Panel value="Bangkok">
+                        <HotelBangkok />
+                    </Tabs.Panel>
 
-                        <Tabs.Panel value="Singapore">
-                            <HotelSingapore />
-                        </Tabs.Panel>
-                    </Box>
-                </HotelTabs>
-            </Container>
+                    <Tabs.Panel value="Singapore">
+                        <HotelSingapore />
+                    </Tabs.Panel>
+                </Box>
+            </HotelTabs>
         </>
     );
 };

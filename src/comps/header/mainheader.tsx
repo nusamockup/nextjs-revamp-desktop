@@ -51,14 +51,14 @@ const MainHeader = () => {
     return (
         <>
             <Header className={classes.header} height={HEADER_HEIGHT}>
-                <Container className={classes.inner} size="lg">
+                <Container className={classes.inner} size="xl">
                     <Group>
-                        <Burger
+                        {/* <Burger
                             opened={drawerOpened}
                             onClick={toggleDrawer}
                             className={classes.burger}
                             size="sm"
-                        />
+                        /> */}
                         <UnstyledButton mt="8px" component={Link} href="/">
                             <NsLogo type="full" size={32} />
                         </UnstyledButton>
@@ -67,22 +67,22 @@ const MainHeader = () => {
                         {items}
                     </Group>
                     <Group spacing={10}>
-                        <CurrSelector className={classes.hiddenMobile} />
-                        <LangSelector className={classes.hiddenMobile} />
+                        <CurrSelector />
+                        <LangSelector />
+                        {/* <CurrSelector className={classes.hiddenMobile} />
+                        <LangSelector className={classes.hiddenMobile} /> */}
                         <LoginBTN />
                     </Group>
                 </Container>
             </Header>
 
-            <Drawer
+            {/* <Drawer
                 opened={drawerOpened}
                 onClose={closeDrawer}
                 size="75%"
                 padding="md"
-                // title="Navigation"
                 className={classes.hiddenDesktop}
                 withCloseButton={false}
-                // zIndex={1000000}
             >
                 <Navbar className={classes.navbarleft}>
                     <Navbar.Section grow>
@@ -97,7 +97,6 @@ const MainHeader = () => {
                                 aria-label="Close drawer"
                                 mr="md"
                             />
-                            {/* <Code sx={{ fontWeight: 700 }}>v3.1.2</Code> */}
                         </Group>
                         {navlinks.map((item) => {
                             return (
@@ -112,7 +111,7 @@ const MainHeader = () => {
                         })}
                     </Navbar.Section>
                 </Navbar>
-            </Drawer>
+            </Drawer> */}
         </>
     );
 };

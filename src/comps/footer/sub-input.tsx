@@ -1,5 +1,6 @@
 import { ActionIcon, TextInput, TextInputProps } from '@ns-ui/core';
-import { IconArrowRight, IconMail } from '@tabler/icons-react';
+import { IconArrowRight, IconMail, IconMailFilled } from '@tabler/icons-react';
+import { FiMail } from 'react-icons/fi';
 
 // const theme = useNsUITheme();
 
@@ -7,7 +8,7 @@ export default function SubInput(props: TextInputProps) {
     return (
         <>
             <TextInput
-                icon={<IconMail size="1.1rem" stroke={1.5} />}
+                // icon={<FiMail size={32} />}
                 radius="xl"
                 size="md"
                 rightSection={
@@ -16,12 +17,12 @@ export default function SubInput(props: TextInputProps) {
                         radius="xl"
                         color="brand"
                         variant="filled"
+                        sx={{
+                            backgroundColor: '#0B2254',
+                        }}
                     >
-                        <IconArrowRight size="1.1rem" stroke={1.5} />
+                        <IconArrowRight size="1.1rem" stroke={2} />
                     </ActionIcon>
-                    // <Button radius="xl" fullWidth mr="4px">
-                    //     Kirim
-                    // </Button>
                 }
                 placeholder="Email"
                 rightSectionWidth={42}

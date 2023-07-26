@@ -1,7 +1,7 @@
 import { Carousel } from '@ns-ui/carousel';
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Virtual } from 'swiper/modules';
-import { Image, rem, useNsUITheme } from '@ns-ui/core';
+import { Box, Image, rem, useNsUITheme } from '@ns-ui/core';
 import { useMediaQuery } from '@ns-ui/hooks';
 import useStyles from './promo-banner.styles';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
@@ -16,7 +16,6 @@ const images = [
 const PromoBanner = () => {
     const { classes } = useStyles();
     const theme = useNsUITheme();
-    const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
     const slides = images.map((url) => (
         <Carousel.Slide key={url}>
             <Image src={url} alt="promo banner" radius="sm" />
@@ -25,20 +24,22 @@ const PromoBanner = () => {
 
     return (
         <>
-            <Carousel
-                slideSize="432px"
-                height="100%"
-                align="start"
-                slideGap="md"
-                controlSize={40}
-                loop={true}
-                withIndicators
-                previousControlIcon={<IconChevronLeft size={rem(40)} />}
-                nextControlIcon={<IconChevronRight size={rem(40)} />}
-                classNames={classes}
-            >
-                {slides}
-            </Carousel>
+            <Box mx={40}>
+                <Carousel
+                    slideSize="432px"
+                    height="100%"
+                    align="start"
+                    slideGap="md"
+                    controlSize={40}
+                    loop={true}
+                    withIndicators
+                    previousControlIcon={<IconChevronLeft size={rem(40)} />}
+                    nextControlIcon={<IconChevronRight size={rem(40)} />}
+                    classNames={classes}
+                >
+                    {slides}
+                </Carousel>
+            </Box>
         </>
     );
 };

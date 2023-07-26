@@ -14,9 +14,9 @@ export default createStyles((theme) => ({
     },
 
     links: {
-        [theme.fn.smallerThan('sm')]: {
-            display: 'none',
-        },
+        // [theme.fn.smallerThan('sm')]: {
+        //     display: 'none',
+        // },
     },
     hiddenMobile: {
         [theme.fn.smallerThan('sm')]: {

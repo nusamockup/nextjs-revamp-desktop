@@ -48,17 +48,10 @@ const WhyChoose = () => {
     return (
         <>
             <Space h="64px" />
-            <Container size="lg" py="32px">
-                <SectionTitle title="Why Choose Nusatrip" align="center" />
-                <SimpleGrid
-                    cols={3}
-                    spacing="xl"
-                    mt={50}
-                    // breakpoints={[{ maxWidth: 'md', cols: 1 }]}
-                >
-                    {features}
-                </SimpleGrid>
-            </Container>
+            <SectionTitle title="Why Choose Nusatrip" align="center" />
+            <SimpleGrid cols={3} spacing="xl" mt={50}>
+                {features}
+            </SimpleGrid>
         </>
     );
 };
