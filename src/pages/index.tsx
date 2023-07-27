@@ -34,18 +34,13 @@ const Home = () => {
                 `}
             />
             <Box mt="-1.25rem">
-                <BackgroundImage
-                    pos="relative"
-                    h={`calc(100vh - 57px)`}
-                    src=""
-                    // h={260}
-                    // src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2833&q=80"
-                >
+                <BackgroundImage pos="relative" h={`calc(100vh - 57px)`} src="">
                     <Image
                         src="/img/photo-1505228395891-9a51e7e86bf6.webp"
                         alt=""
                         objectFit="cover"
                         layout="fill"
+                        priority
                     />
 
                     <Center

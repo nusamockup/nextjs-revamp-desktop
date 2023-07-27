@@ -51,7 +51,7 @@ export const navlinks = [
     },
 ];
 export const langs = [
-    { label: 'World', image: images.gl, url: '#' },
+    { label: 'Global', image: images.gl, url: '#' },
     { label: 'Indonesia', image: images.id, url: '#' },
     { label: 'Malaysia', image: images.my, url: '#' },
     { label: 'Singapore', image: images.sg, url: '#' },

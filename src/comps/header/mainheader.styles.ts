@@ -6,6 +6,7 @@ export default createStyles((theme) => ({
     header: {
         marginBottom: '20px',
         position: 'relative',
+        zIndex: 4,
     },
     inner: {
         height: HEADER_HEIGHT,

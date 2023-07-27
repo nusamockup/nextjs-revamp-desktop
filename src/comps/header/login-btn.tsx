@@ -52,7 +52,17 @@ const LoginBTN = () => {
             >
                 Login | Register
             </Button>
-            <Modal opened={opened} onClose={close} title={upperFirst(type)}>
+            <Modal
+                opened={opened}
+                onClose={close}
+                title={upperFirst(type)}
+                overlayProps={{
+                    color: '#0B2254',
+                    opacity: 0.55,
+                    blur: 2,
+                }}
+                centered
+            >
                 <Box sx={{ padding: '20px' }}>
                     {type === 'login' && (
                         <form onSubmit={form.onSubmit(() => {})}>
