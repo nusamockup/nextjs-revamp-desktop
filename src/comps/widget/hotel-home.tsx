@@ -17,9 +17,7 @@ import {
     Text,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
-import { useCounter } from '@ns-ui/hooks';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { IconSquareRoundedXFilled, IconSquareX } from '@tabler/icons-react';
+import { useCounter, useWindowScroll } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import ChildAge from './child-age';
@@ -32,6 +30,7 @@ export const HotelHome = () => {
         null,
         null,
     ]);
+    const [scroll, scrollTo] = useWindowScroll();
 
     let [roomvalue, setRoomValue] = useState<number | ''>(1);
     let [adultvalue, setAdultValue] = useState<number | ''>(1);
@@ -46,10 +45,12 @@ export const HotelHome = () => {
         .map((_, index) => `${index} year`);
 
     const [count, { increment, decrement }] = useCounter(0, { min: 0 });
-    const text = 'Age of Child ';
+    // const text = 'Age of Child ';
     const childAgeInputs = Array(count)
         .fill(0)
-        .map((_, index) => <ChildAge key={index} label="Age of child" />);
+        .map((_, index) => (
+            <ChildAge key={index} label={`Age of child ${index + 1}`} />
+        ));
     // .map((_, index) => <Badge key={index}>Badge {index}</Badge>);
 
     return (
@@ -76,7 +77,10 @@ export const HotelHome = () => {
                 >
                     Enjoy a Luxury Stay with an Affordable Hotel Price.
                 </Text>
-                <Flex className={classes.widgetWrapper}>
+                <Flex
+                    className={classes.widgetWrapper}
+                    onClick={() => scrollTo({ y: 160 })}
+                >
                     <Box sx={{ flexGrow: 1 }}>
                         <Autocomplete
                             label="Hotel location"

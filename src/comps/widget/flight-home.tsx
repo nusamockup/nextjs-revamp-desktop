@@ -3,6 +3,7 @@ import {
     Autocomplete,
     Box,
     Button,
+    Center,
     Chip,
     Divider,
     Flex,
@@ -21,9 +22,20 @@ import {
 import { DatePickerInput } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { IconArrowsExchange, IconArrowsLeftRight } from '@tabler/icons-react';
 import useStyles from './search-widget-home.styles';
+import { useToggle, useWindowScroll } from '@ns-ui/hooks';
 
 export const FlightHome = () => {
+    const [flyingValue, setFlyingValue] = useState('');
+    const [goingValue, setGoingValue] = useState('');
+    // const [airportValue, airportToggle] = useToggle([flyingValue, goingValue]);
+
+    function handleToggleAirport() {
+        setFlyingValue(goingValue);
+        setGoingValue(flyingValue);
+    }
+
     const { classes, cx } = useStyles();
     const [opened, paxOpened] = useState(false);
     const [section, setSection] = useState<'oneway' | 'roundtrip'>('oneway');
@@ -41,7 +53,9 @@ export const FlightHome = () => {
     const handlerChild: any = useRef<NumberInputHandlers>();
     const handlerInfant: any = useRef<NumberInputHandlers>();
 
-    const [classvalue, setClassValue] = useState('Economy');
+    const [classvalue, setClassValue] = useState('Cheapest');
+
+    const [scroll, scrollTo] = useWindowScroll();
 
     return (
         <>
@@ -81,13 +95,21 @@ export const FlightHome = () => {
                     </Group>
                 </Radio.Group>
                 <Box maw={`calc(100% + 32px)`} mt={16}>
-                    <Flex className={classes.widgetWrapper}>
+                    <Flex
+                        className={classes.widgetWrapper}
+                        onClick={() => scrollTo({ y: 160 })}
+                    >
                         <Box sx={{ flexGrow: 1 }}>
                             <Flex>
                                 <Box sx={{ flexGrow: 1 }}>
                                     <Autocomplete
                                         label="Flying from"
                                         placeholder="City name"
+                                        value={flyingValue}
+                                        onChange={setFlyingValue}
+                                        // onClick={() =>
+                                        //     setFlyingValue(flyingValue)
+                                        // }
                                         data={[
                                             'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
                                             'JKT : All Airports, Jakarta Indonesia',
@@ -105,10 +127,26 @@ export const FlightHome = () => {
                                         withinPortal={false}
                                     />
                                 </Box>
+                                <Center>
+                                    <ActionIcon
+                                        c="dimmed"
+                                        size="lg"
+                                        mt={25}
+                                        onClick={() => handleToggleAirport()}
+                                    >
+                                        <IconArrowsLeftRight size="1.3rem" />
+                                        {/* <IconArrowsExchange size="1.625rem" /> */}
+                                    </ActionIcon>
+                                </Center>
                                 <Box sx={{ flexGrow: 1 }}>
                                     <Autocomplete
                                         label="Going to"
                                         placeholder="City name"
+                                        value={goingValue}
+                                        onChange={setGoingValue}
+                                        // onClick={() =>
+                                        //     setGoingValue(goingValue)
+                                        // }
                                         classNames={{
                                             root: classes.widgetRootAutocomplete,
                                             input: classes.widgetInput,
@@ -385,11 +423,11 @@ export const FlightHome = () => {
                                     >
                                         <Group grow>
                                             <Chip
-                                                value="Economy"
+                                                value="Cheapest"
                                                 radius="sm"
                                                 className={classes.classChip}
                                             >
-                                                Economy
+                                                Cheapest
                                             </Chip>
                                             <Chip
                                                 value="Business"
