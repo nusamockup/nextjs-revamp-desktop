@@ -5,6 +5,7 @@ export const HEADER_HEIGHT = rem(60);
 export default createStyles((theme) => ({
     header: {
         marginBottom: '20px',
+        position: 'relative',
     },
     inner: {
         height: HEADER_HEIGHT,
@@ -29,11 +30,11 @@ export default createStyles((theme) => ({
             display: 'none',
         },
     },
-    burger: {
-        [theme.fn.largerThan('sm')]: {
-            display: 'none',
-        },
-    },
+    // burger: {
+    //     [theme.fn.largerThan('sm')]: {
+    //         display: 'none',
+    //     },
+    // },
 
     link: {
         display: 'block',

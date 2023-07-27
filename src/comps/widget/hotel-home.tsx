@@ -1,8 +1,8 @@
 import {
     ActionIcon,
     Autocomplete,
+    Box,
     Button,
-    Container,
     Divider,
     Flex,
     Group,
@@ -11,21 +11,21 @@ import {
     NumberInput,
     NumberInputHandlers,
     Popover,
-    Select,
+    rem,
     Space,
     Stack,
     Text,
-    rem,
-    Box,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
 import { useCounter } from '@ns-ui/hooks';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { IconSquareRoundedXFilled, IconSquareX } from '@tabler/icons-react';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import ChildAge from './child-age';
 import useStyles from './search-widget-home.styles';
 
-export const Hotel = () => {
+export const HotelHome = () => {
     const { classes } = useStyles();
     const [opened, guestOpened] = useState(false);
     const [value, setValue] = useState<[Date | null, Date | null]>([
@@ -55,15 +55,27 @@ export const Hotel = () => {
     return (
         <>
             <Box
-                mt={68}
+                mt={32}
                 sx={{
-                    padding: '80px',
+                    padding: '40px 60px 60px 60px',
                     width: '100%',
+                    height: '230px',
                     backgroundColor: '#010b217d',
                     borderRadius: '6px',
                 }}
             >
                 {/* <Container size="lg" maw={`calc(100% + 32px)`} mx="-16px" mt={68}> */}
+                <Text
+                    c="#FFF"
+                    fz={18}
+                    fw={400}
+                    mt="-2px"
+                    mb={24}
+                    lts={0.75}
+                    opacity=".8"
+                >
+                    Enjoy a Luxury Stay with an Affordable Hotel Price.
+                </Text>
                 <Flex className={classes.widgetWrapper}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Autocomplete

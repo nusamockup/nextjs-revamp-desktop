@@ -21,9 +21,9 @@ import {
 import { DatePickerInput } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import useStyles from './search-widget.styles';
+import useStyles from './search-widget-home.styles';
 
-export const Flight = () => {
+export const FlightHome = () => {
     const { classes, cx } = useStyles();
     const [opened, paxOpened] = useState(false);
     const [section, setSection] = useState<'oneway' | 'roundtrip'>('oneway');
@@ -48,8 +48,9 @@ export const Flight = () => {
             <Box
                 mt={32}
                 sx={{
-                    padding: '40px',
+                    padding: '40px 60px 60px 60px',
                     width: '100%',
+                    height: '230px',
                     backgroundColor: '#010b217d',
                     borderRadius: '6px',
                 }}
@@ -60,7 +61,7 @@ export const Flight = () => {
                         setSection(value)
                     }
                 >
-                    <Group>
+                    <Group mb={30}>
                         <Radio
                             classNames={{
                                 radio: classes.radio,

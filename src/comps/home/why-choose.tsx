@@ -1,17 +1,7 @@
-import {
-    Badge,
-    Card,
-    Container,
-    Group,
-    SimpleGrid,
-    Text,
-    createStyles,
-    rem,
-    Space,
-} from '@ns-ui/core';
+import { Card, SimpleGrid, Space, Text } from '@ns-ui/core';
 import Image from 'next/image';
-import SectionTitle from '../section-title/section-title';
 import { choosedata } from '../constants';
+import SectionTitle from '../section-title/section-title';
 import useStyles from './why-choose.styles';
 
 const WhyChoose = () => {

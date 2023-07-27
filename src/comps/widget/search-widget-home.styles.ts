@@ -8,26 +8,33 @@ export default createStyles((theme) => ({
 
     widgetWrapper: {
         backgroundColor: '#FFF',
-        borderRadius: '3px',
+        borderRadius: '4px',
+        padding: '4px',
     },
 
     rightSection: {
         top: '16px',
+        right: '8px',
+        svg: {
+            height: '12px',
+            width: '12px',
+        },
     },
 
     widgetInput: {
-        height: rem(54),
-        paddingTop: rem(18),
+        height: rem(64),
+        paddingTop: rem(24),
         border: '0px',
-        fontWeight: 600,
+        fontWeight: 500,
         textOverflow: 'ellipsis',
+        fontSize: '16px',
     },
 
     widgetLabel: {
         color: '#868e96',
         position: 'absolute',
         pointerEvents: 'none',
-        fontSize: theme.fontSizes.xs,
+        fontSize: theme.fontSizes.sm,
         paddingLeft: theme.spacing.sm,
         paddingTop: `calc(${theme.spacing.sm} / 2)`,
         zIndex: 1,
@@ -58,8 +65,10 @@ export default createStyles((theme) => ({
     radioLabel: {
         cursor: 'pointer',
         color: 'white',
-        fontSize: '16px',
-        fontWeight: 600,
+        fontSize: '18px',
+        fontWeight: 400,
+        letterSpacing: 0.75,
+        opacity: '.8',
     },
     dropdown: {
         color: '#000',
