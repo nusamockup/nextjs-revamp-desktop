@@ -10,20 +10,25 @@ import {
     InputBase,
     NumberInput,
     NumberInputHandlers,
+    Overlay,
     Popover,
     rem,
     Space,
     Stack,
     Text,
+    Transition,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
 import { useCounter, useWindowScroll } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import ChildAge from './child-age';
 import useStyles from './search-widget-home.styles';
 
 export const HotelHome = () => {
+    const [overlay, setOverlay] = useState(false);
+
     const { classes } = useStyles();
     const [opened, guestOpened] = useState(false);
     const [value, setValue] = useState<[Date | null, Date | null]>([
@@ -55,6 +60,47 @@ export const HotelHome = () => {
 
     return (
         <>
+            <Transition
+                mounted={overlay}
+                // transition={scaleY}
+                transition="fade"
+                duration={300}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <Overlay
+                        color="#0B2254"
+                        style={styles}
+                        // opacity={0.55}
+                        blur={2}
+                        pos="fixed"
+                        onClick={() => setOverlay((v) => false)}
+                    />
+                )}
+            </Transition>
+            <Transition
+                mounted={overlay}
+                // transition={scaleY}
+                transition="slide-down"
+                duration={200}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <AiOutlineCloseCircle
+                        size={32}
+                        style={{
+                            ...styles,
+                            position: 'fixed',
+                            top: '90px',
+                            right: '60px',
+                            color: '#FFF',
+                            zIndex: 202,
+                            cursor: 'pointer',
+                        }}
+                        onClick={() => setOverlay((v) => false)}
+                    />
+                )}
+            </Transition>
             <Box
                 mt={32}
                 sx={{
@@ -63,6 +109,8 @@ export const HotelHome = () => {
                     height: '230px',
                     backgroundColor: '#010b217d',
                     borderRadius: '6px',
+                    position: 'relative',
+                    zIndex: 201,
                 }}
             >
                 {/* <Container size="lg" maw={`calc(100% + 32px)`} mx="-16px" mt={68}> */}
@@ -77,11 +125,14 @@ export const HotelHome = () => {
                 >
                     Enjoy a Luxury Stay with an Affordable Hotel Price.
                 </Text>
-                <Flex
-                    className={classes.widgetWrapper}
-                    onClick={() => scrollTo({ y: 160 })}
-                >
-                    <Box sx={{ flexGrow: 1 }}>
+                <Flex className={classes.widgetWrapper}>
+                    <Box
+                        sx={{ flexGrow: 1 }}
+                        onClick={() => {
+                            scrollTo({ y: 160 });
+                            setOverlay((v) => true);
+                        }}
+                    >
                         <Autocomplete
                             label="Hotel location"
                             placeholder="City or location"
@@ -101,7 +152,13 @@ export const HotelHome = () => {
                         />
                     </Box>
 
-                    <Box sx={{ minWidth: '220px' }}>
+                    <Box
+                        sx={{ minWidth: '220px' }}
+                        onClick={() => {
+                            scrollTo({ y: 160 });
+                            setOverlay((v) => true);
+                        }}
+                    >
                         <DatePickerInput
                             type="range"
                             value={value}
@@ -124,7 +181,13 @@ export const HotelHome = () => {
                         />
                     </Box>
 
-                    <Box sx={{ minWidth: '220px' }}>
+                    <Box
+                        sx={{ minWidth: '220px' }}
+                        onClick={() => {
+                            scrollTo({ y: 160 });
+                            setOverlay((v) => true);
+                        }}
+                    >
                         <Popover
                             width={300}
                             position="bottom"
@@ -192,11 +255,12 @@ export const HotelHome = () => {
                                                 max={7}
                                                 min={1}
                                                 step={1}
-                                                styles={{
+                                                sx={{
                                                     input: {
                                                         width: rem(54),
                                                         textAlign: 'center',
                                                         fontWeight: 'bold',
+                                                        fontSize: 18,
                                                     },
                                                 }}
                                             />
@@ -247,11 +311,12 @@ export const HotelHome = () => {
                                                 max={7}
                                                 min={1}
                                                 step={1}
-                                                styles={{
+                                                sx={{
                                                     input: {
                                                         width: rem(54),
                                                         textAlign: 'center',
                                                         fontWeight: 'bold',
+                                                        fontSize: 18,
                                                     },
                                                 }}
                                             />
@@ -303,11 +368,12 @@ export const HotelHome = () => {
                                                 max={10}
                                                 min={0}
                                                 step={1}
-                                                styles={{
+                                                sx={{
                                                     input: {
                                                         width: rem(54),
                                                         textAlign: 'center',
                                                         fontWeight: 'bold',
+                                                        fontSize: 18,
                                                     },
                                                 }}
                                             />
@@ -345,7 +411,12 @@ export const HotelHome = () => {
                         </Popover>
                     </Box>
                     <Box>
-                        <Button className={classes.widgetButton}>
+                        <Button
+                            className={classes.widgetButton}
+                            onClick={() => {
+                                setOverlay((v) => false);
+                            }}
+                        >
                             <FiSearch size={18} />
                             <Space w="5px" />
                             Search

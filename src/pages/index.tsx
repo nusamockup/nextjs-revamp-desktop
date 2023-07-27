@@ -4,13 +4,13 @@ import {
     Box,
     Center,
     Container,
-    Group,
     Overlay,
     Space,
     Stack,
     Text,
 } from '@ns-ui/core';
 import Image from 'next/legacy/image';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 import AirlineLogo from 'src/comps/home/airline-logo';
 import Faqs from 'src/comps/home/faqs';
 import HomeSearch from 'src/comps/home/home-search';
@@ -20,7 +20,6 @@ import WhyChoose from 'src/comps/home/why-choose';
 import FlightSection from '../comps/home/flight-section';
 import PromoBanner from '../comps/promo-banner/promo-banner';
 import useStyles from '../styles/index.styles';
-import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const Home = () => {
     const { classes } = useStyles();
@@ -34,7 +33,11 @@ const Home = () => {
                 `}
             />
             <Box mt="-1.25rem">
-                <BackgroundImage pos="relative" h={`calc(100vh - 57px)`} src="">
+                <BackgroundImage
+                    pos="relative"
+                    h={`calc(100vh - 57px + 160px)`}
+                    src=""
+                >
                     <Image
                         src="/img/photo-1505228395891-9a51e7e86bf6.webp"
                         alt=""

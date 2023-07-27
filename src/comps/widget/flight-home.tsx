@@ -12,12 +12,14 @@ import {
     InputBase,
     NumberInput,
     NumberInputHandlers,
+    Overlay,
     Popover,
     Radio,
     rem,
     Space,
     Stack,
     Text,
+    Transition,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
@@ -25,6 +27,7 @@ import { FiSearch } from 'react-icons/fi';
 import { IconArrowsExchange, IconArrowsLeftRight } from '@tabler/icons-react';
 import useStyles from './search-widget-home.styles';
 import { useToggle, useWindowScroll } from '@ns-ui/hooks';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 export const FlightHome = () => {
     const [flyingValue, setFlyingValue] = useState('');
@@ -56,9 +59,58 @@ export const FlightHome = () => {
     const [classvalue, setClassValue] = useState('Cheapest');
 
     const [scroll, scrollTo] = useWindowScroll();
+    const [overlay, setOverlay] = useState(false);
+
+    const scaleY = {
+        in: { opacity: 1, transform: 'scaleY(1)' },
+        out: { opacity: 0, transform: 'scaleY(0)' },
+        common: { transformOrigin: 'top' },
+        transitionProperty: 'transform, opacity',
+    };
 
     return (
         <>
+            <Transition
+                mounted={overlay}
+                // transition={scaleY}
+                transition="fade"
+                duration={300}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <Overlay
+                        color="#0B2254"
+                        style={styles}
+                        // opacity={0.55}
+                        blur={2}
+                        pos="fixed"
+                        onClick={() => setOverlay((v) => false)}
+                    />
+                )}
+            </Transition>
+            <Transition
+                mounted={overlay}
+                // transition={scaleY}
+                transition="slide-down"
+                duration={200}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <AiOutlineCloseCircle
+                        size={32}
+                        style={{
+                            ...styles,
+                            position: 'fixed',
+                            top: '90px',
+                            right: '60px',
+                            color: '#FFF',
+                            zIndex: 202,
+                            cursor: 'pointer',
+                        }}
+                        onClick={() => setOverlay((v) => false)}
+                    />
+                )}
+            </Transition>
             <Box
                 mt={32}
                 sx={{
@@ -67,6 +119,8 @@ export const FlightHome = () => {
                     height: '230px',
                     backgroundColor: '#010b217d',
                     borderRadius: '6px',
+                    position: 'relative',
+                    zIndex: 201,
                 }}
             >
                 <Radio.Group
@@ -101,7 +155,13 @@ export const FlightHome = () => {
                     >
                         <Box sx={{ flexGrow: 1 }}>
                             <Flex>
-                                <Box sx={{ flexGrow: 1 }}>
+                                <Box
+                                    sx={{ flexGrow: 1 }}
+                                    onClick={() => {
+                                        scrollTo({ y: 160 });
+                                        setOverlay((v) => true);
+                                    }}
+                                >
                                     <Autocomplete
                                         label="Flying from"
                                         placeholder="City name"
@@ -127,7 +187,12 @@ export const FlightHome = () => {
                                         withinPortal={false}
                                     />
                                 </Box>
-                                <Center>
+                                <Center
+                                    onClick={() => {
+                                        scrollTo({ y: 160 });
+                                        setOverlay((v) => true);
+                                    }}
+                                >
                                     <ActionIcon
                                         c="dimmed"
                                         size="lg"
@@ -138,7 +203,13 @@ export const FlightHome = () => {
                                         {/* <IconArrowsExchange size="1.625rem" /> */}
                                     </ActionIcon>
                                 </Center>
-                                <Box sx={{ flexGrow: 1 }}>
+                                <Box
+                                    sx={{ flexGrow: 1 }}
+                                    onClick={() => {
+                                        scrollTo({ y: 160 });
+                                        setOverlay((v) => true);
+                                    }}
+                                >
                                     <Autocomplete
                                         label="Going to"
                                         placeholder="City name"
@@ -165,7 +236,13 @@ export const FlightHome = () => {
                                 </Box>
                             </Flex>
                         </Box>
-                        <Box sx={{ minWidth: '140px' }}>
+                        <Box
+                            sx={{ minWidth: '140px' }}
+                            onClick={() => {
+                                scrollTo({ y: 160 });
+                                setOverlay((v) => true);
+                            }}
+                        >
                             <DatePickerInput
                                 popoverProps={{
                                     withinPortal: true,
@@ -189,6 +266,10 @@ export const FlightHome = () => {
                             className={cx(classes.hide, {
                                 [classes.show]: section === 'roundtrip',
                             })}
+                            onClick={() => {
+                                scrollTo({ y: 160 });
+                                setOverlay((v) => true);
+                            }}
                         >
                             <DatePickerInput
                                 popoverProps={{
@@ -208,7 +289,13 @@ export const FlightHome = () => {
                                 id="returning"
                             />
                         </Box>
-                        <Box sx={{ minWidth: '186px' }}>
+                        <Box
+                            sx={{ minWidth: '186px' }}
+                            onClick={() => {
+                                scrollTo({ y: 160 });
+                                setOverlay((v) => true);
+                            }}
+                        >
                             <Popover
                                 width={300}
                                 position="bottom"
@@ -277,11 +364,12 @@ export const FlightHome = () => {
                                                     max={7}
                                                     min={1}
                                                     step={1}
-                                                    styles={{
+                                                    sx={{
                                                         input: {
                                                             width: rem(54),
                                                             textAlign: 'center',
                                                             fontWeight: 'bold',
+                                                            fontSize: 18,
                                                         },
                                                     }}
                                                 />
@@ -335,11 +423,12 @@ export const FlightHome = () => {
                                                     max={10}
                                                     min={0}
                                                     step={1}
-                                                    styles={{
+                                                    sx={{
                                                         input: {
                                                             width: rem(54),
                                                             textAlign: 'center',
                                                             fontWeight: 'bold',
+                                                            fontSize: 18,
                                                         },
                                                     }}
                                                 />
@@ -393,11 +482,12 @@ export const FlightHome = () => {
                                                     max={10}
                                                     min={0}
                                                     step={1}
-                                                    styles={{
+                                                    sx={{
                                                         input: {
                                                             width: rem(54),
                                                             textAlign: 'center',
                                                             fontWeight: 'bold',
+                                                            fontSize: 18,
                                                         },
                                                     }}
                                                 />
@@ -454,7 +544,13 @@ export const FlightHome = () => {
                             </Popover>
                         </Box>
                         <Box>
-                            <Button className={classes.widgetButton}>
+                            <Button
+                                className={classes.widgetButton}
+                                onClick={() => {
+                                    scrollTo({ y: 160 });
+                                    setOverlay((v) => false);
+                                }}
+                            >
                                 <FiSearch size={18} />
                                 <Space w="5px" />
                                 Search
