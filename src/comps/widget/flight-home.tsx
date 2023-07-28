@@ -28,9 +28,23 @@ import { IconArrowsLeftRight } from '@tabler/icons-react';
 import { useRef, useState } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { FiCalendar, FiMapPin, FiSearch } from 'react-icons/fi';
+import { useScrollBlock } from '../hooks/useScrollBlock';
 import useStyles from './search-widget-home.styles';
 
 export const FlightHome = () => {
+    const [blockScroll, allowScroll] = useScrollBlock();
+
+    const openWidgetOverlayHandler = () => {
+        scrollTo({ y: 200 });
+        setOverlay((v) => true);
+        blockScroll();
+    };
+
+    const closeWidgetOverlayHandler = () => {
+        setOverlay((v) => false);
+        allowScroll();
+    };
+
     const [flyingValue, setFlyingValue] = useState('');
     const [goingValue, setGoingValue] = useState('');
     // const [airportValue, airportToggle] = useToggle([flyingValue, goingValue]);
@@ -62,18 +76,10 @@ export const FlightHome = () => {
     const [scroll, scrollTo] = useWindowScroll();
     const [overlay, setOverlay] = useState(false);
 
-    const scaleY = {
-        in: { opacity: 1, transform: 'scaleY(1)' },
-        out: { opacity: 0, transform: 'scaleY(0)' },
-        common: { transformOrigin: 'top' },
-        transitionProperty: 'transform, opacity',
-    };
-
     return (
         <>
             <Transition
                 mounted={overlay}
-                // transition={scaleY}
                 transition="fade"
                 duration={300}
                 timingFunction="ease"
@@ -82,16 +88,14 @@ export const FlightHome = () => {
                     <Overlay
                         color="#0B2254"
                         style={styles}
-                        // opacity={0.55}
                         blur={2}
                         pos="fixed"
-                        onClick={() => setOverlay((v) => false)}
+                        onClick={() => closeWidgetOverlayHandler()}
                     />
                 )}
             </Transition>
             <Transition
                 mounted={overlay}
-                // transition={scaleY}
                 transition="slide-down"
                 duration={200}
                 timingFunction="ease"
@@ -101,14 +105,14 @@ export const FlightHome = () => {
                         size={32}
                         style={{
                             ...styles,
-                            position: 'fixed',
-                            top: '90px',
+                            position: 'absolute',
+                            top: '190px',
                             right: '60px',
                             color: '#FFF',
                             zIndex: 202,
                             cursor: 'pointer',
                         }}
-                        onClick={() => setOverlay((v) => false)}
+                        onClick={() => closeWidgetOverlayHandler()}
                     />
                 )}
             </Transition>
@@ -150,19 +154,10 @@ export const FlightHome = () => {
                     </Group>
                 </Radio.Group>
                 <Box maw={`calc(100% + 32px)`} mt={16}>
-                    <Flex
-                        className={classes.widgetWrapper}
-                        onClick={() => scrollTo({ y: 200 })}
-                    >
+                    <Flex className={classes.widgetWrapper}>
                         <Box sx={{ flexGrow: 1 }}>
                             <Flex>
-                                <Box
-                                    sx={{ flexGrow: 1 }}
-                                    onClick={() => {
-                                        scrollTo({ y: 200 });
-                                        setOverlay((v) => true);
-                                    }}
-                                >
+                                <Box sx={{ flexGrow: 1 }}>
                                     <Autocomplete
                                         label="Flying from"
                                         placeholder="City name"
@@ -215,13 +210,13 @@ export const FlightHome = () => {
                                             timingFunction: 'ease',
                                         }}
                                         withinPortal={false}
+                                        onClick={() =>
+                                            openWidgetOverlayHandler()
+                                        }
                                     />
                                 </Box>
                                 <Center
-                                    onClick={() => {
-                                        scrollTo({ y: 200 });
-                                        setOverlay((v) => true);
-                                    }}
+                                    onClick={() => openWidgetOverlayHandler()}
                                 >
                                     <ActionIcon
                                         c="dimmed"
@@ -229,17 +224,10 @@ export const FlightHome = () => {
                                         mt={25}
                                         onClick={() => handleToggleAirport()}
                                     >
-                                        <IconArrowsLeftRight size="1.3rem" />
-                                        {/* <IconArrowsExchange size="1.625rem" /> */}
+                                        <IconArrowsLeftRight size="18px" />
                                     </ActionIcon>
                                 </Center>
-                                <Box
-                                    sx={{ flexGrow: 1 }}
-                                    onClick={() => {
-                                        scrollTo({ y: 200 });
-                                        setOverlay((v) => true);
-                                    }}
-                                >
+                                <Box sx={{ flexGrow: 1 }}>
                                     <Autocomplete
                                         label="Going to"
                                         placeholder="City name"
@@ -291,17 +279,14 @@ export const FlightHome = () => {
                                             duration: 80,
                                             timingFunction: 'ease',
                                         }}
+                                        onClick={() =>
+                                            openWidgetOverlayHandler()
+                                        }
                                     />
                                 </Box>
                             </Flex>
                         </Box>
-                        <Box
-                            sx={{ minWidth: '160px' }}
-                            onClick={() => {
-                                scrollTo({ y: 200 });
-                                setOverlay((v) => true);
-                            }}
-                        >
+                        <Box sx={{ minWidth: '160px' }}>
                             <DatesProvider
                                 settings={{
                                     weekendDays: [0],
@@ -316,7 +301,7 @@ export const FlightHome = () => {
                                     valueFormat="DD MMM YYYY"
                                     label="Departing"
                                     placeholder="Add Date"
-                                    icon={<FiCalendar size={18} />}
+                                    icon={<FiCalendar size={16} />}
                                     styles={{
                                         icon: { top: '20px' },
                                     }}
@@ -327,6 +312,7 @@ export const FlightHome = () => {
                                     }}
                                     clearable={true}
                                     id="departing"
+                                    onClick={() => openWidgetOverlayHandler()}
                                 />
                             </DatesProvider>
                         </Box>
@@ -335,10 +321,6 @@ export const FlightHome = () => {
                             className={cx(classes.hide, {
                                 [classes.show]: section === 'roundtrip',
                             })}
-                            onClick={() => {
-                                scrollTo({ y: 200 });
-                                setOverlay((v) => true);
-                            }}
                         >
                             <DatesProvider
                                 settings={{
@@ -354,7 +336,7 @@ export const FlightHome = () => {
                                     valueFormat="DD MMM YYYY"
                                     label="Returning"
                                     placeholder="Add Date"
-                                    icon={<FiCalendar size={18} />}
+                                    icon={<FiCalendar size={16} />}
                                     styles={{
                                         icon: { top: '20px' },
                                     }}
@@ -365,15 +347,13 @@ export const FlightHome = () => {
                                     }}
                                     clearable={true}
                                     id="returning"
+                                    onClick={() => openWidgetOverlayHandler()}
                                 />
                             </DatesProvider>
                         </Box>
                         <Box
                             sx={{ minWidth: '186px' }}
-                            onClick={() => {
-                                scrollTo({ y: 200 });
-                                setOverlay((v) => true);
-                            }}
+                            onClick={() => openWidgetOverlayHandler()}
                         >
                             <Popover
                                 width={300}
@@ -390,7 +370,10 @@ export const FlightHome = () => {
                                         }}
                                         component="button"
                                         label="Passengers & Class"
-                                        sx={{ cursor: 'pointer' }}
+                                        sx={{
+                                            cursor: 'pointer',
+                                            overflow: 'hidden',
+                                        }}
                                         onClick={() => paxOpened((o) => !o)}
                                     >
                                         <Input.Placeholder
@@ -625,10 +608,7 @@ export const FlightHome = () => {
                         <Box>
                             <Button
                                 className={classes.widgetButton}
-                                onClick={() => {
-                                    scrollTo({ y: 160 });
-                                    setOverlay((v) => false);
-                                }}
+                                onClick={() => closeWidgetOverlayHandler()}
                             >
                                 <FiSearch size={18} />
                                 <Space w="5px" />

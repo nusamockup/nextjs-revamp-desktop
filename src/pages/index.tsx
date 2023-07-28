@@ -35,7 +35,7 @@ const Home = () => {
             <Box mt="-1.25rem">
                 <BackgroundImage
                     pos="relative"
-                    h={`calc(100vh - 57px + 160px)`}
+                    h={`calc(100vh - 57px + 200px)`}
                     src=""
                 >
                     <Image

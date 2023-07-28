@@ -24,10 +24,23 @@ import { useCounter, useWindowScroll } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { FiCalendar, FiMapPin, FiSearch } from 'react-icons/fi';
+import { useScrollBlock } from '../hooks/useScrollBlock';
 import ChildAge from './child-age';
 import useStyles from './search-widget-home.styles';
 
 export const HotelHome = () => {
+    const [blockScroll, allowScroll] = useScrollBlock();
+    const openWidgetOverlayHandler = () => {
+        scrollTo({ y: 200 });
+        setOverlay((v) => true);
+        blockScroll();
+    };
+
+    const closeWidgetOverlayHandler = () => {
+        setOverlay((v) => false);
+        allowScroll();
+    };
+
     const [overlay, setOverlay] = useState(false);
     const [locValue, setLocValue] = useState('');
 
@@ -52,19 +65,16 @@ export const HotelHome = () => {
         .map((_, index) => `${index} year`);
 
     const [count, { increment, decrement }] = useCounter(0, { min: 0 });
-    // const text = 'Age of Child ';
     const childAgeInputs = Array(count)
         .fill(0)
         .map((_, index) => (
             <ChildAge key={index} label={`Age of child ${index + 1}`} />
         ));
-    // .map((_, index) => <Badge key={index}>Badge {index}</Badge>);
 
     return (
         <>
             <Transition
                 mounted={overlay}
-                // transition={scaleY}
                 transition="fade"
                 duration={300}
                 timingFunction="ease"
@@ -76,13 +86,12 @@ export const HotelHome = () => {
                         // opacity={0.55}
                         blur={2}
                         pos="fixed"
-                        onClick={() => setOverlay((v) => false)}
+                        onClick={() => closeWidgetOverlayHandler()}
                     />
                 )}
             </Transition>
             <Transition
                 mounted={overlay}
-                // transition={scaleY}
                 transition="slide-down"
                 duration={200}
                 timingFunction="ease"
@@ -92,14 +101,14 @@ export const HotelHome = () => {
                         size={32}
                         style={{
                             ...styles,
-                            position: 'fixed',
-                            top: '90px',
+                            position: 'absolute',
+                            top: '190px',
                             right: '60px',
                             color: '#FFF',
                             zIndex: 202,
                             cursor: 'pointer',
                         }}
-                        onClick={() => setOverlay((v) => false)}
+                        onClick={() => closeWidgetOverlayHandler()}
                     />
                 )}
             </Transition>
@@ -128,13 +137,7 @@ export const HotelHome = () => {
                     Enjoy a Luxury Stay with an Affordable Hotel Price.
                 </Text>
                 <Flex className={classes.widgetWrapper}>
-                    <Box
-                        sx={{ flexGrow: 1 }}
-                        onClick={() => {
-                            scrollTo({ y: 200 });
-                            setOverlay((v) => true);
-                        }}
-                    >
+                    <Box sx={{ flexGrow: 1 }}>
                         <Autocomplete
                             label="Hotel location"
                             placeholder="City or location"
@@ -142,6 +145,7 @@ export const HotelHome = () => {
                             icon={<FiMapPin size={16} />}
                             value={locValue}
                             onChange={setLocValue}
+                            onClick={() => openWidgetOverlayHandler()}
                             rightSection={
                                 locValue !== '' && (
                                     <CloseButton
@@ -187,13 +191,7 @@ export const HotelHome = () => {
                         />
                     </Box>
 
-                    <Box
-                        sx={{ minWidth: '260px' }}
-                        onClick={() => {
-                            scrollTo({ y: 200 });
-                            setOverlay((v) => true);
-                        }}
-                    >
+                    <Box sx={{ minWidth: '260px' }}>
                         <DatesProvider
                             settings={{
                                 weekendDays: [0],
@@ -207,7 +205,7 @@ export const HotelHome = () => {
                                     withinPortal: true,
                                     shadow: 'lg',
                                 }}
-                                icon={<FiCalendar size={18} />}
+                                icon={<FiCalendar size={16} />}
                                 styles={{
                                     icon: { top: '20px' },
                                 }}
@@ -220,6 +218,7 @@ export const HotelHome = () => {
                                     label: classes.widgetLabel,
                                     rightSection: classes.rightSection,
                                 }}
+                                onClick={() => openWidgetOverlayHandler()}
                                 clearable={true}
                                 id="checkindate"
                             />
@@ -228,10 +227,7 @@ export const HotelHome = () => {
 
                     <Box
                         sx={{ minWidth: '220px' }}
-                        onClick={() => {
-                            scrollTo({ y: 200 });
-                            setOverlay((v) => true);
-                        }}
+                        onClick={() => openWidgetOverlayHandler()}
                     >
                         <Popover
                             width={300}
@@ -458,9 +454,7 @@ export const HotelHome = () => {
                     <Box>
                         <Button
                             className={classes.widgetButton}
-                            onClick={() => {
-                                setOverlay((v) => false);
-                            }}
+                            onClick={() => closeWidgetOverlayHandler()}
                         >
                             <FiSearch size={18} />
                             <Space w="5px" />
@@ -468,7 +462,6 @@ export const HotelHome = () => {
                         </Button>
                     </Box>
                 </Flex>
-                {/* </Container> */}
             </Box>
         </>
     );

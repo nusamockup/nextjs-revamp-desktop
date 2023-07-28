@@ -13,7 +13,7 @@ export default createStyles((theme) => ({
     },
 
     rightSection: {
-        top: '16px',
+        top: '20px',
         right: '8px',
         svg: {
             height: '12px',
@@ -27,13 +27,14 @@ export default createStyles((theme) => ({
         border: '0px',
         fontWeight: 500,
         textOverflow: 'ellipsis',
-        fontSize: '16px',
+        fontSize: '15px',
     },
 
     widgetLabel: {
         color: '#868e96',
         position: 'absolute',
         pointerEvents: 'none',
+        letterSpacing: 0.15,
         fontSize: theme.fontSizes.sm,
         paddingLeft: theme.spacing.sm,
         paddingTop: `calc(${theme.spacing.sm} / 2)`,
