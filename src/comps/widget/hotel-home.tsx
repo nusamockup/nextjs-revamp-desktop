@@ -155,6 +155,13 @@ export const HotelHome = () => {
                                 'Malang, East Java Indonesia',
                                 'Malacca City, Malacca Malaysia',
                             ]}
+                            limit={100}
+                            maxDropdownHeight="250"
+                            transitionProps={{
+                                transition: 'pop-top-left',
+                                duration: 80,
+                                timingFunction: 'ease',
+                            }}
                         />
                     </Box>
 

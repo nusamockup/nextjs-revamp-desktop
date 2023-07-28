@@ -167,6 +167,8 @@ export const FlightHome = () => {
                                         placeholder="City name"
                                         value={flyingValue}
                                         onChange={setFlyingValue}
+                                        limit={100}
+                                        maxDropdownHeight="250"
                                         // onClick={() =>
                                         //     setFlyingValue(flyingValue)
                                         // }
@@ -176,6 +178,11 @@ export const FlightHome = () => {
                                             'CGK : Soekarno Hatta, Jakarta Indonesia',
                                             'HLP : Halim Perdana Kusuma, Jakarta Indonesia',
                                             'SRG : Ahmad Yani, Semarang Central Java Indonesia',
+                                            'PEK : Beijing Capital International Airport ',
+                                            'HND : Haneda International Airport, Tokyo Japan',
+                                            'NRT : Narita International Airport. Tokyo Japan',
+                                            'BKK : Suvarnabhumi Airport, Bangkok',
+                                            'CAN : Guangzhou Baiyun International Airport, Guangzhou China',
                                         ]}
                                         classNames={{
                                             root: classes.widgetRootAutocomplete,
@@ -183,6 +190,11 @@ export const FlightHome = () => {
                                             label: classes.widgetLabel,
                                             dropdown:
                                                 classes.dropdownAutocomplete,
+                                        }}
+                                        transitionProps={{
+                                            transition: 'pop-top-left',
+                                            duration: 80,
+                                            timingFunction: 'ease',
                                         }}
                                         withinPortal={false}
                                     />
@@ -215,6 +227,8 @@ export const FlightHome = () => {
                                         placeholder="City name"
                                         value={goingValue}
                                         onChange={setGoingValue}
+                                        limit={100}
+                                        maxDropdownHeight="250"
                                         // onClick={() =>
                                         //     setGoingValue(goingValue)
                                         // }
@@ -231,7 +245,17 @@ export const FlightHome = () => {
                                             'CGK : Soekarno Hatta, Jakarta Indonesia',
                                             'HLP : Halim Perdana Kusuma, Jakarta Indonesia',
                                             'SRG : Ahmad Yani, Semarang Central Java Indonesia',
+                                            'PEK : Beijing Capital International Airport ',
+                                            'HND : Haneda International Airport, Tokyo Japan',
+                                            'NRT : Narita International Airport. Tokyo Japan',
+                                            'BKK : Suvarnabhumi Airport, Bangkok',
+                                            'CAN : Guangzhou Baiyun International Airport, Guangzhou China',
                                         ]}
+                                        transitionProps={{
+                                            transition: 'pop-top-left',
+                                            duration: 80,
+                                            timingFunction: 'ease',
+                                        }}
                                     />
                                 </Box>
                             </Flex>

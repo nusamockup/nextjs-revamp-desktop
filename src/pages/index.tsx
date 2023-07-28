@@ -48,7 +48,7 @@ const Home = () => {
 
                     <Center
                         maw="1320px"
-                        h="80%"
+                        h="85%"
                         px={32}
                         // mt="-200px"
                         mx="auto"
