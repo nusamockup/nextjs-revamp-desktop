@@ -43,7 +43,7 @@
         "react-fast-marquee": "^1.6.0",
         "react-icons": "^4.10.1",
         "react-scale-text": "^1.2.2",
-        "react-text-loop-next": "^0.0.3"
+        "react-text-transition": "^3.1.0"
     },
     "devDependencies": {
         "@babel/core": "^7.17.8",
