@@ -5,6 +5,7 @@ import {
     Button,
     Center,
     Chip,
+    CloseButton,
     Divider,
     Flex,
     Group,
@@ -22,12 +23,12 @@ import {
     Transition,
 } from '@ns-ui/core';
 import { DatePickerInput, DatesProvider } from '@ns-ui/dates';
+import { useWindowScroll } from '@ns-ui/hooks';
+import { IconArrowsLeftRight } from '@tabler/icons-react';
 import { useRef, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
-import { IconArrowsExchange, IconArrowsLeftRight } from '@tabler/icons-react';
-import useStyles from './search-widget-home.styles';
-import { useToggle, useWindowScroll } from '@ns-ui/hooks';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { FiCalendar, FiMapPin, FiSearch } from 'react-icons/fi';
+import useStyles from './search-widget-home.styles';
 
 export const FlightHome = () => {
     const [flyingValue, setFlyingValue] = useState('');
@@ -168,11 +169,27 @@ export const FlightHome = () => {
                                         value={flyingValue}
                                         onChange={setFlyingValue}
                                         limit={100}
+                                        icon={<FiMapPin size={16} />}
+                                        styles={{
+                                            icon: { top: '22px' },
+                                        }}
+                                        rightSection={
+                                            flyingValue !== '' && (
+                                                <CloseButton
+                                                    size={14}
+                                                    onMouseDown={(event) =>
+                                                        event.preventDefault()
+                                                    }
+                                                    onClick={() =>
+                                                        setFlyingValue('')
+                                                    }
+                                                    aria-label="Clear value"
+                                                    sx={{ top: '10px' }}
+                                                />
+                                            )
+                                        }
                                         maxDropdownHeight="250"
                                         dropdownPosition="bottom"
-                                        // onClick={() =>
-                                        //     setFlyingValue(flyingValue)
-                                        // }
                                         data={[
                                             'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
                                             'JKT : All Airports, Jakarta Indonesia',
@@ -229,11 +246,27 @@ export const FlightHome = () => {
                                         value={goingValue}
                                         onChange={setGoingValue}
                                         limit={100}
+                                        icon={<FiMapPin size={16} />}
+                                        styles={{
+                                            icon: { top: '22px' },
+                                        }}
                                         maxDropdownHeight="250"
                                         dropdownPosition="bottom"
-                                        // onClick={() =>
-                                        //     setGoingValue(goingValue)
-                                        // }
+                                        rightSection={
+                                            goingValue !== '' && (
+                                                <CloseButton
+                                                    size={14}
+                                                    onMouseDown={(event) =>
+                                                        event.preventDefault()
+                                                    }
+                                                    onClick={() =>
+                                                        setGoingValue('')
+                                                    }
+                                                    aria-label="Clear value"
+                                                    sx={{ top: '10px' }}
+                                                />
+                                            )
+                                        }
                                         classNames={{
                                             root: classes.widgetRootAutocomplete,
                                             input: classes.widgetInput,
@@ -263,7 +296,7 @@ export const FlightHome = () => {
                             </Flex>
                         </Box>
                         <Box
-                            sx={{ minWidth: '140px' }}
+                            sx={{ minWidth: '160px' }}
                             onClick={() => {
                                 scrollTo({ y: 200 });
                                 setOverlay((v) => true);
@@ -283,6 +316,10 @@ export const FlightHome = () => {
                                     valueFormat="DD MMM YYYY"
                                     label="Departing"
                                     placeholder="Add Date"
+                                    icon={<FiCalendar size={18} />}
+                                    styles={{
+                                        icon: { top: '20px' },
+                                    }}
                                     classNames={{
                                         input: classes.widgetInput,
                                         label: classes.widgetLabel,
@@ -294,7 +331,7 @@ export const FlightHome = () => {
                             </DatesProvider>
                         </Box>
                         <Box
-                            sx={{ minWidth: '140px' }}
+                            sx={{ minWidth: '160px' }}
                             className={cx(classes.hide, {
                                 [classes.show]: section === 'roundtrip',
                             })}
@@ -317,6 +354,10 @@ export const FlightHome = () => {
                                     valueFormat="DD MMM YYYY"
                                     label="Returning"
                                     placeholder="Add Date"
+                                    icon={<FiCalendar size={18} />}
+                                    styles={{
+                                        icon: { top: '20px' },
+                                    }}
                                     classNames={{
                                         input: classes.widgetInput,
                                         label: classes.widgetLabel,

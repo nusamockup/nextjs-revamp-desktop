@@ -3,6 +3,7 @@ import {
     Autocomplete,
     Box,
     Button,
+    CloseButton,
     Divider,
     Flex,
     Group,
@@ -21,13 +22,14 @@ import {
 import { DatePickerInput, DatesProvider } from '@ns-ui/dates';
 import { useCounter, useWindowScroll } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { FiCalendar, FiMapPin, FiSearch } from 'react-icons/fi';
 import ChildAge from './child-age';
 import useStyles from './search-widget-home.styles';
 
 export const HotelHome = () => {
     const [overlay, setOverlay] = useState(false);
+    const [locValue, setLocValue] = useState('');
 
     const { classes } = useStyles();
     const [opened, guestOpened] = useState(false);
@@ -137,6 +139,25 @@ export const HotelHome = () => {
                             label="Hotel location"
                             placeholder="City or location"
                             limit={100}
+                            icon={<FiMapPin size={16} />}
+                            value={locValue}
+                            onChange={setLocValue}
+                            rightSection={
+                                locValue !== '' && (
+                                    <CloseButton
+                                        size={14}
+                                        onMouseDown={(event) =>
+                                            event.preventDefault()
+                                        }
+                                        onClick={() => setLocValue('')}
+                                        aria-label="Clear value"
+                                        sx={{ top: '10px' }}
+                                    />
+                                )
+                            }
+                            styles={{
+                                icon: { top: '22px' },
+                            }}
                             maxDropdownHeight="250"
                             transitionProps={{
                                 transition: 'pop-top-left',
@@ -167,7 +188,7 @@ export const HotelHome = () => {
                     </Box>
 
                     <Box
-                        sx={{ minWidth: '220px' }}
+                        sx={{ minWidth: '260px' }}
                         onClick={() => {
                             scrollTo({ y: 200 });
                             setOverlay((v) => true);
@@ -185,6 +206,10 @@ export const HotelHome = () => {
                                 popoverProps={{
                                     withinPortal: true,
                                     shadow: 'lg',
+                                }}
+                                icon={<FiCalendar size={18} />}
+                                styles={{
+                                    icon: { top: '20px' },
                                 }}
                                 numberOfColumns={2}
                                 valueFormat="DD MMM YYYY"
