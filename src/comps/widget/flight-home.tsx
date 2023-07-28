@@ -151,14 +151,14 @@ export const FlightHome = () => {
                 <Box maw={`calc(100% + 32px)`} mt={16}>
                     <Flex
                         className={classes.widgetWrapper}
-                        onClick={() => scrollTo({ y: 160 })}
+                        onClick={() => scrollTo({ y: 200 })}
                     >
                         <Box sx={{ flexGrow: 1 }}>
                             <Flex>
                                 <Box
                                     sx={{ flexGrow: 1 }}
                                     onClick={() => {
-                                        scrollTo({ y: 160 });
+                                        scrollTo({ y: 200 });
                                         setOverlay((v) => true);
                                     }}
                                 >
@@ -169,6 +169,7 @@ export const FlightHome = () => {
                                         onChange={setFlyingValue}
                                         limit={100}
                                         maxDropdownHeight="250"
+                                        dropdownPosition="bottom"
                                         // onClick={() =>
                                         //     setFlyingValue(flyingValue)
                                         // }
@@ -201,7 +202,7 @@ export const FlightHome = () => {
                                 </Box>
                                 <Center
                                     onClick={() => {
-                                        scrollTo({ y: 160 });
+                                        scrollTo({ y: 200 });
                                         setOverlay((v) => true);
                                     }}
                                 >
@@ -218,7 +219,7 @@ export const FlightHome = () => {
                                 <Box
                                     sx={{ flexGrow: 1 }}
                                     onClick={() => {
-                                        scrollTo({ y: 160 });
+                                        scrollTo({ y: 200 });
                                         setOverlay((v) => true);
                                     }}
                                 >
@@ -229,6 +230,7 @@ export const FlightHome = () => {
                                         onChange={setGoingValue}
                                         limit={100}
                                         maxDropdownHeight="250"
+                                        dropdownPosition="bottom"
                                         // onClick={() =>
                                         //     setGoingValue(goingValue)
                                         // }
@@ -263,7 +265,7 @@ export const FlightHome = () => {
                         <Box
                             sx={{ minWidth: '140px' }}
                             onClick={() => {
-                                scrollTo({ y: 160 });
+                                scrollTo({ y: 200 });
                                 setOverlay((v) => true);
                             }}
                         >
@@ -297,7 +299,7 @@ export const FlightHome = () => {
                                 [classes.show]: section === 'roundtrip',
                             })}
                             onClick={() => {
-                                scrollTo({ y: 160 });
+                                scrollTo({ y: 200 });
                                 setOverlay((v) => true);
                             }}
                         >
@@ -328,7 +330,7 @@ export const FlightHome = () => {
                         <Box
                             sx={{ minWidth: '186px' }}
                             onClick={() => {
-                                scrollTo({ y: 160 });
+                                scrollTo({ y: 200 });
                                 setOverlay((v) => true);
                             }}
                         >

@@ -129,13 +129,21 @@ export const HotelHome = () => {
                     <Box
                         sx={{ flexGrow: 1 }}
                         onClick={() => {
-                            scrollTo({ y: 160 });
+                            scrollTo({ y: 200 });
                             setOverlay((v) => true);
                         }}
                     >
                         <Autocomplete
                             label="Hotel location"
                             placeholder="City or location"
+                            limit={100}
+                            maxDropdownHeight="250"
+                            transitionProps={{
+                                transition: 'pop-top-left',
+                                duration: 80,
+                                timingFunction: 'ease',
+                            }}
+                            dropdownPosition="bottom"
                             classNames={{
                                 root: classes.widgetRootAutocomplete,
                                 input: classes.widgetInput,
@@ -155,20 +163,13 @@ export const HotelHome = () => {
                                 'Malang, East Java Indonesia',
                                 'Malacca City, Malacca Malaysia',
                             ]}
-                            limit={100}
-                            maxDropdownHeight="250"
-                            transitionProps={{
-                                transition: 'pop-top-left',
-                                duration: 80,
-                                timingFunction: 'ease',
-                            }}
                         />
                     </Box>
 
                     <Box
                         sx={{ minWidth: '220px' }}
                         onClick={() => {
-                            scrollTo({ y: 160 });
+                            scrollTo({ y: 200 });
                             setOverlay((v) => true);
                         }}
                     >
@@ -203,7 +204,7 @@ export const HotelHome = () => {
                     <Box
                         sx={{ minWidth: '220px' }}
                         onClick={() => {
-                            scrollTo({ y: 160 });
+                            scrollTo({ y: 200 });
                             setOverlay((v) => true);
                         }}
                     >
