@@ -21,7 +21,7 @@ import {
     Text,
     Transition,
 } from '@ns-ui/core';
-import { DatePickerInput } from '@ns-ui/dates';
+import { DatePickerInput, DatesProvider } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { IconArrowsExchange, IconArrowsLeftRight } from '@tabler/icons-react';
@@ -243,23 +243,29 @@ export const FlightHome = () => {
                                 setOverlay((v) => true);
                             }}
                         >
-                            <DatePickerInput
-                                popoverProps={{
-                                    withinPortal: true,
-                                    shadow: 'lg',
+                            <DatesProvider
+                                settings={{
+                                    weekendDays: [0],
                                 }}
-                                numberOfColumns={2}
-                                valueFormat="DD MMM YYYY"
-                                label="Departing"
-                                placeholder="Add Date"
-                                classNames={{
-                                    input: classes.widgetInput,
-                                    label: classes.widgetLabel,
-                                    rightSection: classes.rightSection,
-                                }}
-                                clearable={true}
-                                id="departing"
-                            />
+                            >
+                                <DatePickerInput
+                                    popoverProps={{
+                                        withinPortal: true,
+                                        shadow: 'lg',
+                                    }}
+                                    numberOfColumns={2}
+                                    valueFormat="DD MMM YYYY"
+                                    label="Departing"
+                                    placeholder="Add Date"
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                        rightSection: classes.rightSection,
+                                    }}
+                                    clearable={true}
+                                    id="departing"
+                                />
+                            </DatesProvider>
                         </Box>
                         <Box
                             sx={{ minWidth: '140px' }}
@@ -271,23 +277,29 @@ export const FlightHome = () => {
                                 setOverlay((v) => true);
                             }}
                         >
-                            <DatePickerInput
-                                popoverProps={{
-                                    withinPortal: true,
-                                    shadow: 'lg',
+                            <DatesProvider
+                                settings={{
+                                    weekendDays: [0],
                                 }}
-                                numberOfColumns={2}
-                                valueFormat="DD MMM YYYY"
-                                label="Returning"
-                                placeholder="Add Date"
-                                classNames={{
-                                    input: classes.widgetInput,
-                                    label: classes.widgetLabel,
-                                    rightSection: classes.rightSection,
-                                }}
-                                clearable={true}
-                                id="returning"
-                            />
+                            >
+                                <DatePickerInput
+                                    popoverProps={{
+                                        withinPortal: true,
+                                        shadow: 'lg',
+                                    }}
+                                    numberOfColumns={2}
+                                    valueFormat="DD MMM YYYY"
+                                    label="Returning"
+                                    placeholder="Add Date"
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                        rightSection: classes.rightSection,
+                                    }}
+                                    clearable={true}
+                                    id="returning"
+                                />
+                            </DatesProvider>
                         </Box>
                         <Box
                             sx={{ minWidth: '186px' }}

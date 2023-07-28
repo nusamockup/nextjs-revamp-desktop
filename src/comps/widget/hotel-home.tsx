@@ -18,7 +18,7 @@ import {
     Text,
     Transition,
 } from '@ns-ui/core';
-import { DatePickerInput } from '@ns-ui/dates';
+import { DatePickerInput, DatesProvider } from '@ns-ui/dates';
 import { useCounter, useWindowScroll } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
@@ -143,6 +143,12 @@ export const HotelHome = () => {
                                 dropdown: classes.dropdownAutocomplete,
                             }}
                             data={[
+                                'Aryaduta Hotel, Jakarta Indonesia',
+                                'Aston Pluit, Jakarta Indonesia',
+                                'Borobudur, Jakarta Indonesia',
+                                'Bali Dynasty Resort, Bali Indonesia',
+                                'Mercure Kuta Beach, Bali Indonesia',
+                                'Nusa Dua Beach Hotel & Spa, Bali Indonesia',
                                 'Denpasar, Bali Indonesia',
                                 'Dengkil, Selangor Malaysia',
                                 'Malioboro, Yogyakarta Indonesia',
@@ -159,26 +165,32 @@ export const HotelHome = () => {
                             setOverlay((v) => true);
                         }}
                     >
-                        <DatePickerInput
-                            type="range"
-                            value={value}
-                            onChange={setValue}
-                            popoverProps={{
-                                withinPortal: true,
-                                shadow: 'lg',
+                        <DatesProvider
+                            settings={{
+                                weekendDays: [0],
                             }}
-                            numberOfColumns={2}
-                            valueFormat="DD MMM YYYY"
-                            label="When"
-                            placeholder="Add Date"
-                            classNames={{
-                                input: classes.widgetInput,
-                                label: classes.widgetLabel,
-                                rightSection: classes.rightSection,
-                            }}
-                            clearable={true}
-                            id="checkindate"
-                        />
+                        >
+                            <DatePickerInput
+                                type="range"
+                                value={value}
+                                onChange={setValue}
+                                popoverProps={{
+                                    withinPortal: true,
+                                    shadow: 'lg',
+                                }}
+                                numberOfColumns={2}
+                                valueFormat="DD MMM YYYY"
+                                label="When"
+                                placeholder="Add Date"
+                                classNames={{
+                                    input: classes.widgetInput,
+                                    label: classes.widgetLabel,
+                                    rightSection: classes.rightSection,
+                                }}
+                                clearable={true}
+                                id="checkindate"
+                            />
+                        </DatesProvider>
                     </Box>
 
                     <Box

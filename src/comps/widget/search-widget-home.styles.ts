@@ -99,5 +99,7 @@ export default createStyles((theme) => ({
         width: 'auto!important',
         minWidth: '400px!important',
         left: '0px !important',
+        // maxHeight: 300,
+        // overflowY: 'scroll',
     },
 }));
