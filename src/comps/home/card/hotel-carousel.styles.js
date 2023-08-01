@@ -23,6 +23,11 @@ export default createStyles((theme) => ({
         color: '#0A73B7',
         boxShadow: 'none',
     },
+    hotelPromoCarControls: {
+        position: 'absolute',
+        top: '-65px!important',
+        justifyContent: 'end',
+    },
     hotelCarControls: {
         position: 'absolute',
         top: '-55px!important',

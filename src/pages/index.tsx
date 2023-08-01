@@ -15,6 +15,7 @@ import AirlineLogo from 'src/comps/home/airline-logo';
 import Faqs from 'src/comps/home/faqs';
 import HomeSearch from 'src/comps/home/home-search';
 import HotelSection from 'src/comps/home/hotel-section';
+import HotelPromo from 'src/comps/home/hotel-section/hotel-promo';
 import MobileBanner from 'src/comps/home/mobile-banner';
 import WhyChoose from 'src/comps/home/why-choose';
 import FlightSection from '../comps/home/flight-section';
@@ -95,6 +96,7 @@ const Home = () => {
             <Space h="64px" />
             <AirlineLogo />
             <Container size="xl">
+                <HotelPromo />
                 <HotelSection />
                 <WhyChoose />
                 <MobileBanner />
