@@ -16,11 +16,13 @@ import Faqs from 'src/comps/home/faqs';
 import HomeSearch from 'src/comps/home/home-search';
 import HotelSection from 'src/comps/home/hotel-section';
 import HotelPromo from 'src/comps/home/hotel-section/hotel-promo';
+import HotelPromoFull from 'src/comps/home/hotel-section/b2b-promo-full';
 import MobileBanner from 'src/comps/home/mobile-banner';
 import WhyChoose from 'src/comps/home/why-choose';
 import FlightSection from '../comps/home/flight-section';
 import PromoBanner from '../comps/promo-banner/promo-banner';
 import useStyles from '../styles/index.styles';
+import B2BPromoFull from 'src/comps/home/hotel-section/b2b-promo-full';
 
 const Home = () => {
     const { classes } = useStyles();
@@ -96,11 +98,12 @@ const Home = () => {
             <Space h="64px" />
             <AirlineLogo />
             <Container size="xl">
-                <HotelPromo />
+                {/* <HotelPromo /> */}
                 <HotelSection />
                 <WhyChoose />
                 <MobileBanner />
                 <Faqs />
+                <B2BPromoFull />
             </Container>
         </>
     );
