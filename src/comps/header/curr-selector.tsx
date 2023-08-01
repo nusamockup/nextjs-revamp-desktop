@@ -91,7 +91,7 @@ const CurrSelector = ({ className }: { className?: string }) => {
     return (
         <>
             <Button
-                variant="light"
+                variant="subtle"
                 color="gray"
                 radius="sm"
                 compact
