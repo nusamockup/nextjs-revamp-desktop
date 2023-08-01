@@ -82,37 +82,20 @@ const Home = () => {
                             className={classes.animatedarrow}
                             color="#fff"
                         />
-                        {/* <Box
-                            // h={20}
-                            // w={20}
-                            mt={0}
-                            mb={0}
-                            className={classes.arrowCta}
-                        ></Box> */}
                     </Stack>
-                    <Overlay
-                        // gradient="linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%)"
-                        color="#000"
-                        opacity={0.6}
-                        zIndex={1}
-                    />
+                    <Overlay color="#000" opacity={0.6} zIndex={1} />
                 </BackgroundImage>
             </Box>
-            <Container
-                size="xl"
-                // px="64px"
-            >
-                {/* <Space h="64px" /> */}
-                {/* <SectionTitle title="Offers for your trip" /> */}
+            <Container size="xl">
                 <Space h="82px" />
                 <PromoBanner />
                 <Space h="64px" />
                 <FlightSection />
-                <HotelSection />
             </Container>
             <Space h="64px" />
             <AirlineLogo />
             <Container size="xl">
+                <HotelSection />
                 <WhyChoose />
                 <MobileBanner />
                 <Faqs />
