@@ -97,7 +97,7 @@ const HotelPromo = () => {
         <>
             <Space h="64px" />
             <SectionTitle
-                title="Deals & Discounts"
+                title="Hotel Deals & Discounts"
                 // desc="Exploring new places and meeting strangers."
                 // sectionname="Hotels"
             />
@@ -121,7 +121,7 @@ const HotelPromo = () => {
                         {/* <Center sx={{ aspectRatio: '1/1' }}> */}
                         <NbBanner
                             title="Your Travel Partner <br > Solution"
-                            description="NusaTrip Business is a one-stop travel technology platform for travel agents."
+                            description="NusaTrip Business is a one-stop travel technology platform for travel agents. Join us Now and get Special Rate"
                             image="/img/banner/6950476.webp"
                             sx={{ aspectRatio: '1/1' }}
                         />
