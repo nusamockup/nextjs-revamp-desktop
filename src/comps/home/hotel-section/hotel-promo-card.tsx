@@ -89,7 +89,7 @@ const HotelPromoCard = ({
                         </Text>
                     </div>
 
-                    <Button radius="md">Book now</Button>
+                    <Button radius="sm">Book Now</Button>
                 </Group>
             </Card>
         </>
