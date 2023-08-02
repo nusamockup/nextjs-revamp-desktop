@@ -23,6 +23,8 @@ import FlightSection from '../comps/home/flight-section';
 import PromoBanner from '../comps/promo-banner/promo-banner';
 import useStyles from '../styles/index.styles';
 import B2BPromoFull from 'src/comps/home/hotel-section/b2b-promo-full';
+import B2BPromoBanner from 'src/comps/home/b2b-promo-banner';
+import B2BPromoLight from 'src/comps/home/hotel-section/b2b-promo-light';
 
 const Home = () => {
     const { classes } = useStyles();
@@ -103,8 +105,9 @@ const Home = () => {
                 <WhyChoose />
                 <MobileBanner />
                 <Faqs />
-                <B2BPromoFull />
+                <B2BPromoLight />
             </Container>
+            {/* <B2BPromoBanner /> */}
         </>
     );
 };
