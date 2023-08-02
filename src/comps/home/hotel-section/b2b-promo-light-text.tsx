@@ -23,9 +23,9 @@ const useStyles = createStyles((theme) => ({
 
     title: {
         color: '#000',
-        fontWeight: 900,
+        fontWeight: 600,
         lineHeight: 1.05,
-        fontSize: rem(28),
+        fontSize: rem(24),
     },
 
     highlight: {
@@ -75,7 +75,7 @@ function B2BPromoLightText() {
                                 technology platform for travel agents.
                                 <strong>
                                     {' '}
-                                    Join us Now and get Special Rate.
+                                    Join Us Now and Get Special Rate.
                                 </strong>
                             </Text>
 
@@ -84,6 +84,7 @@ function B2BPromoLightText() {
                                     className={classes.control}
                                     variant="white"
                                     size="sm"
+                                    mr={20}
                                 >
                                     Login / Register
                                 </Button>
