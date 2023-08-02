@@ -15,16 +15,12 @@ import AirlineLogo from 'src/comps/home/airline-logo';
 import Faqs from 'src/comps/home/faqs';
 import HomeSearch from 'src/comps/home/home-search';
 import HotelSection from 'src/comps/home/hotel-section';
-import HotelPromo from 'src/comps/home/hotel-section/hotel-promo';
-import HotelPromoFull from 'src/comps/home/hotel-section/b2b-promo-full';
+import B2BPromoLightText from 'src/comps/home/hotel-section/b2b-promo-light-text';
 import MobileBanner from 'src/comps/home/mobile-banner';
 import WhyChoose from 'src/comps/home/why-choose';
 import FlightSection from '../comps/home/flight-section';
 import PromoBanner from '../comps/promo-banner/promo-banner';
 import useStyles from '../styles/index.styles';
-import B2BPromoFull from 'src/comps/home/hotel-section/b2b-promo-full';
-import B2BPromoBanner from 'src/comps/home/b2b-promo-banner';
-import B2BPromoLight from 'src/comps/home/hotel-section/b2b-promo-light';
 
 const Home = () => {
     const { classes } = useStyles();
@@ -105,7 +101,7 @@ const Home = () => {
                 <WhyChoose />
                 <MobileBanner />
                 <Faqs />
-                <B2BPromoLight />
+                <B2BPromoLightText />
             </Container>
             {/* <B2BPromoBanner /> */}
         </>
