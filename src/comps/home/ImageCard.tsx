@@ -114,7 +114,10 @@ export function ImageCard({
         >
             <Box
                 className={classes.image}
-                sx={{ backgroundImage: `url(${image})` }}
+                sx={{
+                    backgroundImage: `url(${image})`,
+                    backgroundPosition: 'center',
+                }}
             />
             <Box className={classes.overlay} />
 

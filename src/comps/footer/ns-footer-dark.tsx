@@ -64,7 +64,8 @@ export function NsFooterDark() {
         >
             <Tooltip label={bankitem.name} offset={13} withArrow arrowSize={8}>
                 <img
-                    src={bankitem.img}
+                    // src={bankitem.img}
+                    src={`/img/bank/${bankitem.img}`}
                     alt="bank logo"
                     style={{
                         height: '14px!important',

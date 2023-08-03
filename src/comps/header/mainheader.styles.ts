@@ -57,8 +57,9 @@ export default createStyles((theme) => ({
                     : theme.colors.gray[0],
         },
         '&.active': {
-            color: '#0A73B7',
-            // fontWeight: 600,
+            color: '#f37721',
+            // color: '#0A73B7',
+            fontWeight: 600,
         },
     },
 

@@ -4,6 +4,7 @@ import {
     Box,
     Button,
     Chip,
+    Container,
     Divider,
     Flex,
     Group,
@@ -11,6 +12,7 @@ import {
     InputBase,
     NumberInput,
     NumberInputHandlers,
+    Paper,
     Popover,
     Radio,
     rem,
@@ -46,14 +48,14 @@ export const Flight = () => {
     return (
         <>
             <Box
-                mt={32}
                 sx={{
-                    padding: '40px',
+                    paddingTop: 30,
                     width: '100%',
-                    backgroundColor: '#010b217d',
-                    borderRadius: '6px',
+                    zIndex: 2,
+                    position: 'relative',
                 }}
             >
+                {/* <Container size="lg"> */}
                 <Radio.Group
                     value={section}
                     onChange={(value: 'oneway' | 'roundtrip') =>
@@ -79,350 +81,369 @@ export const Flight = () => {
                         />
                     </Group>
                 </Radio.Group>
-                <Box maw={`calc(100% + 32px)`} mt={16}>
-                    <Flex className={classes.widgetWrapper}>
-                        <Box sx={{ flexGrow: 1 }}>
-                            <Flex>
-                                <Box sx={{ flexGrow: 1 }}>
-                                    <Autocomplete
-                                        label="Flying from"
-                                        placeholder="City name"
-                                        data={[
-                                            'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
-                                            'JKT : All Airports, Jakarta Indonesia',
-                                            'CGK : Soekarno Hatta, Jakarta Indonesia',
-                                            'HLP : Halim Perdana Kusuma, Jakarta Indonesia',
-                                            'SRG : Ahmad Yani, Semarang Central Java Indonesia',
-                                        ]}
-                                        classNames={{
-                                            root: classes.widgetRootAutocomplete,
-                                            input: classes.widgetInput,
-                                            label: classes.widgetLabel,
-                                            dropdown:
-                                                classes.dropdownAutocomplete,
-                                        }}
-                                        withinPortal={false}
-                                    />
-                                </Box>
-                                <Box sx={{ flexGrow: 1 }}>
-                                    <Autocomplete
-                                        label="Going to"
-                                        placeholder="City name"
-                                        classNames={{
-                                            root: classes.widgetRootAutocomplete,
-                                            input: classes.widgetInput,
-                                            label: classes.widgetLabel,
-                                            dropdown:
-                                                classes.dropdownAutocomplete,
-                                        }}
-                                        data={[
-                                            'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
-                                            'JKT : All Airports, Jakarta Indonesia',
-                                            'CGK : Soekarno Hatta, Jakarta Indonesia',
-                                            'HLP : Halim Perdana Kusuma, Jakarta Indonesia',
-                                            'SRG : Ahmad Yani, Semarang Central Java Indonesia',
-                                        ]}
-                                    />
-                                </Box>
-                            </Flex>
-                        </Box>
-                        <Box sx={{ minWidth: '140px' }}>
-                            <DatePickerInput
-                                popoverProps={{
-                                    withinPortal: true,
-                                    shadow: 'lg',
-                                }}
-                                numberOfColumns={2}
-                                valueFormat="DD MMM YYYY"
-                                label="Departing"
-                                placeholder="Add Date"
-                                classNames={{
-                                    input: classes.widgetInput,
-                                    label: classes.widgetLabel,
-                                    rightSection: classes.rightSection,
-                                }}
-                                clearable={true}
-                                id="departing"
-                            />
-                        </Box>
-                        <Box
-                            sx={{ minWidth: '140px' }}
-                            className={cx(classes.hide, {
-                                [classes.show]: section === 'roundtrip',
-                            })}
-                        >
-                            <DatePickerInput
-                                popoverProps={{
-                                    withinPortal: true,
-                                    shadow: 'lg',
-                                }}
-                                numberOfColumns={2}
-                                valueFormat="DD MMM YYYY"
-                                label="Returning"
-                                placeholder="Add Date"
-                                classNames={{
-                                    input: classes.widgetInput,
-                                    label: classes.widgetLabel,
-                                    rightSection: classes.rightSection,
-                                }}
-                                clearable={true}
-                                id="returning"
-                            />
-                        </Box>
-                        <Box sx={{ minWidth: '186px' }}>
-                            <Popover
-                                width={300}
-                                position="bottom"
-                                shadow="md"
-                                opened={opened}
-                                onChange={paxOpened}
-                            >
-                                <Popover.Target>
-                                    <InputBase
-                                        classNames={{
-                                            input: classes.widgetInput,
-                                            label: classes.widgetLabel,
-                                        }}
-                                        component="button"
-                                        label="Passengers & Class"
-                                        sx={{ cursor: 'pointer' }}
-                                        onClick={() => paxOpened((o) => !o)}
-                                    >
-                                        <Input.Placeholder
-                                            sx={{
-                                                color: '#000',
-                                                cursor: 'pointer',
+                <Paper shadow="lg">
+                    <Box maw={`calc(100% + 32px)`} mt={16}>
+                        <Flex className={classes.widgetWrapper}>
+                            <Box sx={{ flexGrow: 1 }}>
+                                <Flex>
+                                    <Box sx={{ flexGrow: 1 }}>
+                                        <Autocomplete
+                                            label="Flying from"
+                                            placeholder="City name"
+                                            data={[
+                                                'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
+                                                'JKT : All Airports, Jakarta Indonesia',
+                                                'CGK : Soekarno Hatta, Jakarta Indonesia',
+                                                'HLP : Halim Perdana Kusuma, Jakarta Indonesia',
+                                                'SRG : Ahmad Yani, Semarang Central Java Indonesia',
+                                            ]}
+                                            classNames={{
+                                                root: classes.widgetRootAutocomplete,
+                                                input: classes.widgetInput,
+                                                label: classes.widgetLabel,
+                                                dropdown:
+                                                    classes.dropdownAutocomplete,
                                             }}
+                                            withinPortal={false}
+                                        />
+                                    </Box>
+                                    <Box sx={{ flexGrow: 1 }}>
+                                        <Autocomplete
+                                            label="Going to"
+                                            placeholder="City name"
+                                            classNames={{
+                                                root: classes.widgetRootAutocomplete,
+                                                input: classes.widgetInput,
+                                                label: classes.widgetLabel,
+                                                dropdown:
+                                                    classes.dropdownAutocomplete,
+                                            }}
+                                            data={[
+                                                'DPS : Ngurah Rai Intl, Denpasar Bali Indonesia',
+                                                'JKT : All Airports, Jakarta Indonesia',
+                                                'CGK : Soekarno Hatta, Jakarta Indonesia',
+                                                'HLP : Halim Perdana Kusuma, Jakarta Indonesia',
+                                                'SRG : Ahmad Yani, Semarang Central Java Indonesia',
+                                            ]}
+                                        />
+                                    </Box>
+                                </Flex>
+                            </Box>
+                            <Box sx={{ minWidth: '140px' }}>
+                                <DatePickerInput
+                                    popoverProps={{
+                                        withinPortal: true,
+                                        shadow: 'lg',
+                                    }}
+                                    numberOfColumns={2}
+                                    valueFormat="DD MMM YYYY"
+                                    label="Departing"
+                                    placeholder="Add Date"
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                        rightSection: classes.rightSection,
+                                    }}
+                                    clearable={true}
+                                    id="departing"
+                                />
+                            </Box>
+                            <Box
+                                sx={{ minWidth: '140px' }}
+                                className={cx(classes.hide, {
+                                    [classes.show]: section === 'roundtrip',
+                                })}
+                            >
+                                <DatePickerInput
+                                    popoverProps={{
+                                        withinPortal: true,
+                                        shadow: 'lg',
+                                    }}
+                                    numberOfColumns={2}
+                                    valueFormat="DD MMM YYYY"
+                                    label="Returning"
+                                    placeholder="Add Date"
+                                    classNames={{
+                                        input: classes.widgetInput,
+                                        label: classes.widgetLabel,
+                                        rightSection: classes.rightSection,
+                                    }}
+                                    clearable={true}
+                                    id="returning"
+                                />
+                            </Box>
+                            <Box sx={{ minWidth: '186px' }}>
+                                <Popover
+                                    width={300}
+                                    position="bottom"
+                                    shadow="md"
+                                    opened={opened}
+                                    onChange={paxOpened}
+                                >
+                                    <Popover.Target>
+                                        <InputBase
+                                            classNames={{
+                                                input: classes.widgetInput,
+                                                label: classes.widgetLabel,
+                                            }}
+                                            component="button"
+                                            label="Passengers & Class"
+                                            sx={{ cursor: 'pointer' }}
+                                            onClick={() => paxOpened((o) => !o)}
                                         >
-                                            {totalpax} Passenger
-                                            {totalpax > 1 ? 's' : ''},{' '}
-                                            {classvalue}
-                                        </Input.Placeholder>
-                                    </InputBase>
-                                </Popover.Target>
-                                <Popover.Dropdown sx={{ color: '#000' }}>
-                                    <Stack>
-                                        <Group>
-                                            <Stack
-                                                spacing={0}
-                                                sx={{ flex: '1' }}
+                                            <Input.Placeholder
+                                                sx={{
+                                                    color: '#000',
+                                                    cursor: 'pointer',
+                                                }}
                                             >
-                                                <Text fw={500} fz={14}>
-                                                    Adults
-                                                </Text>
-                                                <Text c="dimmed" fz="12px">
-                                                    Ages 18 or above
-                                                </Text>
-                                            </Stack>
-                                            <Group spacing={5}>
-                                                <ActionIcon
-                                                    size={36}
-                                                    variant="light"
-                                                    radius="xl"
-                                                    onClick={() =>
-                                                        handlerAdult.current.decrement()
-                                                    }
+                                                {totalpax} Passenger
+                                                {totalpax > 1 ? 's' : ''},{' '}
+                                                {classvalue}
+                                            </Input.Placeholder>
+                                        </InputBase>
+                                    </Popover.Target>
+                                    <Popover.Dropdown sx={{ color: '#000' }}>
+                                        <Stack>
+                                            <Group>
+                                                <Stack
+                                                    spacing={0}
+                                                    sx={{ flex: '1' }}
                                                 >
-                                                    –
-                                                </ActionIcon>
+                                                    <Text fw={500} fz={14}>
+                                                        Adults
+                                                    </Text>
+                                                    <Text c="dimmed" fz="12px">
+                                                        Ages 18 or above
+                                                    </Text>
+                                                </Stack>
+                                                <Group spacing={5}>
+                                                    <ActionIcon
+                                                        size={36}
+                                                        variant="light"
+                                                        radius="xl"
+                                                        onClick={() =>
+                                                            handlerAdult.current.decrement()
+                                                        }
+                                                    >
+                                                        –
+                                                    </ActionIcon>
 
-                                                <NumberInput
-                                                    hideControls
-                                                    value={adultvalue}
-                                                    onChange={(aval) =>
-                                                        setAdultValue(aval)
-                                                    }
-                                                    handlersRef={handlerAdult}
-                                                    readOnly
-                                                    variant="unstyled"
-                                                    max={7}
-                                                    min={1}
-                                                    step={1}
-                                                    styles={{
-                                                        input: {
-                                                            width: rem(54),
-                                                            textAlign: 'center',
-                                                            fontWeight: 'bold',
-                                                        },
-                                                    }}
-                                                />
+                                                    <NumberInput
+                                                        hideControls
+                                                        value={adultvalue}
+                                                        onChange={(aval) =>
+                                                            setAdultValue(aval)
+                                                        }
+                                                        handlersRef={
+                                                            handlerAdult
+                                                        }
+                                                        readOnly
+                                                        variant="unstyled"
+                                                        max={7}
+                                                        min={1}
+                                                        step={1}
+                                                        styles={{
+                                                            input: {
+                                                                width: rem(54),
+                                                                textAlign:
+                                                                    'center',
+                                                                fontWeight:
+                                                                    'bold',
+                                                            },
+                                                        }}
+                                                    />
 
-                                                <ActionIcon
-                                                    size={36}
-                                                    variant="light"
-                                                    radius="xl"
-                                                    onClick={() =>
-                                                        handlerAdult.current.increment()
-                                                    }
-                                                >
-                                                    +
-                                                </ActionIcon>
+                                                    <ActionIcon
+                                                        size={36}
+                                                        variant="light"
+                                                        radius="xl"
+                                                        onClick={() =>
+                                                            handlerAdult.current.increment()
+                                                        }
+                                                    >
+                                                        +
+                                                    </ActionIcon>
+                                                </Group>
                                             </Group>
-                                        </Group>
 
-                                        <Group>
-                                            <Stack
-                                                spacing={0}
-                                                sx={{ flex: '1' }}
-                                            >
-                                                <Text fw={500} fz={14}>
-                                                    Children
-                                                </Text>
-                                                <Text c="dimmed" fz="12px">
-                                                    Ages 0-17
-                                                </Text>
-                                            </Stack>
-                                            <Group spacing={5}>
-                                                <ActionIcon
-                                                    size={36}
-                                                    variant="light"
-                                                    radius="xl"
-                                                    onClick={() =>
-                                                        handlerChild.current.decrement()
-                                                    }
+                                            <Group>
+                                                <Stack
+                                                    spacing={0}
+                                                    sx={{ flex: '1' }}
                                                 >
-                                                    –
-                                                </ActionIcon>
+                                                    <Text fw={500} fz={14}>
+                                                        Children
+                                                    </Text>
+                                                    <Text c="dimmed" fz="12px">
+                                                        Ages 0-17
+                                                    </Text>
+                                                </Stack>
+                                                <Group spacing={5}>
+                                                    <ActionIcon
+                                                        size={36}
+                                                        variant="light"
+                                                        radius="xl"
+                                                        onClick={() =>
+                                                            handlerChild.current.decrement()
+                                                        }
+                                                    >
+                                                        –
+                                                    </ActionIcon>
 
-                                                <NumberInput
-                                                    hideControls
-                                                    value={childvalue}
-                                                    onChange={(cval) =>
-                                                        setChildValue(cval)
-                                                    }
-                                                    handlersRef={handlerChild}
-                                                    readOnly
-                                                    variant="unstyled"
-                                                    max={10}
-                                                    min={0}
-                                                    step={1}
-                                                    styles={{
-                                                        input: {
-                                                            width: rem(54),
-                                                            textAlign: 'center',
-                                                            fontWeight: 'bold',
-                                                        },
-                                                    }}
-                                                />
+                                                    <NumberInput
+                                                        hideControls
+                                                        value={childvalue}
+                                                        onChange={(cval) =>
+                                                            setChildValue(cval)
+                                                        }
+                                                        handlersRef={
+                                                            handlerChild
+                                                        }
+                                                        readOnly
+                                                        variant="unstyled"
+                                                        max={10}
+                                                        min={0}
+                                                        step={1}
+                                                        styles={{
+                                                            input: {
+                                                                width: rem(54),
+                                                                textAlign:
+                                                                    'center',
+                                                                fontWeight:
+                                                                    'bold',
+                                                            },
+                                                        }}
+                                                    />
 
-                                                <ActionIcon
-                                                    size={36}
-                                                    variant="light"
-                                                    radius="xl"
-                                                    onClick={() =>
-                                                        handlerChild.current.increment()
-                                                    }
-                                                >
-                                                    +
-                                                </ActionIcon>
+                                                    <ActionIcon
+                                                        size={36}
+                                                        variant="light"
+                                                        radius="xl"
+                                                        onClick={() =>
+                                                            handlerChild.current.increment()
+                                                        }
+                                                    >
+                                                        +
+                                                    </ActionIcon>
+                                                </Group>
                                             </Group>
-                                        </Group>
 
-                                        <Group>
-                                            <Stack
-                                                spacing={0}
-                                                sx={{ flex: '1' }}
-                                            >
-                                                <Text fw={500} fz={14}>
-                                                    Infants
-                                                </Text>
-                                                <Text c="dimmed" fz="12px">
-                                                    Below 2 years
-                                                </Text>
-                                            </Stack>
-                                            <Group spacing={5}>
-                                                <ActionIcon
-                                                    size={36}
-                                                    variant="light"
-                                                    radius="xl"
-                                                    onClick={() =>
-                                                        handlerInfant.current.decrement()
-                                                    }
+                                            <Group>
+                                                <Stack
+                                                    spacing={0}
+                                                    sx={{ flex: '1' }}
                                                 >
-                                                    –
-                                                </ActionIcon>
+                                                    <Text fw={500} fz={14}>
+                                                        Infants
+                                                    </Text>
+                                                    <Text c="dimmed" fz="12px">
+                                                        Below 2 years
+                                                    </Text>
+                                                </Stack>
+                                                <Group spacing={5}>
+                                                    <ActionIcon
+                                                        size={36}
+                                                        variant="light"
+                                                        radius="xl"
+                                                        onClick={() =>
+                                                            handlerInfant.current.decrement()
+                                                        }
+                                                    >
+                                                        –
+                                                    </ActionIcon>
 
-                                                <NumberInput
-                                                    hideControls
-                                                    value={infantvalue}
-                                                    onChange={(ival) =>
-                                                        setInfantValue(ival)
-                                                    }
-                                                    handlersRef={handlerInfant}
-                                                    readOnly
-                                                    variant="unstyled"
-                                                    max={10}
-                                                    min={0}
-                                                    step={1}
-                                                    styles={{
-                                                        input: {
-                                                            width: rem(54),
-                                                            textAlign: 'center',
-                                                            fontWeight: 'bold',
-                                                        },
-                                                    }}
-                                                />
+                                                    <NumberInput
+                                                        hideControls
+                                                        value={infantvalue}
+                                                        onChange={(ival) =>
+                                                            setInfantValue(ival)
+                                                        }
+                                                        handlersRef={
+                                                            handlerInfant
+                                                        }
+                                                        readOnly
+                                                        variant="unstyled"
+                                                        max={10}
+                                                        min={0}
+                                                        step={1}
+                                                        styles={{
+                                                            input: {
+                                                                width: rem(54),
+                                                                textAlign:
+                                                                    'center',
+                                                                fontWeight:
+                                                                    'bold',
+                                                            },
+                                                        }}
+                                                    />
 
-                                                <ActionIcon
-                                                    size={36}
-                                                    variant="light"
-                                                    radius="xl"
-                                                    onClick={() =>
-                                                        handlerInfant.current.increment()
-                                                    }
-                                                >
-                                                    +
-                                                </ActionIcon>
+                                                    <ActionIcon
+                                                        size={36}
+                                                        variant="light"
+                                                        radius="xl"
+                                                        onClick={() =>
+                                                            handlerInfant.current.increment()
+                                                        }
+                                                    >
+                                                        +
+                                                    </ActionIcon>
+                                                </Group>
                                             </Group>
-                                        </Group>
-                                    </Stack>
-                                    {/* <Space h="md" /> */}
-                                    <Chip.Group
-                                        multiple={false}
-                                        value={classvalue}
-                                        onChange={setClassValue}
-                                    >
-                                        <Group grow>
-                                            <Chip
-                                                value="Economy"
-                                                radius="sm"
-                                                className={classes.classChip}
-                                            >
-                                                Economy
-                                            </Chip>
-                                            <Chip
-                                                value="Business"
-                                                radius="sm"
-                                                className={classes.classChip}
-                                            >
-                                                Business
-                                            </Chip>
-                                        </Group>
-                                    </Chip.Group>
-                                    <Divider
-                                        my="sm"
-                                        sx={{ borderColor: '#ececec' }}
-                                    />
-                                    <Flex justify="flex-end">
-                                        <Button
-                                            size="xs"
-                                            onClick={() => paxOpened(false)}
+                                        </Stack>
+                                        {/* <Space h="md" /> */}
+                                        <Chip.Group
+                                            multiple={false}
+                                            value={classvalue}
+                                            onChange={setClassValue}
                                         >
-                                            Done
-                                        </Button>
-                                    </Flex>
-                                </Popover.Dropdown>
-                            </Popover>
-                        </Box>
-                        <Box>
-                            <Button className={classes.widgetButton}>
-                                <FiSearch size={18} />
-                                <Space w="5px" />
-                                Search
-                            </Button>
-                        </Box>
-                    </Flex>
-                </Box>
+                                            <Group grow>
+                                                <Chip
+                                                    value="Economy"
+                                                    radius="sm"
+                                                    className={
+                                                        classes.classChip
+                                                    }
+                                                >
+                                                    Economy
+                                                </Chip>
+                                                <Chip
+                                                    value="Business"
+                                                    radius="sm"
+                                                    className={
+                                                        classes.classChip
+                                                    }
+                                                >
+                                                    Business
+                                                </Chip>
+                                            </Group>
+                                        </Chip.Group>
+                                        <Divider
+                                            my="sm"
+                                            sx={{ borderColor: '#ececec' }}
+                                        />
+                                        <Flex justify="flex-end">
+                                            <Button
+                                                size="xs"
+                                                onClick={() => paxOpened(false)}
+                                            >
+                                                Done
+                                            </Button>
+                                        </Flex>
+                                    </Popover.Dropdown>
+                                </Popover>
+                            </Box>
+                            <Box>
+                                <Button className={classes.widgetButton}>
+                                    <FiSearch size={18} />
+                                    <Space w="5px" />
+                                    Search
+                                </Button>
+                            </Box>
+                        </Flex>
+                    </Box>
+                </Paper>
+                {/* </Container> */}
             </Box>
         </>
     );

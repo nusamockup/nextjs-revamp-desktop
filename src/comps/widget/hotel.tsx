@@ -1,8 +1,8 @@
 import {
     ActionIcon,
     Autocomplete,
+    Box,
     Button,
-    Container,
     Divider,
     Flex,
     Group,
@@ -10,20 +10,19 @@ import {
     InputBase,
     NumberInput,
     NumberInputHandlers,
+    Paper,
     Popover,
-    Select,
+    rem,
     Space,
     Stack,
     Text,
-    rem,
-    Box,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
 import { useCounter } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import ChildAge from './child-age';
-import useStyles from './search-widget-home.styles';
+import useStyles from './search-widget.styles';
 
 export const Hotel = () => {
     const { classes } = useStyles();
@@ -55,288 +54,303 @@ export const Hotel = () => {
     return (
         <>
             <Box
-                mt={68}
+                mt={28}
                 sx={{
-                    padding: '80px',
                     width: '100%',
-                    backgroundColor: '#010b217d',
-                    borderRadius: '6px',
                 }}
             >
-                {/* <Container size="lg" maw={`calc(100% + 32px)`} mx="-16px" mt={68}> */}
-                <Flex className={classes.widgetWrapper}>
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Autocomplete
-                            label="Hotel location"
-                            placeholder="City or location"
-                            classNames={{
-                                root: classes.widgetRootAutocomplete,
-                                input: classes.widgetInput,
-                                label: classes.widgetLabel,
-                                dropdown: classes.dropdownAutocomplete,
-                            }}
-                            data={[
-                                'Denpasar, Bali Indonesia',
-                                'Dengkil, Selangor Malaysia',
-                                'Malioboro, Yogyakarta Indonesia',
-                                'Malang, East Java Indonesia',
-                                'Malacca City, Malacca Malaysia',
-                            ]}
-                        />
-                    </Box>
+                <Text c="#FFF" fz={16} fw={600} mt="-2px" mb={15} lts={0.75}>
+                    Enjoy a Luxury Stay with an Affordable Hotel Price.
+                </Text>
 
-                    <Box sx={{ minWidth: '220px' }}>
-                        <DatePickerInput
-                            type="range"
-                            value={value}
-                            onChange={setValue}
-                            popoverProps={{
-                                withinPortal: true,
-                                shadow: 'lg',
-                            }}
-                            numberOfColumns={2}
-                            valueFormat="DD MMM YYYY"
-                            label="When"
-                            placeholder="Add Date"
-                            classNames={{
-                                input: classes.widgetInput,
-                                label: classes.widgetLabel,
-                                rightSection: classes.rightSection,
-                            }}
-                            clearable={true}
-                            id="checkindate"
-                        />
-                    </Box>
+                <Paper shadow="lg">
+                    <Flex className={classes.widgetWrapper}>
+                        <Box sx={{ flexGrow: 1 }}>
+                            <Autocomplete
+                                label="Hotel location"
+                                placeholder="City or location"
+                                classNames={{
+                                    root: classes.widgetRootAutocomplete,
+                                    input: classes.widgetInput,
+                                    label: classes.widgetLabel,
+                                    dropdown: classes.dropdownAutocomplete,
+                                }}
+                                data={[
+                                    'Denpasar, Bali Indonesia',
+                                    'Dengkil, Selangor Malaysia',
+                                    'Malioboro, Yogyakarta Indonesia',
+                                    'Malang, East Java Indonesia',
+                                    'Malacca City, Malacca Malaysia',
+                                ]}
+                            />
+                        </Box>
 
-                    <Box sx={{ minWidth: '220px' }}>
-                        <Popover
-                            width={300}
-                            position="bottom"
-                            shadow="md"
-                            opened={opened}
-                            onChange={guestOpened}
-                        >
-                            <Popover.Target>
-                                <InputBase
-                                    classNames={{
-                                        input: classes.widgetInput,
-                                        label: classes.widgetLabel,
-                                    }}
-                                    component="button"
-                                    label="Rooms & Guest"
-                                    sx={{ cursor: 'pointer' }}
-                                    onClick={() => guestOpened((o) => !o)}
-                                >
-                                    <Input.Placeholder
-                                        sx={{
-                                            color: '#000',
-                                            cursor: 'pointer',
+                        <Box sx={{ minWidth: '220px' }}>
+                            <DatePickerInput
+                                type="range"
+                                value={value}
+                                onChange={setValue}
+                                popoverProps={{
+                                    withinPortal: true,
+                                    shadow: 'lg',
+                                }}
+                                numberOfColumns={2}
+                                valueFormat="DD MMM YYYY"
+                                label="When"
+                                placeholder="Add Date"
+                                classNames={{
+                                    input: classes.widgetInput,
+                                    label: classes.widgetLabel,
+                                    rightSection: classes.rightSection,
+                                }}
+                                clearable={true}
+                                id="checkindate"
+                            />
+                        </Box>
+
+                        <Box sx={{ minWidth: '220px' }}>
+                            <Popover
+                                width={300}
+                                position="bottom"
+                                shadow="md"
+                                opened={opened}
+                                onChange={guestOpened}
+                            >
+                                <Popover.Target>
+                                    <InputBase
+                                        classNames={{
+                                            input: classes.widgetInput,
+                                            label: classes.widgetLabel,
                                         }}
+                                        component="button"
+                                        label="Rooms & Guest"
+                                        sx={{ cursor: 'pointer' }}
+                                        onClick={() => guestOpened((o) => !o)}
                                     >
-                                        {roomvalue} Room
-                                        {Number(roomvalue) > 1 ? 's' : ''},{' '}
-                                        {adultvalue} Adult
-                                        {Number(adultvalue) > 1 ? 's' : ''}{' '}
-                                        {childvalue} Children
-                                    </Input.Placeholder>
-                                </InputBase>
-                            </Popover.Target>
-                            <Popover.Dropdown sx={{ color: '#000' }}>
-                                <Stack>
-                                    <Group>
-                                        <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text fw={500} fz={14}>
-                                                Rooms
-                                            </Text>
-                                            <Text c="dimmed" fz="12px">
-                                                Number of rooms
-                                            </Text>
-                                        </Stack>
-                                        <Group spacing={5}>
-                                            <ActionIcon
-                                                size={36}
-                                                variant="light"
-                                                radius="xl"
-                                                onClick={() =>
-                                                    handlerRoom.current.decrement()
-                                                }
+                                        <Input.Placeholder
+                                            sx={{
+                                                color: '#000',
+                                                cursor: 'pointer',
+                                            }}
+                                        >
+                                            {roomvalue} Room
+                                            {Number(roomvalue) > 1
+                                                ? 's'
+                                                : ''}, {adultvalue} Adult
+                                            {Number(adultvalue) > 1
+                                                ? 's'
+                                                : ''}{' '}
+                                            {childvalue} Children
+                                        </Input.Placeholder>
+                                    </InputBase>
+                                </Popover.Target>
+                                <Popover.Dropdown sx={{ color: '#000' }}>
+                                    <Stack>
+                                        <Group>
+                                            <Stack
+                                                spacing={0}
+                                                sx={{ flex: '1' }}
                                             >
-                                                –
-                                            </ActionIcon>
+                                                <Text fw={500} fz={14}>
+                                                    Rooms
+                                                </Text>
+                                                <Text c="dimmed" fz="12px">
+                                                    Number of rooms
+                                                </Text>
+                                            </Stack>
+                                            <Group spacing={5}>
+                                                <ActionIcon
+                                                    size={36}
+                                                    variant="light"
+                                                    radius="xl"
+                                                    onClick={() =>
+                                                        handlerRoom.current.decrement()
+                                                    }
+                                                >
+                                                    –
+                                                </ActionIcon>
 
-                                            <NumberInput
-                                                hideControls
-                                                value={roomvalue}
-                                                onChange={(rval) =>
-                                                    setRoomValue(rval)
-                                                }
-                                                handlersRef={handlerRoom}
-                                                readOnly
-                                                variant="unstyled"
-                                                max={7}
-                                                min={1}
-                                                step={1}
-                                                styles={{
-                                                    input: {
-                                                        width: rem(54),
-                                                        textAlign: 'center',
-                                                        fontWeight: 'bold',
-                                                    },
-                                                }}
-                                            />
+                                                <NumberInput
+                                                    hideControls
+                                                    value={roomvalue}
+                                                    onChange={(rval) =>
+                                                        setRoomValue(rval)
+                                                    }
+                                                    handlersRef={handlerRoom}
+                                                    readOnly
+                                                    variant="unstyled"
+                                                    max={7}
+                                                    min={1}
+                                                    step={1}
+                                                    styles={{
+                                                        input: {
+                                                            width: rem(54),
+                                                            textAlign: 'center',
+                                                            fontWeight: 'bold',
+                                                        },
+                                                    }}
+                                                />
 
-                                            <ActionIcon
-                                                size={36}
-                                                variant="light"
-                                                radius="xl"
-                                                onClick={() =>
-                                                    handlerRoom.current.increment()
-                                                }
-                                            >
-                                                +
-                                            </ActionIcon>
+                                                <ActionIcon
+                                                    size={36}
+                                                    variant="light"
+                                                    radius="xl"
+                                                    onClick={() =>
+                                                        handlerRoom.current.increment()
+                                                    }
+                                                >
+                                                    +
+                                                </ActionIcon>
+                                            </Group>
                                         </Group>
-                                    </Group>
 
-                                    <Group>
-                                        <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text fw={500} fz={14}>
-                                                Adults
-                                            </Text>
-                                            <Text c="dimmed" fz="12px">
-                                                Ages 18 or above
-                                            </Text>
-                                        </Stack>
-                                        <Group spacing={5}>
-                                            <ActionIcon
-                                                size={36}
-                                                variant="light"
-                                                radius="xl"
-                                                onClick={() =>
-                                                    handlerAdult.current.decrement()
-                                                }
+                                        <Group>
+                                            <Stack
+                                                spacing={0}
+                                                sx={{ flex: '1' }}
                                             >
-                                                –
-                                            </ActionIcon>
+                                                <Text fw={500} fz={14}>
+                                                    Adults
+                                                </Text>
+                                                <Text c="dimmed" fz="12px">
+                                                    Ages 18 or above
+                                                </Text>
+                                            </Stack>
+                                            <Group spacing={5}>
+                                                <ActionIcon
+                                                    size={36}
+                                                    variant="light"
+                                                    radius="xl"
+                                                    onClick={() =>
+                                                        handlerAdult.current.decrement()
+                                                    }
+                                                >
+                                                    –
+                                                </ActionIcon>
 
-                                            <NumberInput
-                                                hideControls
-                                                value={adultvalue}
-                                                onChange={(aval) =>
-                                                    setAdultValue(aval)
-                                                }
-                                                handlersRef={handlerAdult}
-                                                readOnly
-                                                variant="unstyled"
-                                                max={7}
-                                                min={1}
-                                                step={1}
-                                                styles={{
-                                                    input: {
-                                                        width: rem(54),
-                                                        textAlign: 'center',
-                                                        fontWeight: 'bold',
-                                                    },
-                                                }}
-                                            />
+                                                <NumberInput
+                                                    hideControls
+                                                    value={adultvalue}
+                                                    onChange={(aval) =>
+                                                        setAdultValue(aval)
+                                                    }
+                                                    handlersRef={handlerAdult}
+                                                    readOnly
+                                                    variant="unstyled"
+                                                    max={7}
+                                                    min={1}
+                                                    step={1}
+                                                    styles={{
+                                                        input: {
+                                                            width: rem(54),
+                                                            textAlign: 'center',
+                                                            fontWeight: 'bold',
+                                                        },
+                                                    }}
+                                                />
 
-                                            <ActionIcon
-                                                size={36}
-                                                variant="light"
-                                                radius="xl"
-                                                onClick={() =>
-                                                    handlerAdult.current.increment()
-                                                }
-                                            >
-                                                +
-                                            </ActionIcon>
+                                                <ActionIcon
+                                                    size={36}
+                                                    variant="light"
+                                                    radius="xl"
+                                                    onClick={() =>
+                                                        handlerAdult.current.increment()
+                                                    }
+                                                >
+                                                    +
+                                                </ActionIcon>
+                                            </Group>
                                         </Group>
-                                    </Group>
 
-                                    <Group>
-                                        <Stack spacing={0} sx={{ flex: '1' }}>
-                                            <Text fw={500} fz={14}>
-                                                Children
-                                            </Text>
-                                            <Text c="dimmed" fz="12px">
-                                                Ages 0-17
-                                            </Text>
-                                        </Stack>
-                                        <Group spacing={5}>
-                                            <ActionIcon
-                                                size={36}
-                                                variant="light"
-                                                radius="xl"
-                                                onClick={() => {
-                                                    decrement();
-                                                    handlerChild.current.decrement();
-                                                }}
+                                        <Group>
+                                            <Stack
+                                                spacing={0}
+                                                sx={{ flex: '1' }}
                                             >
-                                                –
-                                            </ActionIcon>
+                                                <Text fw={500} fz={14}>
+                                                    Children
+                                                </Text>
+                                                <Text c="dimmed" fz="12px">
+                                                    Ages 0-17
+                                                </Text>
+                                            </Stack>
+                                            <Group spacing={5}>
+                                                <ActionIcon
+                                                    size={36}
+                                                    variant="light"
+                                                    radius="xl"
+                                                    onClick={() => {
+                                                        decrement();
+                                                        handlerChild.current.decrement();
+                                                    }}
+                                                >
+                                                    –
+                                                </ActionIcon>
 
-                                            <NumberInput
-                                                hideControls
-                                                value={childvalue}
-                                                onChange={(cval) =>
-                                                    setChildValue(cval)
-                                                }
-                                                handlersRef={handlerChild}
-                                                readOnly
-                                                variant="unstyled"
-                                                max={10}
-                                                min={0}
-                                                step={1}
-                                                styles={{
-                                                    input: {
-                                                        width: rem(54),
-                                                        textAlign: 'center',
-                                                        fontWeight: 'bold',
-                                                    },
-                                                }}
-                                            />
+                                                <NumberInput
+                                                    hideControls
+                                                    value={childvalue}
+                                                    onChange={(cval) =>
+                                                        setChildValue(cval)
+                                                    }
+                                                    handlersRef={handlerChild}
+                                                    readOnly
+                                                    variant="unstyled"
+                                                    max={10}
+                                                    min={0}
+                                                    step={1}
+                                                    styles={{
+                                                        input: {
+                                                            width: rem(54),
+                                                            textAlign: 'center',
+                                                            fontWeight: 'bold',
+                                                        },
+                                                    }}
+                                                />
 
-                                            <ActionIcon
-                                                size={36}
-                                                variant="light"
-                                                radius="xl"
-                                                onClick={() => {
-                                                    increment();
-                                                    handlerChild.current.increment();
-                                                }}
-                                            >
-                                                +
-                                            </ActionIcon>
+                                                <ActionIcon
+                                                    size={36}
+                                                    variant="light"
+                                                    radius="xl"
+                                                    onClick={() => {
+                                                        increment();
+                                                        handlerChild.current.increment();
+                                                    }}
+                                                >
+                                                    +
+                                                </ActionIcon>
+                                            </Group>
                                         </Group>
-                                    </Group>
-                                </Stack>
-                                <Space h="md" />
+                                    </Stack>
+                                    <Space h="md" />
 
-                                <Stack spacing="5px">{childAgeInputs}</Stack>
-                                <Divider
-                                    my="sm"
-                                    sx={{ borderColor: '#ececec' }}
-                                />
-                                <Flex justify="flex-end">
-                                    <Button
-                                        size="xs"
-                                        onClick={() => guestOpened(false)}
-                                    >
-                                        Done
-                                    </Button>
-                                </Flex>
-                            </Popover.Dropdown>
-                        </Popover>
-                    </Box>
-                    <Box>
-                        <Button className={classes.widgetButton}>
-                            <FiSearch size={18} />
-                            <Space w="5px" />
-                            Search
-                        </Button>
-                    </Box>
-                </Flex>
-                {/* </Container> */}
+                                    <Stack spacing="5px">
+                                        {childAgeInputs}
+                                    </Stack>
+                                    <Divider
+                                        my="sm"
+                                        sx={{ borderColor: '#ececec' }}
+                                    />
+                                    <Flex justify="flex-end">
+                                        <Button
+                                            size="xs"
+                                            onClick={() => guestOpened(false)}
+                                        >
+                                            Done
+                                        </Button>
+                                    </Flex>
+                                </Popover.Dropdown>
+                            </Popover>
+                        </Box>
+                        <Box>
+                            <Button className={classes.widgetButton}>
+                                <FiSearch size={18} />
+                                <Space w="5px" />
+                                Search
+                            </Button>
+                        </Box>
+                    </Flex>
+                </Paper>
             </Box>
         </>
     );
