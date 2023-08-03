@@ -14,7 +14,7 @@ const HotelSection = () => {
             <SectionTitle
                 title="Popular Hotels and Accommodations"
                 desc="Exploring new places and meeting strangers."
-                sectionname="Hotels"
+                // sectionname="Hotels"
             />
 
             <HotelTabs defaultValue="Jakarta" keepMounted={false}>

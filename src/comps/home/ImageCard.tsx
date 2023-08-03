@@ -1,13 +1,14 @@
 import {
-    AspectRatio,
+    Badge,
+    Box,
     Card,
-    Image,
-    Text,
     createStyles,
     getStylesRef,
+    Image,
     rem,
-    Box,
+    Text,
 } from '@ns-ui/core';
+import { rgba } from '../@ns-ui/styles/lib/theme/functions/fns/rgba/rgba';
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -22,6 +23,21 @@ const useStyles = createStyles((theme) => ({
         [`&:hover .${getStylesRef('image')}`]: {
             transform: 'scale(1.03)',
         },
+    },
+
+    sf: {
+        fontWeight: 400,
+    },
+
+    price: {
+        position: 'absolute',
+        // top: theme.spacing.xs,
+        top: 0,
+        right: 0,
+        background: 'rgba(0,0,0, .5)',
+        color: '#fff',
+        pointerEvents: 'none',
+        textTransform: 'none',
     },
 
     image: {
@@ -70,10 +86,18 @@ interface ImageCardProps {
     link: string;
     image: string;
     title: string;
+    startFrom: string;
     ratio: number;
 }
 
-export function ImageCard({ image, title, link, ratio }: ImageCardProps) {
+export function ImageCard({
+    image,
+    title,
+    link,
+    ratio,
+    startFrom,
+    ...others
+}: ImageCardProps) {
     const { classes, theme } = useStyles();
 
     return (
@@ -86,6 +110,7 @@ export function ImageCard({ image, title, link, ratio }: ImageCardProps) {
             href={link}
             target="_blank"
             sx={{ aspectRatio: `${ratio}` }}
+            {...others}
         >
             <Box
                 className={classes.image}
@@ -96,6 +121,20 @@ export function ImageCard({ image, title, link, ratio }: ImageCardProps) {
             <Box className={classes.content}>
                 <Box>
                     <Image mb={10} width={42} src="/img/icons/plane-icon.svg" />
+                    <Badge
+                        className={classes.price}
+                        size="lg"
+                        radius="sm"
+                        // variant="outline"
+                    >
+                        <Text span className={classes.sf}>
+                            Start from
+                        </Text>{' '}
+                        USD {startFrom}
+                        {/* <Text span fz={16}>
+                            USD {startFrom}
+                        </Text> */}
+                    </Badge>
                     <Text size="md" className={classes.title} weight={500}>
                         {title}
                     </Text>

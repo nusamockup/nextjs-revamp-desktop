@@ -12,6 +12,7 @@ const data = [
         location: 'Siam',
         link: '/',
         star: 3,
+        price: 169,
     },
     {
         image: '/img/hotel/hotel-2.webp',
@@ -20,6 +21,7 @@ const data = [
         location: 'Siam',
         link: '/',
         star: 5,
+        price: 169,
     },
     {
         image: '/img/hotel/hotel-3.webp',
@@ -28,6 +30,7 @@ const data = [
         location: 'Siam',
         link: '/',
         star: 5,
+        price: 169,
     },
     {
         image: '/img/hotel/hotel-4.webp',
@@ -36,6 +39,7 @@ const data = [
         location: 'Siam',
         link: '/',
         star: 4,
+        price: 169,
     },
     {
         image: '/img/hotel/hotel-5.webp',
@@ -44,6 +48,7 @@ const data = [
         location: 'Siam',
         link: '/',
         star: 2,
+        price: 169,
     },
     {
         image: '/img/hotel/hotel-6.webp',
@@ -52,6 +57,7 @@ const data = [
         location: 'Siam',
         link: '/',
         star: 3,
+        price: 169,
     },
 ];
 
@@ -67,6 +73,7 @@ const HotelBangkok = () => {
                 location={item.location}
                 link={item.link}
                 star={item.star}
+                price={item.price}
             />
         </Carousel.Slide>
     ));

@@ -6,13 +6,14 @@ import {
     Rating,
     Text,
     createStyles,
+    Group,
 } from '@ns-ui/core';
 import { FiMapPin } from 'react-icons/fi';
 
 const useStyles = createStyles((theme) => ({
     card: {
         width: '280px',
-        height: '320px',
+        minHeight: '320px',
         position: 'relative',
         backgroundColor:
             theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
@@ -36,6 +37,7 @@ interface HotelCardProps {
     city: string;
     location: string;
     star: number;
+    price: number;
 }
 
 export function HotelCard({
@@ -46,6 +48,7 @@ export function HotelCard({
     star,
     city,
     location,
+    price,
     ...others
 }: HotelCardProps &
     Omit<React.ComponentPropsWithoutRef<'div'>, keyof HotelCardProps>) {
@@ -84,6 +87,14 @@ export function HotelCard({
                     <FiMapPin size={16} /> {location}, {city}
                 </Flex>
             </Text>
+            <Group mt={20} mb={10} position="apart">
+                <Text fz="xs" c="dimmed" fw={500} sx={{ lineHeight: 1 }} mt={3}>
+                    start from
+                </Text>
+                <Text fz="md" fw={700} sx={{ lineHeight: 1 }}>
+                    USD {price}
+                </Text>
+            </Group>
         </Card>
     );
 }

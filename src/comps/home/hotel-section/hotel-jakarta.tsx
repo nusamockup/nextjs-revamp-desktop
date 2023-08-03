@@ -12,6 +12,7 @@ const jakartahotels = [
         location: 'Monas',
         link: '/',
         star: 3,
+        price: 123,
     },
     {
         image: '/img/hotel/hotel-8.webp',
@@ -20,6 +21,7 @@ const jakartahotels = [
         location: 'Monas',
         link: '/',
         star: 5,
+        price: 169,
     },
     {
         image: '/img/hotel/hotel-9.webp',
@@ -28,6 +30,7 @@ const jakartahotels = [
         location: 'Monas',
         link: '/',
         star: 5,
+        price: 144,
     },
     {
         image: '/img/hotel/hotel-10.webp',
@@ -36,6 +39,7 @@ const jakartahotels = [
         location: 'Monas',
         link: '/',
         star: 4,
+        price: 142,
     },
     {
         image: '/img/hotel/hotel-11.webp',
@@ -44,6 +48,7 @@ const jakartahotels = [
         location: 'Monas',
         link: '/',
         star: 2,
+        price: 175,
     },
     {
         image: '/img/hotel/hotel-12.webp',
@@ -52,6 +57,7 @@ const jakartahotels = [
         location: 'Monas',
         link: '/',
         star: 3,
+        price: 168,
     },
 ];
 
@@ -66,6 +72,7 @@ const HotelJakarta = () => {
                 location={item.location}
                 link={item.link}
                 star={item.star}
+                price={item.price}
             />
         </Carousel.Slide>
     ));
