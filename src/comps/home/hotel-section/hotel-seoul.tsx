@@ -97,11 +97,11 @@ const HotelSeoul = () => {
             </Carousel>
             <Group mt="md" position="right">
                 <Text size="sm" c="dimmed" component="a" href="#" weight={600}>
-                    View all hotel in Seoul
+                    View all hotels in Seoul
                 </Text>
                 <Divider orientation="vertical" />
                 <Text size="sm" c="dimmed" component="a" href="#" weight={600}>
-                    View all hotel
+                    View all hotels
                 </Text>
             </Group>
         </>

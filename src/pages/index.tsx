@@ -68,7 +68,7 @@ const Home = () => {
                         sx={{ zIndex: 2 }}
                     >
                         <Text
-                            fz={21}
+                            fz={18}
                             fw={400}
                             mt={0}
                             mb={0}
@@ -84,6 +84,12 @@ const Home = () => {
                             className={classes.animatedarrow}
                             color="#fff"
                         />
+
+                        {/* <span className={classes.scrollBtn}>
+                            <span className={classes.mouse}>
+                                <span></span>
+                            </span>
+                        </span> */}
                     </Stack>
                     <Overlay color="#000" opacity={0.6} zIndex={1} />
                 </BackgroundImage>

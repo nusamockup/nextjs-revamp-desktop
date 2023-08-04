@@ -59,7 +59,15 @@ export const Hotel = () => {
                     width: '100%',
                 }}
             >
-                <Text c="#FFF" fz={16} fw={600} mt="-2px" mb={15} lts={0.75}>
+                <Text
+                    c="#FFF"
+                    fz={14}
+                    fw={400}
+                    mt="-2px"
+                    mb={15}
+                    lts={0.75}
+                    opacity=".75"
+                >
                     Enjoy a Luxury Stay with an Affordable Hotel Price.
                 </Text>
 

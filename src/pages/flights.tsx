@@ -52,10 +52,10 @@ export default function flights() {
     ));
 
     const { classes, cx } = useStyles();
-    const [tabvaluetogle, setTabValue] = useToggle([
-        'to all your favorite places',
-        'at all your favorite places',
-    ]);
+    // const [tabvaluetogle, setTabValue] = useToggle([
+    //     'to your favorite places',
+    //     'at your favorite places',
+    // ]);
 
     const TEXTS = ['in Asia', 'in Europe', 'anywhere in The World'];
     const [index, setIndex] = useState(0);
@@ -105,7 +105,7 @@ export default function flights() {
                     }}
                     defaultValue="fly"
                     unstyled
-                    onTabChange={() => setTabValue()}
+                    // onTabChange={() => setTabValue()}
                 >
                     <Tabs.List>
                         <Group fz="21px" fw={400}>
@@ -121,8 +121,8 @@ export default function flights() {
                                     <Text span>Fly</Text>
                                 </Group>
                             </Tabs.Tab>
-                            or
-                            <Tabs.Tab
+                            {/* or */}
+                            {/* <Tabs.Tab
                                 value="stay"
                                 className={classes.hugeBtn}
                                 // onChange={(e) => {
@@ -133,9 +133,10 @@ export default function flights() {
                                     <FaBed />
                                     <Text span>Stay</Text>
                                 </Group>
-                            </Tabs.Tab>
+                            </Tabs.Tab> */}
                             <Group spacing="8px">
-                                {tabvaluetogle}
+                                {/* {tabvaluetogle} */}
+                                to your favorite places
                                 <TextTransition springConfig={presets.stiff}>
                                     {TEXTS[index % TEXTS.length]}
                                 </TextTransition>

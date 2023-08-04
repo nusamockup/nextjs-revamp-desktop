@@ -25,4 +25,14 @@ module.exports = withBundleAnalyzer({
             },
         ],
     },
+    async rewrites() {
+        return [
+            {
+                // source: '/foo',
+                // destination: 'https://www.google.com',
+                source: '/map-tiles/:z/:x/:y',
+                destination: process.env.MAP_STYE_URL,
+            },
+        ];
+    },
 });

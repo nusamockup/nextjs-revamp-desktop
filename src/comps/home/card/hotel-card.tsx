@@ -12,7 +12,7 @@ import { FiMapPin } from 'react-icons/fi';
 
 const useStyles = createStyles((theme) => ({
     card: {
-        width: '280px',
+        // minWidth: '280px',
         minHeight: '320px',
         position: 'relative',
         backgroundColor:

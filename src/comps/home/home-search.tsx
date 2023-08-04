@@ -13,8 +13,8 @@ const HomeSearch = () => {
     // const hoteltext = 'at all your favorite places.';
     // const flighttext = 'to all your favorite places.';
     const [tabvaluetogle, setTabValue] = useToggle([
-        'to all your favorite places',
-        'at all your favorite places',
+        'to your favorite places',
+        'at your favorite places',
     ]);
 
     const TEXTS = ['in Asia', 'in Europe', 'anywhere in The World'];
@@ -23,7 +23,7 @@ const HomeSearch = () => {
     useEffect(() => {
         const intervalId = setInterval(
             () => setIndex((index) => index + 1),
-            3000 // every 3 seconds
+            10000 // every 10 seconds
         );
         return () => clearTimeout(intervalId);
     }, []);
