@@ -1,14 +1,7 @@
-import {
-    Avatar,
-    Container,
-    Divider,
-    Group,
-    Header,
-    UnstyledButton,
-} from '@ns-ui/core';
-import { useDisclosure } from '@ns-ui/hooks';
+import { Container, Group, Header, UnstyledButton } from '@ns-ui/core';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
+// import { useSelectedLayoutSegment } from 'next/navigation'
 import { navlinks } from '../constants';
 import { NsLogo } from '../nslogo';
 import CurrSelector from './curr-selector';
@@ -16,26 +9,25 @@ import LoginBTN from './login-btn';
 import useStyles, { HEADER_HEIGHT } from './mainheader.styles';
 
 const MainHeader = () => {
-    const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-        useDisclosure(false);
-    const [burgerOpened, { toggle }] = useDisclosure(false);
-    const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
     const { classes, theme } = useStyles();
     const pathname = usePathname();
+    const hrefTokens = pathname.split('/');
 
-    // const mappedNavlinks = navlinks.map((item) => ({
-    //     link: item.link,
-    //     label: item.label,
-    // }));
+    // let layoutSegments = useSelectedLayoutSegment();
+    // let segment = layoutSegments[0];
+    // console.log(hrefTokens);
 
     const items = navlinks.map((item) => {
+        // const isActive = item.link === `/${segment}`;
+
         return (
             <Link
                 // component={Link}
                 key={item.label}
                 href={item.link}
+                // className={`${classes.link} ${isActive ? 'active' : ''}`}
                 className={`${classes.link} ${
-                    pathname == item.link ? 'active' : ''
+                    `/${hrefTokens[1]}` == item.link ? 'active' : ''
                 }`}
                 // className={router.pathname == '/' ? 'active' : ''}
                 // onClick={(event) => event.preventDefault()}

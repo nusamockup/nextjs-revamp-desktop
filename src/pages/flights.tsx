@@ -90,8 +90,8 @@ export default function flights() {
 
             <Container
                 size="lg"
-                // mt="-180px"
-                mt="-130px"
+                mt="-180px"
+                // mt="-130px"
                 mb={32}
                 sx={{
                     color: '#FFF',
@@ -108,7 +108,7 @@ export default function flights() {
                     onTabChange={() => setTabValue()}
                 >
                     <Tabs.List>
-                        <Group fz="21px" fw={500}>
+                        <Group fz="21px" fw={400}>
                             <Tabs.Tab
                                 value="fly"
                                 className={classes.hugeBtn}

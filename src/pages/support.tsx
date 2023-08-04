@@ -1,10 +1,11 @@
-import { Container } from '@ns-ui/core';
+import { Container, Space } from '@ns-ui/core';
 
 const customerCare = () => {
     return (
         <>
             <Container size="lg">
                 <div>Customer Care</div>
+                <Space h="1082px" />
             </Container>
         </>
     );

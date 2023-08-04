@@ -103,6 +103,7 @@ export function NsFooterDark() {
                                 width="240"
                                 src="/img/logo/sopa-logo@2x.png"
                                 alt="SoPa Logo"
+                                priority
                             />
                             <Text
                                 size="xs"
