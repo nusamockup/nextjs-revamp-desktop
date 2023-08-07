@@ -25,6 +25,7 @@ const PromoBanner = () => {
                 width={432}
                 height={226}
                 style={{ borderRadius: '8px' }}
+                priority
             />
         </Carousel.Slide>
     ));

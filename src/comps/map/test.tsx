@@ -1,8 +1,16 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
 import leaflet from 'leaflet';
-
+import WorldMap from '../../svg/continents.svg';
 import 'leaflet/dist/leaflet.css';
+import { VectorMap } from '@react-jvectormap/core';
+import { worldMill } from '@react-jvectormap/world';
 
+import { css, Global } from '@emotion/react';
+import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import $ from 'jquery';
+
+const { getCode, getName, getData } = require('country-list');
 const markerIcon = new leaflet.DivIcon({
     html: `<svg width="30" height="39" viewBox="0 0 30 39" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g filter="url(#filter0_f_14_114)">
@@ -24,20 +32,126 @@ const markerIcon = new leaflet.DivIcon({
     className: 'icon',
 });
 
+// const ref = useRef(null);
+const countriesData = getData();
+
+// console.log(countriesData.map((d) => d.name));
+
+// const router = useRouter();
+
+// useEffect(() => {
+//     const router = useRouter();
+//     const handleClick = (event, code) => {
+//         //@ts-ignore
+//         const name = this.getName(code);
+//         // router.push(`/${name}`);
+//         console.log(name);
+//     };
+// }, []);
+// const ref = useRef(null);
+
 const Test = () => {
+    const obj = $('#world-map .jvectormap-container').data('mapObject');
+    const router = useRouter();
+    const [countryHovered, setCountryHovered] = useState('');
+    // console.log(mapData);
+    // let zoomOffset = 2;
     return (
         <>
-            <MapContainer
-                center={[-6.175447361080635, 106.82712101740546]}
-                zoom={16}
+            <div id="world-map">
+                <VectorMap
+                    // mapRef={VectorMap}
+                    className="worldmap"
+                    map={worldMill}
+                    style={{
+                        width: '100%',
+                        height: '400px',
+                    }}
+                    backgroundColor="#F1F5F9"
+                    zoomOnScroll={false}
+                    zoomAnimate={false}
+                    zoomMax={1}
+                    // selectedRegions={
+                    //     regions: ''
+                    // }
+                    regionStyle={{
+                        initial: {
+                            fill: '#B5C1CF',
+                        },
+                        hover: {
+                            fill: '#f37721',
+                        },
+                    }}
+                    onRegionClick={(event, code) => {
+                        const name = getName(code);
+                        console.log(name);
+                        router.push(`https://en.wikipedia.org/wiki/${name}`);
+                    }}
+                    // onRegionOver={() => {
+                    //     const obj = $('#world-map .jvectormap-container').data(
+                    //         'mapObject'
+                    //     );
+                    //     obj.regions['ID'].element.setHovered(true);
+                    //     // console.log(label);
+                    // }}
+                    focusOn={{
+                        x: 0.5,
+                        y: 0.5,
+                        scale: 1,
+                        animate: true,
+                    }}
+                    // series={
+
+                    // }
+                />
+                <a
+                    href=""
+                    onMouseOver={() => {
+                        obj.regions['ID'].element.setHovered(true);
+                    }}
+                    onMouseOut={() => {
+                        obj.regions['ID'].element.setHovered(false);
+                    }}
+                >
+                    Indonesia
+                </a>
+                <Global
+                    styles={css`
+                        .jvectormap-zoomin,
+                        .jvectormap-zoomout {
+                            display: none;
+                        }
+                    `}
+                />
+                {/* <WorldMap /> */}
+                {/* <MapContainer
+                center={[20, 100]}
+                zoom={12}
                 scrollWheelZoom={false}
                 style={{ height: '400px', width: '97%' }}
+                dragging={false}
+                zoomControl={false}
             >
-                {/* https://api.mapbox.com/styles/v1/nusamockup/clkwt8hqd005s01phaovq2p97.html?title=view&access_token=pk.eyJ1IjoibnVzYW1vY2t1cCIsImEiOiJjbGt3c3pqejcwMGFvM2NsaHZsYmxxbzhwIn0.Uv0PL-eSpkDv70anjhmDwg&zoomwheel=true&fresh=true#2/37.75/-92.25 */}
+                <GeoJSON data={topoJsonData} />
+            </MapContainer> */}
+                {/* <MapContainer
+                center={[-6.175447361080635, 106.82712101740546]}
+                zoom={14}
+                scrollWheelZoom={false}
+                style={{ height: '400px', width: '97%' }}
+                dragging={false}
+                zoomControl={false}
+            >
                 <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+                    url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+                    // url="/map-tiles/{z}/{x}/{y}"
                     // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    url="/map-tiles/{z}/{x}/{y}"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+                    // detectRetina={true}
+
+                    // zoomOffset={zoomOffset}
+                    // tileSize={256 / Math.pow(2, zoomOffset)}
+                    // maxZoom={20}
                 />
                 <Marker
                     position={[-6.175447361080635, 106.82712101740546]}
@@ -47,7 +161,8 @@ const Test = () => {
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
                 </Marker>
-            </MapContainer>
+            </MapContainer> */}
+            </div>
         </>
     );
 };

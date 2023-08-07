@@ -14,8 +14,7 @@ import { useEffect, useState } from 'react';
 import TextTransition, { presets } from 'react-text-transition';
 import { HotelCard } from 'src/comps/home/card/hotel-card';
 import FaBed from 'src/comps/icons/FaBed';
-import FaPlane from 'src/comps/icons/FaPlane';
-import WorldMap from 'src/comps/map/world-map';
+import SearchLocation from 'src/comps/map/search-location';
 import PromoBanner from 'src/comps/promo-banner/promo-banner';
 import SectionTitle from 'src/comps/section-title/section-title';
 import useStyles from 'src/comps/widget/flight-index.styles';
@@ -134,7 +133,6 @@ const hotels = () => {
             <Box mt="-20px">
                 <BackgroundImage
                     pos="relative"
-                    // h="165px"
                     h="215px"
                     src="/img/mountain-view.webp"
                 >
@@ -143,8 +141,7 @@ const hotels = () => {
             </Box>
             <Container
                 size="lg"
-                mt="-180px"
-                // mt="-130px"
+                mt="-176.5px"
                 mb={32}
                 sx={{
                     color: '#FFF',
@@ -158,37 +155,16 @@ const hotels = () => {
                     }}
                     defaultValue="stay"
                     unstyled
-                    // onTabChange={() => setTabValue()}
                 >
                     <Tabs.List>
                         <Group fz="21px" fw={400}>
-                            {/* <Tabs.Tab
-                                value="fly"
-                                className={classes.hugeBtn}
-                                // onChange={(e) => {
-                                //     setTabValue('fly');
-                                // }}
-                            >
-                                <Group spacing="xs">
-                                    <FaPlane />
-                                    <Text span>Fly</Text>
-                                </Group>
-                            </Tabs.Tab> */}
-                            {/* or */}
-                            <Tabs.Tab
-                                value="stay"
-                                className={classes.hugeBtn}
-                                // onChange={(e) => {
-                                //     setTabValue(e.currentTarget.value);
-                                // }}
-                            >
+                            <Tabs.Tab value="stay" className={classes.hugeBtn}>
                                 <Group spacing="xs">
                                     <FaBed />
                                     <Text span>Stay</Text>
                                 </Group>
                             </Tabs.Tab>
                             <Group spacing="8px">
-                                {/* {tabvaluetogle} */}
                                 at your favorite places
                                 <TextTransition springConfig={presets.stiff}>
                                     {TEXTS[index % TEXTS.length]}
@@ -196,10 +172,6 @@ const hotels = () => {
                             </Group>
                         </Group>
                     </Tabs.List>
-
-                    {/* <Tabs.Panel value="fly">
-                        <Flight />
-                    </Tabs.Panel> */}
                     <Tabs.Panel value="stay">
                         <Hotel />
                     </Tabs.Panel>
@@ -211,7 +183,6 @@ const hotels = () => {
                 <Space h="64px" />
                 <SectionTitle
                     title="Popular Domestic Hotels"
-                    // desc="Exploring new places and meeting strangers."
                     sectionname="Domestic"
                 />
                 <SimpleGrid cols={4} spacing="xl">
@@ -231,7 +202,6 @@ const hotels = () => {
                 <Space h="64px" />
                 <SectionTitle
                     title="Popular South East Asia Hotels"
-                    // desc="Exploring new places and meeting strangers."
                     sectionname="South East Asia"
                 />
                 <SimpleGrid cols={4} spacing="xl">
@@ -251,7 +221,6 @@ const hotels = () => {
                 <Space h="64px" />
                 <SectionTitle
                     title="Popular International Hotels"
-                    // desc="Exploring new places and meeting strangers."
                     sectionname="International"
                 />
                 <SimpleGrid cols={4} spacing="xl">
@@ -269,15 +238,11 @@ const hotels = () => {
                     </Text>
                 </Group>
                 <Space h="64px" />
-                <SectionTitle
-                    title="Search Hotels in The World by Locations"
-                    // desc="Exploring new places and meeting strangers."
-                    // sectionname="International"
-                />
+                <SectionTitle title="Search Hotels in The World by Locations" />
             </Container>
             <Box bg="#F1F5F9">
-                <Container size="xl">
-                    <WorldMap />
+                <Container size="xl" py={46}>
+                    <SearchLocation />
                 </Container>
             </Box>
         </>
