@@ -132,7 +132,10 @@ export const Hotel = () => {
 
                 <Paper onClick={() => openWidgetOverlayHandler()} shadow="lg">
                     <Flex className={classes.widgetWrapper}>
-                        <Box sx={{ flexGrow: 1 }}>
+                        <Box
+                            onClick={() => openWidgetOverlayHandler()}
+                            sx={{ flexGrow: 1 }}
+                        >
                             <Autocomplete
                                 label="Hotel location"
                                 placeholder="City or location"
@@ -152,7 +155,10 @@ export const Hotel = () => {
                             />
                         </Box>
 
-                        <Box sx={{ minWidth: '220px' }}>
+                        <Box
+                            onClick={() => openWidgetOverlayHandler()}
+                            sx={{ minWidth: '220px' }}
+                        >
                             <DatePickerInput
                                 type="range"
                                 value={value}
@@ -175,7 +181,10 @@ export const Hotel = () => {
                             />
                         </Box>
 
-                        <Box sx={{ minWidth: '220px' }}>
+                        <Box
+                            onClick={() => openWidgetOverlayHandler()}
+                            sx={{ minWidth: '220px' }}
+                        >
                             <Popover
                                 width={300}
                                 position="bottom"

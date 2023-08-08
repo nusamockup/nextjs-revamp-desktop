@@ -103,6 +103,46 @@ export const Flight = () => {
                     />
                 )}
             </Transition>
+            <Transition
+                mounted={overlay}
+                transition="fade"
+                duration={300}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <Overlay
+                        color="#0B2254"
+                        style={styles}
+                        blur={2}
+                        pos="fixed"
+                        onClick={() => closeWidgetOverlayHandler()}
+                    />
+                )}
+            </Transition>
+            <Transition
+                mounted={overlay}
+                transition="slide-down"
+                duration={200}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <AiOutlineCloseCircle
+                        size={24}
+                        style={{
+                            ...styles,
+                            position: 'absolute',
+                            marginTop: '-60px',
+                            top: '50px',
+                            right: '10px',
+                            color: '#FFF',
+                            zIndex: 202,
+                            cursor: 'pointer',
+                            opacity: '55%',
+                        }}
+                        onClick={() => closeWidgetOverlayHandler()}
+                    />
+                )}
+            </Transition>
             <Box
                 sx={{
                     paddingTop: 30,
@@ -140,7 +180,10 @@ export const Flight = () => {
                 <Paper onClick={() => openWidgetOverlayHandler()} shadow="lg">
                     <Box maw={`calc(100% + 32px)`} mt={16}>
                         <Flex className={classes.widgetWrapper}>
-                            <Box sx={{ flexGrow: 1 }}>
+                            <Box
+                                onClick={() => openWidgetOverlayHandler()}
+                                sx={{ flexGrow: 1 }}
+                            >
                                 <Flex>
                                     <Box sx={{ flexGrow: 1 }}>
                                         <Autocomplete
@@ -185,7 +228,10 @@ export const Flight = () => {
                                     </Box>
                                 </Flex>
                             </Box>
-                            <Box sx={{ minWidth: '140px' }}>
+                            <Box
+                                onClick={() => openWidgetOverlayHandler()}
+                                sx={{ minWidth: '140px' }}
+                            >
                                 <DatePickerInput
                                     popoverProps={{
                                         withinPortal: true,
@@ -205,6 +251,7 @@ export const Flight = () => {
                                 />
                             </Box>
                             <Box
+                                onClick={() => openWidgetOverlayHandler()}
                                 sx={{ minWidth: '140px' }}
                                 className={cx(classes.hide, {
                                     [classes.show]: section === 'roundtrip',
@@ -228,7 +275,10 @@ export const Flight = () => {
                                     id="returning"
                                 />
                             </Box>
-                            <Box sx={{ minWidth: '186px' }}>
+                            <Box
+                                onClick={() => openWidgetOverlayHandler()}
+                                sx={{ minWidth: '186px' }}
+                            >
                                 <Popover
                                     width={300}
                                     position="bottom"
@@ -490,10 +540,7 @@ export const Flight = () => {
                                 </Popover>
                             </Box>
                             <Box>
-                                <Button
-                                    onClick={() => closeWidgetOverlayHandler()}
-                                    className={classes.widgetButton}
-                                >
+                                <Button className={classes.widgetButton}>
                                     <FiSearch size={18} />
                                     <Space w="5px" />
                                     Search
