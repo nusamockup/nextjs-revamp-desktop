@@ -111,6 +111,7 @@ export const FlightHome = () => {
                             color: '#FFF',
                             zIndex: 202,
                             cursor: 'pointer',
+                            opacity: '55%',
                         }}
                         onClick={() => closeWidgetOverlayHandler()}
                     />

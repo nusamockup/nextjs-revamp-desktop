@@ -10,17 +10,21 @@ import {
     InputBase,
     NumberInput,
     NumberInputHandlers,
+    Overlay,
     Paper,
     Popover,
     rem,
     Space,
     Stack,
     Text,
+    Transition,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
 import { useCounter } from '@ns-ui/hooks';
 import { useRef, useState } from 'react';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { FiSearch } from 'react-icons/fi';
+import { useScrollBlock } from '../hooks/useScrollBlock';
 import ChildAge from './child-age';
 import useStyles from './search-widget.styles';
 
@@ -51,12 +55,67 @@ export const Hotel = () => {
         .map((_, index) => <ChildAge key={index} label="Age of child" />);
     // .map((_, index) => <Badge key={index}>Badge {index}</Badge>);
 
+    const [overlay, setOverlay] = useState(false);
+    const [blockScroll, allowScroll] = useScrollBlock();
+    const openWidgetOverlayHandler = () => {
+        // scrollTo({ y: 200 });
+        setOverlay((v) => true);
+        blockScroll();
+    };
+
+    const closeWidgetOverlayHandler = () => {
+        setOverlay((v) => false);
+        allowScroll();
+    };
+
     return (
         <>
+            <Transition
+                mounted={overlay}
+                transition="fade"
+                duration={300}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <Overlay
+                        color="#0B2254"
+                        style={styles}
+                        blur={2}
+                        pos="fixed"
+                        onClick={() => closeWidgetOverlayHandler()}
+                    />
+                )}
+            </Transition>
+            <Transition
+                mounted={overlay}
+                transition="slide-down"
+                duration={200}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <AiOutlineCloseCircle
+                        size={24}
+                        style={{
+                            ...styles,
+                            position: 'absolute',
+                            marginTop: '-60px',
+                            top: '50px',
+                            right: '10px',
+                            color: '#FFF',
+                            zIndex: 202,
+                            cursor: 'pointer',
+                            opacity: '55%',
+                        }}
+                        onClick={() => closeWidgetOverlayHandler()}
+                    />
+                )}
+            </Transition>
             <Box
                 mt={28}
                 sx={{
                     width: '100%',
+                    zIndex: 201,
+                    position: 'relative',
                 }}
             >
                 <Text
@@ -71,7 +130,7 @@ export const Hotel = () => {
                     Enjoy a Luxury Stay with an Affordable Hotel Price.
                 </Text>
 
-                <Paper shadow="lg">
+                <Paper onClick={() => openWidgetOverlayHandler()} shadow="lg">
                     <Flex className={classes.widgetWrapper}>
                         <Box sx={{ flexGrow: 1 }}>
                             <Autocomplete
@@ -351,7 +410,10 @@ export const Hotel = () => {
                             </Popover>
                         </Box>
                         <Box>
-                            <Button className={classes.widgetButton}>
+                            <Button
+                                onClick={() => closeWidgetOverlayHandler()}
+                                className={classes.widgetButton}
+                            >
                                 <FiSearch size={18} />
                                 <Space w="5px" />
                                 Search

@@ -107,6 +107,7 @@ export const HotelHome = () => {
                             color: '#FFF',
                             zIndex: 202,
                             cursor: 'pointer',
+                            opacity: '55%',
                         }}
                         onClick={() => closeWidgetOverlayHandler()}
                     />

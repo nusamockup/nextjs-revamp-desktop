@@ -4,7 +4,6 @@ import {
     Box,
     Button,
     Chip,
-    Container,
     Divider,
     Flex,
     Group,
@@ -12,6 +11,7 @@ import {
     InputBase,
     NumberInput,
     NumberInputHandlers,
+    Overlay,
     Paper,
     Popover,
     Radio,
@@ -19,10 +19,13 @@ import {
     Space,
     Stack,
     Text,
+    Transition,
 } from '@ns-ui/core';
 import { DatePickerInput } from '@ns-ui/dates';
 import { useRef, useState } from 'react';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { FiSearch } from 'react-icons/fi';
+import { useScrollBlock } from '../hooks/useScrollBlock';
 import useStyles from './search-widget.styles';
 
 export const Flight = () => {
@@ -45,13 +48,66 @@ export const Flight = () => {
 
     const [classvalue, setClassValue] = useState('Economy');
 
+    const [overlay, setOverlay] = useState(false);
+    const [blockScroll, allowScroll] = useScrollBlock();
+    const openWidgetOverlayHandler = () => {
+        // scrollTo({ y: 200 });
+        setOverlay((v) => true);
+        blockScroll();
+    };
+
+    const closeWidgetOverlayHandler = () => {
+        setOverlay((v) => false);
+        allowScroll();
+    };
+
     return (
         <>
+            <Transition
+                mounted={overlay}
+                transition="fade"
+                duration={300}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <Overlay
+                        color="#0B2254"
+                        style={styles}
+                        blur={2}
+                        pos="fixed"
+                        onClick={() => closeWidgetOverlayHandler()}
+                    />
+                )}
+            </Transition>
+            <Transition
+                mounted={overlay}
+                transition="slide-down"
+                duration={200}
+                timingFunction="ease"
+            >
+                {(styles) => (
+                    <AiOutlineCloseCircle
+                        size={24}
+                        style={{
+                            ...styles,
+                            position: 'absolute',
+                            marginTop: '-60px',
+                            top: '50px',
+                            right: '10px',
+                            color: '#FFF',
+                            zIndex: 202,
+                            cursor: 'pointer',
+                            opacity: '55%',
+                        }}
+                        onClick={() => closeWidgetOverlayHandler()}
+                    />
+                )}
+            </Transition>
             <Box
                 sx={{
                     paddingTop: 30,
                     width: '100%',
-                    zIndex: 2,
+                    zIndex: 201,
                     position: 'relative',
                 }}
             >
@@ -81,7 +137,7 @@ export const Flight = () => {
                         />
                     </Group>
                 </Radio.Group>
-                <Paper shadow="lg">
+                <Paper onClick={() => openWidgetOverlayHandler()} shadow="lg">
                     <Box maw={`calc(100% + 32px)`} mt={16}>
                         <Flex className={classes.widgetWrapper}>
                             <Box sx={{ flexGrow: 1 }}>
@@ -434,7 +490,10 @@ export const Flight = () => {
                                 </Popover>
                             </Box>
                             <Box>
-                                <Button className={classes.widgetButton}>
+                                <Button
+                                    onClick={() => closeWidgetOverlayHandler()}
+                                    className={classes.widgetButton}
+                                >
                                     <FiSearch size={18} />
                                     <Space w="5px" />
                                     Search
