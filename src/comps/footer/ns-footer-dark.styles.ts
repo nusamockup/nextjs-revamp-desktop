@@ -16,11 +16,12 @@ export default createStyles((theme) => ({
         //     theme.colorScheme === 'dark'
         //         ? theme.colors.dark[6]
         //         : theme.colors.gray[0],
-        borderTop: `${rem(1)} solid ${
-            theme.colorScheme === 'dark'
-                ? theme.colors.dark[5]
-                : theme.colors.gray[2]
-        }`,
+
+        // borderTop: `${rem(1)} solid ${
+        //     theme.colorScheme === 'dark'
+        //         ? theme.colors.dark[5]
+        //         : theme.colors.gray[2]
+        // }`,
         '& *': {
             color: 'rgba(255, 255, 255, .6)',
         },
