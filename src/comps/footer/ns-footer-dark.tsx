@@ -91,7 +91,7 @@ export function NsFooterDark() {
     const year = date.getFullYear();
 
     return (
-        <footer className={classes.footer}>
+        <footer id="footer" className={classes.footer}>
             <Container size="xl">
                 <Grid>
                     <Grid.Col span={5}>
