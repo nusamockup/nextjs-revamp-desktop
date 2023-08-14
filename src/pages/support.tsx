@@ -677,7 +677,7 @@ const customerCare = () => {
                                 <Textarea
                                     required
                                     label="Your message"
-                                    placeholder="I want to order your goods"
+                                    placeholder=""
                                     minRows={4}
                                     mt="md"
                                     classNames={{
