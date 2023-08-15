@@ -135,8 +135,8 @@ const Faq = () => {
 
                 <Container
                     mt="-160px"
-                    pos="relative"
                     size="xl"
+                    pos="relative"
                     sx={{
                         zIndex: 2,
                     }}

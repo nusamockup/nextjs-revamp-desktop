@@ -13,7 +13,6 @@ import {
     Text,
     Title,
 } from '@ns-ui/core';
-import { IconInfoCircleFilled } from '@tabler/icons-react';
 import NsImage from 'src/comps/ns-image/ns-image';
 
 const useStyles = createStyles(() => ({
