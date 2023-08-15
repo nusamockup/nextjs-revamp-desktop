@@ -60,6 +60,11 @@ const SupportListItem = () => {
                         Manage My Bookings
                     </Anchor>
                 </List.Item>
+                <List.Item>
+                    <Anchor c="dark" href="/support/payments" target="_blank">
+                        Payments
+                    </Anchor>
+                </List.Item>
             </List>
         </Paper>
     );
