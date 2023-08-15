@@ -1,5 +1,4 @@
-import { css } from '@emotion/css';
-import { Global } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import {
     Avatar,
     BackgroundImage,
@@ -39,7 +38,6 @@ import {
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import StickyBox from 'react-sticky-box';
-import { sizes } from 'src/comps/@ns-ui/core/lib/ActionIcon/ActionIcon.styles';
 import ContactInfo from 'src/comps/contact/contact-info';
 import SectionTitle from 'src/comps/section-title/section-title';
 
@@ -699,8 +697,6 @@ const customerCare = () => {
                             </StickyBox>
                         </Grid.Col>
                     </Grid>
-
-                    {/* <Space h="1082px" /> */}
                 </Container>
             </Box>
         </>

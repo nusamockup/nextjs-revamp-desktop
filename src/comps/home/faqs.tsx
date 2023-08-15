@@ -1,17 +1,14 @@
 import {
     Accordion,
-    Container,
+    createStyles,
     Divider,
-    Flex,
     Group,
+    rem,
     SimpleGrid,
+    Space,
     Text,
     Title,
-    createStyles,
-    rem,
-    Space,
 } from '@ns-ui/core';
-import React from 'react';
 import SectionTitle from '../section-title/section-title';
 
 const useStyles = createStyles((theme) => ({
