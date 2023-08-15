@@ -1,5 +1,7 @@
 import { css, Global } from '@emotion/react';
 import {
+    ActionIcon,
+    Affix,
     Avatar,
     BackgroundImage,
     Box,
@@ -14,9 +16,12 @@ import {
     TabsProps,
     Text,
     Title,
+    Transition,
 } from '@ns-ui/core';
+import { useWindowScroll } from '@ns-ui/hooks';
 import {
     IconAppWindow,
+    IconArrowUp,
     IconBed,
     IconCalendarStats,
     IconCalendarUp,
@@ -107,6 +112,7 @@ function StyledTabs(props: TabsProps) {
 }
 
 const Faq = () => {
+    const [scroll, scrollTo] = useWindowScroll();
     return (
         <>
             <Global
@@ -419,6 +425,22 @@ const Faq = () => {
                     </StyledTabs>
                 </Container>
             </Box>
+
+            <Affix position={{ bottom: rem(20), right: rem(20) }}>
+                <Transition transition="slide-up" mounted={scroll.y > 0}>
+                    {(transitionStyles) => (
+                        <ActionIcon
+                            color="blue"
+                            size="lg"
+                            variant="filled"
+                            style={transitionStyles}
+                            onClick={() => scrollTo({ y: 0 })}
+                        >
+                            <IconArrowUp size="1.625rem" />
+                        </ActionIcon>
+                    )}
+                </Transition>
+            </Affix>
         </>
     );
 };

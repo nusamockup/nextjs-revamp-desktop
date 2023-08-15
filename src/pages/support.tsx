@@ -1,5 +1,7 @@
 import { css, Global } from '@emotion/react';
 import {
+    ActionIcon,
+    Affix,
     Avatar,
     BackgroundImage,
     Box,
@@ -21,10 +23,12 @@ import {
     Textarea,
     TextInput,
     Title,
+    Transition,
 } from '@ns-ui/core';
 import { IconBed, IconNotes, IconPlane } from '@tabler/icons';
 import {
     IconAppWindow,
+    IconArrowUp,
     IconCalendarStats,
     IconCalendarUp,
     IconChevronRight,
@@ -40,6 +44,7 @@ import { useState } from 'react';
 import StickyBox from 'react-sticky-box';
 import ContactInfo from 'src/comps/contact/contact-info';
 import SectionTitle from 'src/comps/section-title/section-title';
+import { useWindowScroll } from '@ns-ui/hooks';
 
 const useStyles = createStyles((theme) => ({
     wrapper: {
@@ -106,6 +111,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const customerCare = () => {
+    const [scroll, scrollTo] = useWindowScroll();
     const { classes } = useStyles();
     const [value, setValue] = useState('react');
     return (
@@ -699,6 +705,22 @@ const customerCare = () => {
                     </Grid>
                 </Container>
             </Box>
+
+            <Affix position={{ bottom: rem(20), right: rem(20) }}>
+                <Transition transition="slide-up" mounted={scroll.y > 0}>
+                    {(transitionStyles) => (
+                        <ActionIcon
+                            color="blue"
+                            size="lg"
+                            variant="filled"
+                            style={transitionStyles}
+                            onClick={() => scrollTo({ y: 0 })}
+                        >
+                            <IconArrowUp size="1.625rem" />
+                        </ActionIcon>
+                    )}
+                </Transition>
+            </Affix>
         </>
     );
 };

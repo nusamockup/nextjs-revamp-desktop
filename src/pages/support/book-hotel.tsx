@@ -1,5 +1,7 @@
 import { css, Global } from '@emotion/react';
 import {
+    ActionIcon,
+    Affix,
     BackgroundImage,
     Badge,
     Box,
@@ -9,11 +11,14 @@ import {
     List,
     Overlay,
     Paper,
+    rem,
     SimpleGrid,
     Text,
     Title,
+    Transition,
 } from '@ns-ui/core';
-import { IconInfoCircleFilled } from '@tabler/icons-react';
+import { useWindowScroll } from '@ns-ui/hooks';
+import { IconArrowUp, IconInfoCircleFilled } from '@tabler/icons-react';
 import NsImage from 'src/comps/ns-image/ns-image';
 
 const useStyles = createStyles(() => ({
@@ -27,6 +32,7 @@ const useStyles = createStyles(() => ({
 
 const BookHotel = () => {
     const { classes } = useStyles();
+    const [scroll, scrollTo] = useWindowScroll();
     return (
         <>
             <Global
@@ -284,6 +290,21 @@ const BookHotel = () => {
                     </List.Item>
                 </List>
             </Container>
+            <Affix position={{ bottom: rem(20), right: rem(20) }}>
+                <Transition transition="slide-up" mounted={scroll.y > 0}>
+                    {(transitionStyles) => (
+                        <ActionIcon
+                            color="blue"
+                            size="lg"
+                            variant="filled"
+                            style={transitionStyles}
+                            onClick={() => scrollTo({ y: 0 })}
+                        >
+                            <IconArrowUp size="1.625rem" />
+                        </ActionIcon>
+                    )}
+                </Transition>
+            </Affix>
         </>
     );
 };

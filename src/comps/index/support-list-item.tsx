@@ -51,6 +51,15 @@ const SupportListItem = () => {
                         Book Hotel
                     </Anchor>
                 </List.Item>
+                <List.Item>
+                    <Anchor
+                        c="dark"
+                        href="/support/manage-bookings"
+                        target="_blank"
+                    >
+                        Manage My Bookings
+                    </Anchor>
+                </List.Item>
             </List>
         </Paper>
     );

@@ -1,5 +1,7 @@
-import React from 'react';
+import { css, Global } from '@emotion/react';
 import {
+    ActionIcon,
+    Affix,
     BackgroundImage,
     Box,
     Container,
@@ -8,13 +10,16 @@ import {
     Group,
     Overlay,
     Paper,
+    rem,
     SimpleGrid,
     Stack,
     Text,
     Title,
+    Transition,
 } from '@ns-ui/core';
+import { useWindowScroll } from '@ns-ui/hooks';
+import { IconArrowUp } from '@tabler/icons-react';
 import NsImage from 'src/comps/ns-image/ns-image';
-import { css, Global } from '@emotion/react';
 
 const useStyles = createStyles(() => ({
     image: {
@@ -26,6 +31,7 @@ const useStyles = createStyles(() => ({
 }));
 
 const HowToBook = () => {
+    const [scroll, scrollTo] = useWindowScroll();
     const { classes } = useStyles();
     return (
         <>
@@ -647,7 +653,21 @@ const HowToBook = () => {
                     </Paper>
                 </Container>
             </Box>
-            {/* <div>HowToBook</div> */}
+            <Affix position={{ bottom: rem(20), right: rem(20) }}>
+                <Transition transition="slide-up" mounted={scroll.y > 0}>
+                    {(transitionStyles) => (
+                        <ActionIcon
+                            color="blue"
+                            size="lg"
+                            variant="filled"
+                            style={transitionStyles}
+                            onClick={() => scrollTo({ y: 0 })}
+                        >
+                            <IconArrowUp size="1.625rem" />
+                        </ActionIcon>
+                    )}
+                </Transition>
+            </Affix>
         </>
     );
 };
