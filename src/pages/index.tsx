@@ -24,6 +24,11 @@ import {
     IconPlane,
     IconWallet,
 } from '@tabler/icons-react';
+import PagesListItem from 'src/comps/index/pages-list-item';
+import FlightsListItem from 'src/comps/index/flights-list-item';
+import HotelsListItem from 'src/comps/index/hotels-list-item';
+import SupportListItem from 'src/comps/index/support-list-item';
+import MybookingListItem from 'src/comps/index/mybooking-list-item';
 
 const useStyles = createStyles(() => ({
     image: {
@@ -84,185 +89,11 @@ const Index = () => {
             >
                 <Box>
                     <SimpleGrid py={32} cols={5} spacing="32px">
-                        <Paper
-                            radius="md"
-                            // withBorder
-                            shadow="lg"
-                            p="lg"
-                            sx={(theme) => ({
-                                backgroundColor:
-                                    theme.colorScheme === 'dark'
-                                        ? theme.colors.dark[8]
-                                        : theme.white,
-                            })}
-                        >
-                            <Text fz="lg" weight={500}>
-                                Pages
-                            </Text>
-                            <List size="sm" mt={16}>
-                                <List.Item>
-                                    <Anchor c="dark" href="/home">
-                                        Home
-                                    </Anchor>
-                                </List.Item>
-                                <List.Item>
-                                    <Anchor c="dark" href="/forgotpassword">
-                                        Forgot Password
-                                    </Anchor>
-                                </List.Item>
-                            </List>
-                        </Paper>
-                        <Paper
-                            radius="md"
-                            // withBorder
-                            shadow="lg"
-                            p="lg"
-                            sx={(theme) => ({
-                                backgroundColor:
-                                    theme.colorScheme === 'dark'
-                                        ? theme.colors.dark[8]
-                                        : theme.white,
-                            })}
-                        >
-                            <Text fz="lg" weight={500}>
-                                Flights
-                            </Text>
-                            <List size="sm" mt={16}>
-                                <List.Item>
-                                    <Anchor c="dark" href="/flights">
-                                        Index
-                                    </Anchor>
-                                </List.Item>
-                                {/* <List.Item>
-                                    <Anchor c="dark" href="/forgotpassword">
-                                        Forgot Password
-                                    </Anchor>
-                                </List.Item> */}
-                            </List>
-                        </Paper>
-                        <Paper
-                            radius="md"
-                            // withBorder
-                            shadow="lg"
-                            p="lg"
-                            sx={(theme) => ({
-                                backgroundColor:
-                                    theme.colorScheme === 'dark'
-                                        ? theme.colors.dark[8]
-                                        : theme.white,
-                            })}
-                        >
-                            <Text fz="lg" weight={500}>
-                                Hotels
-                            </Text>
-                            <List size="sm" mt={16}>
-                                <List.Item>
-                                    <Anchor c="dark" href="/hotels">
-                                        Index
-                                    </Anchor>
-                                </List.Item>
-                                {/* <List.Item>
-                                    <Anchor c="dark" href="/forgotpassword">
-                                        Forgot Password
-                                    </Anchor>
-                                </List.Item> */}
-                            </List>
-                        </Paper>
-                        <Paper
-                            radius="md"
-                            // withBorder
-                            shadow="lg"
-                            p="lg"
-                            sx={(theme) => ({
-                                backgroundColor:
-                                    theme.colorScheme === 'dark'
-                                        ? theme.colors.dark[8]
-                                        : theme.white,
-                            })}
-                        >
-                            <Text fz="lg" weight={500}>
-                                My Booking
-                            </Text>
-                            <List size="sm" mt={16}>
-                                <List.Item>
-                                    <Anchor
-                                        c="dark"
-                                        href="/my-booking"
-                                        target="_blank"
-                                    >
-                                        Index
-                                    </Anchor>
-                                </List.Item>
-                                {/* <List.Item>
-                                    <Anchor c="dark" href="/forgotpassword">
-                                        Forgot Password
-                                    </Anchor>
-                                </List.Item> */}
-                            </List>
-                        </Paper>
-                        <Paper
-                            radius="md"
-                            // withBorder
-                            shadow="lg"
-                            p="lg"
-                            sx={(theme) => ({
-                                backgroundColor:
-                                    theme.colorScheme === 'dark'
-                                        ? theme.colors.dark[8]
-                                        : theme.white,
-                            })}
-                        >
-                            <Text fz="lg" weight={500}>
-                                Customer Care
-                            </Text>
-                            <List size="sm" mt={16}>
-                                <List.Item>
-                                    <Anchor
-                                        c="dark"
-                                        href="/support"
-                                        target="_blank"
-                                    >
-                                        Index
-                                    </Anchor>
-                                </List.Item>
-                                <List.Item>
-                                    <Anchor
-                                        c="dark"
-                                        href="/support/faq"
-                                        target="_blank"
-                                    >
-                                        FAQ
-                                    </Anchor>
-                                </List.Item>
-                                <List.Item>
-                                    <Anchor
-                                        c="dark"
-                                        href="/support/how-to-book"
-                                        target="_blank"
-                                    >
-                                        How to Book
-                                    </Anchor>
-                                </List.Item>
-                                <List.Item>
-                                    <Anchor
-                                        c="dark"
-                                        href="/support/book-flight"
-                                        target="_blank"
-                                    >
-                                        Book Flight
-                                    </Anchor>
-                                </List.Item>
-                                <List.Item>
-                                    <Anchor
-                                        c="dark"
-                                        href="/support/book-hotel"
-                                        target="_blank"
-                                    >
-                                        Book Hotel
-                                    </Anchor>
-                                </List.Item>
-                            </List>
-                        </Paper>
+                        <PagesListItem />
+                        <FlightsListItem />
+                        <HotelsListItem />
+                        <MybookingListItem />
+                        <SupportListItem />
                     </SimpleGrid>
                 </Box>
             </Container>
