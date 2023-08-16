@@ -40,6 +40,7 @@ import {
     IconShieldCheck,
     IconWallet,
 } from '@tabler/icons-react';
+import Link from 'next/link';
 import { useState } from 'react';
 import StickyBox from 'react-sticky-box';
 import ContactInfo from 'src/comps/contact/contact-info';
@@ -165,7 +166,7 @@ const customerCare = () => {
                         <Grid.Col span={9}>
                             <SimpleGrid cols={2} mb="lg" spacing="32px">
                                 <Paper
-                                    component="a"
+                                    component={Link}
                                     href="/support/how-to-book"
                                     radius="sm"
                                     withBorder
@@ -198,7 +199,7 @@ const customerCare = () => {
                                     </Text>
                                 </Paper>
                                 <Paper
-                                    component="a"
+                                    component={Link}
                                     href="/"
                                     radius="sm"
                                     withBorder
@@ -236,7 +237,7 @@ const customerCare = () => {
                             <SectionTitle title="Frequently Asked Questions" />
                             <SimpleGrid cols={2} spacing="32px">
                                 <Paper
-                                    component="a"
+                                    component={Link}
                                     href="/support/faq"
                                     radius="sm"
                                     withBorder
@@ -357,7 +358,7 @@ const customerCare = () => {
                                     />
                                 </Paper>
                                 <Paper
-                                    component="a"
+                                    component={Link}
                                     href="/support/faq"
                                     radius="sm"
                                     withBorder

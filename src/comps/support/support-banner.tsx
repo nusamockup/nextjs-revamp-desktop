@@ -1,5 +1,6 @@
 import { Avatar, Paper, SimpleGrid, Text } from '@ns-ui/core';
 import { IconBed, IconNotes, IconPlane, IconWallet } from '@tabler/icons-react';
+import Link from 'next/link';
 import React from 'react';
 
 const SupportBanner = () => {
@@ -7,7 +8,7 @@ const SupportBanner = () => {
         <>
             <SimpleGrid py={32} cols={4} spacing="32px">
                 <Paper
-                    component="a"
+                    component={Link}
                     href="/support/book-hotel"
                     radius="md"
                     // withBorder
@@ -41,7 +42,7 @@ const SupportBanner = () => {
                     </Text>
                 </Paper>
                 <Paper
-                    component="a"
+                    component={Link}
                     href="/support/book-flight"
                     radius="md"
                     // withBorder
@@ -69,7 +70,7 @@ const SupportBanner = () => {
                     </Text>
                 </Paper>
                 <Paper
-                    component="a"
+                    component={Link}
                     href="/support/payments"
                     radius="md"
                     // withBorder
@@ -93,7 +94,7 @@ const SupportBanner = () => {
                     </Text>
                 </Paper>
                 <Paper
-                    component="a"
+                    component={Link}
                     href="/support/manage-bookings"
                     radius="md"
                     // withBorder
