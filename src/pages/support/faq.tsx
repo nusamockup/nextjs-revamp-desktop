@@ -36,6 +36,7 @@ import {
     IconWallet,
 } from '@tabler/icons-react';
 import FaqContent from 'src/comps/support/faq-content';
+import SupportBanner from 'src/comps/support/support-banner';
 
 function StyledTabs(props: TabsProps) {
     return (
@@ -159,133 +160,7 @@ const Faq = () => {
                         >
                             How can I help you today?
                         </Title>
-                        <SimpleGrid py={32} cols={4} spacing="32px">
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    // color="#016FD2"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconBed
-                                        size={42}
-                                        stroke={2}
-                                        // color="#94A3B8"
-                                    />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Book Hotels
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    How to book a Hotel with us
-                                </Text>
-                            </Paper>
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconPlane
-                                        size={42}
-                                        stroke={2}
-                                        // color="#94A3B8"
-                                    />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Book Flights
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    How to book a Flight with us
-                                </Text>
-                            </Paper>
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconWallet size={42} stroke={2} />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Payment
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    Learn on how to make a payment?
-                                </Text>
-                            </Paper>
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconNotes size={42} stroke={2} />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Bookings
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    Manage your bookings
-                                </Text>
-                            </Paper>
-                        </SimpleGrid>
+                        <SupportBanner />
                     </Box>
                     <StyledTabs
                         keepMounted={false}

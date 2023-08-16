@@ -61,7 +61,7 @@ export const langs = [
 ];
 export const banks = [
     { name: 'ATM BERSAMA', img: 'atm-bersama.svg', bgcolor: '#3171B8' },
-    { name: 'PRIMA', img: 'prima.png', bgcolor: '#274F8C' },
+    { name: 'PRIMA', img: 'prima-nobg.svg', bgcolor: '#274F8C' },
     { name: 'BCA', img: 'bca.svg', bgcolor: '#123293' },
     { name: 'MANDIRI', img: 'mandiri.svg', bgcolor: '#163C75' },
     { name: 'BNI', img: 'bni.svg', bgcolor: '#327494' },

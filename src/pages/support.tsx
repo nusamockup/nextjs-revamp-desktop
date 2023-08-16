@@ -2,7 +2,6 @@ import { css, Global } from '@emotion/react';
 import {
     ActionIcon,
     Affix,
-    Avatar,
     BackgroundImage,
     Box,
     Button,
@@ -25,7 +24,8 @@ import {
     Title,
     Transition,
 } from '@ns-ui/core';
-import { IconBed, IconNotes, IconPlane } from '@tabler/icons';
+import { useWindowScroll } from '@ns-ui/hooks';
+import { IconBed, IconPlane } from '@tabler/icons';
 import {
     IconAppWindow,
     IconArrowUp,
@@ -44,7 +44,7 @@ import { useState } from 'react';
 import StickyBox from 'react-sticky-box';
 import ContactInfo from 'src/comps/contact/contact-info';
 import SectionTitle from 'src/comps/section-title/section-title';
-import { useWindowScroll } from '@ns-ui/hooks';
+import SupportBanner from 'src/comps/support/support-banner';
 
 const useStyles = createStyles((theme) => ({
     wrapper: {
@@ -62,7 +62,6 @@ const useStyles = createStyles((theme) => ({
     },
 
     title: {
-        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
         color: theme.white,
         lineHeight: 1,
     },
@@ -160,140 +159,14 @@ const customerCare = () => {
                         >
                             How can I help you today?
                         </Title>
-                        <SimpleGrid py={32} cols={4} spacing="32px">
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    // color="#016FD2"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconBed
-                                        size={42}
-                                        stroke={2}
-                                        // color="#94A3B8"
-                                    />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Book Hotels
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    How to book a Hotel with us
-                                </Text>
-                            </Paper>
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconPlane
-                                        size={42}
-                                        stroke={2}
-                                        // color="#94A3B8"
-                                    />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Book Flights
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    How to book a Flight with us
-                                </Text>
-                            </Paper>
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconWallet size={42} stroke={2} />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Payment
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    Learn on how to make a payment?
-                                </Text>
-                            </Paper>
-                            <Paper
-                                component="a"
-                                href="/"
-                                radius="md"
-                                // withBorder
-                                shadow="lg"
-                                p="lg"
-                                sx={(theme) => ({
-                                    backgroundColor:
-                                        theme.colorScheme === 'dark'
-                                            ? theme.colors.dark[8]
-                                            : theme.white,
-                                })}
-                            >
-                                <Avatar
-                                    color="#0a73b7"
-                                    size={80}
-                                    radius={80}
-                                    mx="auto"
-                                >
-                                    <IconNotes size={42} stroke={2} />
-                                </Avatar>
-                                <Text ta="center" fz="lg" weight={500} mt="md">
-                                    Bookings
-                                </Text>
-                                <Text ta="center" c="dimmed" fz="sm">
-                                    Manage your bookings
-                                </Text>
-                            </Paper>
-                        </SimpleGrid>
+                        <SupportBanner />
                     </Box>
                     <Grid gutter="32px" mt={64}>
                         <Grid.Col span={9}>
                             <SimpleGrid cols={2} mb="lg" spacing="32px">
                                 <Paper
                                     component="a"
-                                    href="/"
+                                    href="/support/how-to-book"
                                     radius="sm"
                                     withBorder
                                     // shadow="lg"
@@ -364,7 +237,7 @@ const customerCare = () => {
                             <SimpleGrid cols={2} spacing="32px">
                                 <Paper
                                     component="a"
-                                    href="/"
+                                    href="/support/faq"
                                     radius="sm"
                                     withBorder
                                     sx={(theme) => ({
@@ -485,7 +358,7 @@ const customerCare = () => {
                                 </Paper>
                                 <Paper
                                     component="a"
-                                    href="/"
+                                    href="/support/faq"
                                     radius="sm"
                                     withBorder
                                     sx={(theme) => ({
