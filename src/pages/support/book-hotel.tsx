@@ -2,14 +2,11 @@ import { css, Global } from '@emotion/react';
 import {
     ActionIcon,
     Affix,
-    BackgroundImage,
     Badge,
-    Box,
     Container,
     createStyles,
     Group,
     List,
-    Overlay,
     Paper,
     rem,
     SimpleGrid,
@@ -20,6 +17,7 @@ import {
 import { useWindowScroll } from '@ns-ui/hooks';
 import { IconArrowUp, IconInfoCircleFilled } from '@tabler/icons-react';
 import NsImage from 'src/comps/ns-image/ns-image';
+import SupportBannerText from 'src/comps/support/support-banner-text';
 
 const useStyles = createStyles(() => ({
     image: {
@@ -42,35 +40,7 @@ const BookHotel = () => {
                     }
                 `}
             />
-            <Box mt="-20px">
-                <BackgroundImage
-                    pos="relative"
-                    h={215 - 60}
-                    src=""
-                    // bg="#0054A6"
-                    sx={{
-                        background:
-                            'url(/img/banner/pattern_1.svg) #0054A6 repeat center',
-                        backgroundSize: 'contain',
-                    }}
-                >
-                    <Overlay color="#000" opacity={0.15} zIndex={1} />
-                    <Container
-                        pt="55px"
-                        pos="relative"
-                        size="xl"
-                        sx={{
-                            zIndex: 2,
-                        }}
-                    >
-                        <Box>
-                            <Title order={2} c="#FFF" mt="sm" fw="400">
-                                5 Easy Steps to Book a Hotel on NusaTrip!
-                            </Title>
-                        </Box>
-                    </Container>
-                </BackgroundImage>
-            </Box>
+            <SupportBannerText text="5 Easy Steps to Book a Hotel on NusaTrip!" />
             <Container mt={100} size="lg">
                 <SimpleGrid mb={60} cols={3} spacing={50}>
                     <Paper

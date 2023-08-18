@@ -2,14 +2,11 @@ import { css, Global } from '@emotion/react';
 import {
     ActionIcon,
     Affix,
-    BackgroundImage,
     Badge,
-    Box,
     Container,
     createStyles,
     Group,
     List,
-    Overlay,
     Paper,
     rem,
     SimpleGrid,
@@ -19,7 +16,9 @@ import {
 } from '@ns-ui/core';
 import { useWindowScroll } from '@ns-ui/hooks';
 import { IconArrowUp } from '@tabler/icons-react';
+import BodyBg from 'src/comps/home/body-bg';
 import NsImage from 'src/comps/ns-image/ns-image';
+import SupportBannerText from 'src/comps/support/support-banner-text';
 
 const useStyles = createStyles(() => ({
     image: {
@@ -35,42 +34,8 @@ const BookHotel = () => {
     const [scroll, scrollTo] = useWindowScroll();
     return (
         <>
-            <Global
-                styles={css`
-                    body {
-                        background-color: #f8f8f8;
-                    }
-                `}
-            />
-            <Box mt="-20px">
-                <BackgroundImage
-                    pos="relative"
-                    h={215 - 60}
-                    src=""
-                    // bg="#0054A6"
-                    sx={{
-                        background:
-                            'url(/img/banner/pattern_1.svg) #0054A6 repeat center',
-                        backgroundSize: 'contain',
-                    }}
-                >
-                    <Overlay color="#000" opacity={0.15} zIndex={1} />
-                    <Container
-                        pt="55px"
-                        pos="relative"
-                        size="xl"
-                        sx={{
-                            zIndex: 2,
-                        }}
-                    >
-                        <Box>
-                            <Title order={2} c="#FFF" mt="sm" fw="400">
-                                5 Easy Steps to Book a Flight on NusaTrip!
-                            </Title>
-                        </Box>
-                    </Container>
-                </BackgroundImage>
-            </Box>
+            <BodyBg color="#f8f8f8" />
+            <SupportBannerText text="5 Easy Steps to Book a Flight on NusaTrip!" />
             <Container mt={100} size="lg">
                 <SimpleGrid mb={60} cols={3} spacing={50}>
                     <Paper

@@ -5,33 +5,31 @@ import {
     BackgroundImage,
     Box,
     Container,
+    createStyles,
+    Divider,
+    Flex,
     Grid,
+    Group,
     List,
     Overlay,
+    Paper,
     rem,
+    SegmentedControl,
     SimpleGrid,
+    Stack,
     Tabs,
+    TabsProps,
     Text,
     Title,
     Transition,
-    TabsProps,
-    Paper,
-    SegmentedControl,
-    Group,
-    Divider,
-    Stack,
-    ThemeIcon,
-    Flex,
-    Table,
-    createStyles,
 } from '@ns-ui/core';
 import { useWindowScroll } from '@ns-ui/hooks';
 import { IconArrowUp, IconBulb } from '@tabler/icons-react';
 import Image from 'next/image';
 import { useState } from 'react';
 import NsImage from 'src/comps/ns-image/ns-image';
-import AtmbersamaNetwork from './atmbersama-network';
-import PrimaNetwork from './prima-network';
+import AtmbersamaNetwork from '../../comps/support/atmbersama-network';
+import PrimaNetwork from '../../comps/support/prima-network';
 
 const useStyles = createStyles((theme) => ({
     listItem: {

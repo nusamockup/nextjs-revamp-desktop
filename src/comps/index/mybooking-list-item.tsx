@@ -23,11 +23,11 @@ const MybookingListItem = () => {
                         Index
                     </Anchor>
                 </List.Item>
-                {/* <List.Item>
-                    <Anchor c="dark" href="/forgotpassword">
-                        Forgot Password
+                <List.Item>
+                    <Anchor c="dark" href="/my-booking/trips" target="_blank">
+                        My Trips
                     </Anchor>
-                </List.Item> */}
+                </List.Item>
             </List>
         </Paper>
     );
