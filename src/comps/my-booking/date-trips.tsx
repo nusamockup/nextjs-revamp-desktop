@@ -116,7 +116,7 @@ const DateTrips = () => {
                     </Flex>
                 </Grid.Col>
 
-                <Grid.Col span={3} mt={-40}>
+                <Grid.Col span={3}>
                     <SidebarComp name="eddie" />
                 </Grid.Col>
             </Grid>

@@ -11,13 +11,13 @@ type SidebarCompProps = {
     name: string;
 };
 
-const SidebarComp = ({ name }: SidebarCompProps) => {
+const SidebarComp = ({ name, ...rest }: SidebarCompProps) => {
     return (
         <>
-            <Paper withBorder mt={40}>
+            <Paper withBorder {...rest}>
                 <NavLink
                     label={`Hi, ${name}`}
-                    fs="21px"
+                    fs="24px"
                     fw={500}
                     // c="blue"
                     rightSection={<IconUserCircle size="1.4rem" stroke={2} />}
@@ -25,30 +25,25 @@ const SidebarComp = ({ name }: SidebarCompProps) => {
                     sx={(theme) => ({
                         opacity: '1 !important',
                         color: theme.colors.blue[7],
-                        // background: '#dbe5ef',
                         background: theme.fn.lighten('#dbe5ef', 0.5),
-                        // background: theme.fn.lighten(
-                        //     theme.colors.blue[1],
-                        //     0.1
-                        // ),
                     })}
                 />
                 <NavLink
                     component={Link}
                     href="/my-booking/trips"
-                    label="My Bookings"
+                    label="Bookings"
                     icon={<IconListDetails size="1.2rem" stroke={1} />}
                 />
                 <NavLink
                     component={Link}
-                    href="/"
-                    label="My Contacts"
+                    href="/my-booking/contacts"
+                    label="Contacts"
                     icon={<IconAddressBook size="1.2rem" stroke={1} />}
                 />
                 <NavLink
                     component={Link}
-                    href="/"
-                    label="Profile"
+                    href="/my-booking/profile"
+                    label="My Profile"
                     icon={<IconUser size="1.2rem" stroke={1} />}
                 />
             </Paper>
