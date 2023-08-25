@@ -11,10 +11,10 @@ import {
     Select,
     SimpleGrid,
     Stack,
-    Text,
     TextInput,
     Title,
 } from '@ns-ui/core';
+import { useForm } from '@ns-ui/form';
 import { useToggle } from '@ns-ui/hooks';
 import { useState } from 'react';
 import {
@@ -26,6 +26,7 @@ import 'react-phone-number-input/style.css';
 import BodyBg from 'src/comps/home/body-bg';
 import SidebarComp from 'src/comps/my-booking/sidebar-comp';
 import SupportBannerText from 'src/comps/support/support-banner-text';
+// import capitalizeFirst from 'src/comps/hooks/capitalize-frst';
 
 const useStyles = createStyles(() => ({
     input: {
@@ -36,6 +37,7 @@ const useStyles = createStyles(() => ({
         '&[type="password"]': {
             paddingLeft: '0px !important',
         },
+        fontWeight: 500,
         // marginLeft: '0px !important',
     },
     button: {
@@ -68,6 +70,23 @@ const Profile = () => {
         'Rupiah'
     );
     const [insuranceValue, setInsuranceValue] = useState<string | null>('No');
+    const form = useForm({
+        initialValues: {
+            firstname: 'Eddie',
+            lastname: 'Tohier',
+            email: 'edditohier@gmail.com',
+            cemail: 'eddietohier@nusadev.com',
+            bod: '23 Feb 1990',
+            phone: '82198343434',
+            nationality: 'Indonesia',
+            passportno: 'A01934354',
+            passportexpired: '19 Nov 2030',
+            passportcountry: 'Indonesia',
+            // currentpassport: 'currentpassport',
+            // newpassport: '',
+            // verifypassport: '',
+        },
+    });
 
     return (
         <>
@@ -98,8 +117,8 @@ const Profile = () => {
                                             input: classes.input,
                                         }}
                                         label="Login Email"
-                                        value={'edditohier@gmail.com'}
                                         disabled
+                                        {...form.getInputProps('email')}
                                     />
                                     <PasswordInput
                                         classNames={{
@@ -232,7 +251,9 @@ const Profile = () => {
                                                         : false
                                                 }
                                                 label="Date of Birth"
-                                                value={'23 Feb 1990'}
+                                                placeholder="Ex. 01 Jan 2020"
+                                                // value={'23 Feb 1990'}
+                                                {...form.getInputProps('bod')}
                                             />
                                         </Stack>
                                         <Stack>
@@ -249,7 +270,11 @@ const Profile = () => {
                                                         : false
                                                 }
                                                 label="First Name"
-                                                value={'Eddie'}
+                                                // value={'Eddie'}
+                                                {...form.getInputProps(
+                                                    // capitalizeFirst('firstname')
+                                                    'firstname'
+                                                )}
                                             />
                                             <TextInput
                                                 classNames={{
@@ -264,7 +289,8 @@ const Profile = () => {
                                                         : false
                                                 }
                                                 label="Phone Number"
-                                                value={'82198343434'}
+                                                // value={'82198343434'}
+                                                {...form.getInputProps('phone')}
                                             />
                                             <TextInput
                                                 classNames={{
@@ -279,9 +305,12 @@ const Profile = () => {
                                                         : false
                                                 }
                                                 label="Contact Email"
-                                                value={
-                                                    'eddietohier@nusadev.com'
-                                                }
+                                                // value={
+                                                //     'eddietohier@nusadev.com'
+                                                // }
+                                                {...form.getInputProps(
+                                                    'cemail'
+                                                )}
                                             />
                                         </Stack>
                                         <Stack>
@@ -298,7 +327,11 @@ const Profile = () => {
                                                         : false
                                                 }
                                                 label="Last Name"
-                                                value={'Tohier'}
+                                                // value={'Tohier'}
+                                                {...form.getInputProps(
+                                                    'lastname'
+                                                    // capitalizeFirst('lastname')
+                                                )}
                                             />
                                             <TextInput
                                                 classNames={{
@@ -313,7 +346,13 @@ const Profile = () => {
                                                         : false
                                                 }
                                                 label="Nationality"
-                                                value={'Indonesia'}
+                                                // value={'Indonesia'}
+                                                {...form.getInputProps(
+                                                    'nationality'
+                                                    // capitalizeFirst(
+                                                    //     'nationality'
+                                                    // )
+                                                )}
                                             />
                                         </Stack>
                                     </SimpleGrid>
@@ -336,7 +375,10 @@ const Profile = () => {
                                                     : false
                                             }
                                             label="Passport Number"
-                                            value={'A01934354'}
+                                            // value={'A01934354'}
+                                            {...form.getInputProps(
+                                                'passportno'
+                                            )}
                                         />
                                         <TextInput
                                             classNames={{
@@ -350,8 +392,12 @@ const Profile = () => {
                                                     ? true
                                                     : false
                                             }
+                                            placeholder="Ex. 01 Jan 2023"
                                             label="Passport Expiry Date"
-                                            value={'19 Nov 2030'}
+                                            // value={'19 Nov 2030'}
+                                            {...form.getInputProps(
+                                                'passportexpired'
+                                            )}
                                         />
                                         <TextInput
                                             classNames={{
@@ -424,21 +470,6 @@ const Profile = () => {
                                                 'Thailand',
                                             ]}
                                         />
-                                        {/* <TextInput
-                                            classNames={{
-                                                input:
-                                                    mode === 'readonly'
-                                                        ? classes.input
-                                                        : '',
-                                            }}
-                                            disabled={
-                                                mode === 'readonly'
-                                                    ? true
-                                                    : false
-                                            }
-                                            label="Pref. Language"
-                                            value={'English'}
-                                        /> */}
                                         <Select
                                             classNames={{
                                                 input:
@@ -462,21 +493,6 @@ const Profile = () => {
                                                 'etc..',
                                             ]}
                                         />
-                                        {/* <TextInput
-                                            classNames={{
-                                                input:
-                                                    mode === 'readonly'
-                                                        ? classes.input
-                                                        : '',
-                                            }}
-                                            disabled={
-                                                mode === 'readonly'
-                                                    ? true
-                                                    : false
-                                            }
-                                            label="Pref. Currency"
-                                            value={'IDR'}
-                                        /> */}
                                         <Select
                                             classNames={{
                                                 input:
@@ -497,30 +513,6 @@ const Profile = () => {
                                             description="If 'Yes', system will add insurance
                                             to your next booking"
                                         />
-                                        {/* <Text
-                                            size="sm"
-                                            pr={20}
-                                            c="dimmed"
-                                            fs="italic"
-                                        >
-                                            If "Yes", system will add insurance
-                                            to your next booking
-                                        </Text> */}
-                                        {/* <TextInput
-                                            classNames={{
-                                                input:
-                                                    mode === 'readonly'
-                                                        ? classes.input
-                                                        : '',
-                                            }}
-                                            disabled={
-                                                mode === 'readonly'
-                                                    ? true
-                                                    : false
-                                            }
-                                            label="Pref. Insurance"
-                                            value={'Yes'}
-                                        /> */}
                                     </Stack>
                                 </Grid.Col>
                             </Grid>

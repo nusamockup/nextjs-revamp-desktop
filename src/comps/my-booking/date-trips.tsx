@@ -40,10 +40,12 @@ const DateTrips = () => {
                                 placeholder="Select dates range"
                                 value={value}
                                 onChange={setValue}
-                                ta={'right'}
                                 ml="auto"
                                 maw={230}
                                 w={300}
+                                // defaultDate={new Date(2022, 1)}
+                                // minDate={new Date(2022, 1, 1)}
+                                // maxDate={new Date(2022, 8, 1)}
                             />
                         </DatesProvider>
                         {/* <Button size={'sm'}>

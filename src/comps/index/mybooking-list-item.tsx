@@ -33,6 +33,15 @@ const MybookingListItem = () => {
                         Profile
                     </Anchor>
                 </List.Item>
+                <List.Item>
+                    <Anchor
+                        c="dark"
+                        href="/my-booking/contacts"
+                        target="_blank"
+                    >
+                        Contacts
+                    </Anchor>
+                </List.Item>
             </List>
         </Paper>
     );
