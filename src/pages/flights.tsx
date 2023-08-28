@@ -10,7 +10,6 @@ import {
     Tabs,
     Text,
 } from '@ns-ui/core';
-import { useToggle } from '@ns-ui/hooks';
 import { useEffect, useState } from 'react';
 import TextTransition, { presets } from 'react-text-transition';
 import { domesticdata, internationaldata } from 'src/comps/constants';
@@ -20,7 +19,6 @@ import FooterPre from 'src/comps/footer/footer-pre';
 import AirlineLogo from 'src/comps/home/airline-logo';
 import FlightSection from 'src/comps/home/flight-section';
 import { ImageCard } from 'src/comps/home/ImageCard';
-import FaBed from 'src/comps/icons/FaBed';
 import FaPlane from 'src/comps/icons/FaPlane';
 import PromoBanner from 'src/comps/promo-banner/promo-banner';
 import SectionTitle from 'src/comps/section-title/section-title';
