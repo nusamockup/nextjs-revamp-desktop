@@ -28,6 +28,16 @@ const PagesListItem = () => {
                         Forgot Password
                     </Anchor>
                 </List.Item>
+                <List.Item>
+                    <Anchor c="dark" href="/promos" target="_blank">
+                        Promos
+                    </Anchor>
+                </List.Item>
+                <List.Item>
+                    <Anchor c="dark" href="/promo/details" target="_blank">
+                        Promo Details
+                    </Anchor>
+                </List.Item>
             </List>
         </Paper>
     );
