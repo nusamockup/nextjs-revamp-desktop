@@ -1,4 +1,4 @@
-import { Anchor, List, Paper, Text } from '@ns-ui/core';
+import { Anchor, Indicator, List, Paper, Text } from '@ns-ui/core';
 
 const PagesListItem = () => {
     return (
@@ -30,12 +30,38 @@ const PagesListItem = () => {
                 </List.Item>
                 <List.Item>
                     <Anchor c="dark" href="/promos" target="_blank">
-                        Promos
+                        <Indicator
+                            inline
+                            label={'new'}
+                            color={'red'}
+                            position="middle-center"
+                            styles={{
+                                indicator: {
+                                    marginLeft: '45px',
+                                    padding: '8px 6px',
+                                },
+                            }}
+                        >
+                            Promos
+                        </Indicator>
                     </Anchor>
                 </List.Item>
                 <List.Item>
                     <Anchor c="dark" href="/promo/details" target="_blank">
-                        Promo Details
+                        <Indicator
+                            inline
+                            label={'new'}
+                            color={'red'}
+                            position="middle-center"
+                            styles={{
+                                indicator: {
+                                    marginLeft: '65px',
+                                    padding: '8px 6px',
+                                },
+                            }}
+                        >
+                            Promo Details
+                        </Indicator>
                     </Anchor>
                 </List.Item>
             </List>
