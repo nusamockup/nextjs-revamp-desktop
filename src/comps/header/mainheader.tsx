@@ -1,7 +1,6 @@
 import { Container, Group, Header, UnstyledButton } from '@ns-ui/core';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
 import { navlinks } from '../constants';
 import { NsLogo } from '../nslogo';
 import CurrSelector from './curr-selector';
