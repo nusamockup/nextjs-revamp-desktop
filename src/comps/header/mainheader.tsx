@@ -1,25 +1,24 @@
 import { Container, Group, Header, UnstyledButton } from '@ns-ui/core';
 import Link from 'next/link';
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-// import { useSelectedLayoutSegment } from 'next/navigation'
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { navlinks } from '../constants';
 import { NsLogo } from '../nslogo';
 import CurrSelector from './curr-selector';
 import LoginBTN from './login-btn';
 import useStyles, { HEADER_HEIGHT } from './mainheader.styles';
+import UserAvatar from './user-avatar';
 
-const MainHeader = () => {
+type MainHeaderProps = {
+    isLoggedIn: boolean;
+};
+
+const MainHeader = (isLoggedIn: MainHeaderProps) => {
     const { classes, theme } = useStyles();
     const pathname = usePathname();
     const hrefTokens = pathname.split('/');
 
-    // let layoutSegments = useSelectedLayoutSegment();
-    // let segment = layoutSegments[0];
-    // console.log(hrefTokens);
-
     const items = navlinks.map((item) => {
-        // const isActive = item.link === `/${segment}`;
-
         return (
             <Link
                 // component={Link}
@@ -52,7 +51,7 @@ const MainHeader = () => {
                     <Group spacing={10}>
                         <CurrSelector />
                         {/* <LangSelector /> */}
-                        <LoginBTN />
+                        {isLoggedIn ? <UserAvatar /> : <LoginBTN />}
                     </Group>
                 </Container>
             </Header>

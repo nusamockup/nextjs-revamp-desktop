@@ -1,15 +1,11 @@
-import Head from 'next/head';
 import { NsUIProvider } from '@ns-ui/core';
 import { AppProps } from 'next/app';
-import { ReactElement, ReactNode } from 'react';
 import { Roboto } from 'next/font/google';
-
-// import { FooterLinks } from '@/components/Footer';
-// import MainHeader from '@/components/header/MainHeader';
+import Head from 'next/head';
+import { ReactElement, ReactNode, useState } from 'react';
 import { NextPage } from 'next';
-import MainHeader from '../comps/header/mainheader';
 import { NsFooterDark } from 'src/comps/footer/ns-footer-dark';
-// import { NsFooter } from '../comps/footer/ns-footer';
+import MainHeader from '../comps/header/mainheader';
 
 const roboto = Roboto({
     weight: ['400', '500', '700'],
@@ -27,17 +23,11 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-    // const nsCache = createEmotionCache({ key: 'ns', prepend: false });
-    // nsCache.compat = true;
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     if (Component.getLayout) {
         return Component.getLayout(
             <>
-                {/* <style jsx global>{`
-                    html {
-                        font-family: ${roboto.style.fontFamily};
-                    }
-                `}</style> */}
                 <Head>
                     <title>
                         NusaTrip - Flights & Hotels - Online travel - domestic &
@@ -118,7 +108,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                 }}
                 // emotionCache={cache}
             >
-                <MainHeader />
+                {/* <MainHeader /> */}
+                <MainHeader isLoggedIn={false} />
                 <Component {...pageProps} />
                 <NsFooterDark />
             </NsUIProvider>
