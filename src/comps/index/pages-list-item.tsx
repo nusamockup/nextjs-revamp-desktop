@@ -1,6 +1,19 @@
 import { Anchor, Indicator, List, Paper, Text } from '@ns-ui/core';
+import { useState } from 'react';
+import { useBetween } from 'use-between';
+import UseLoginState from '../shareable/use-loginstate';
 
 const PagesListItem = () => {
+    const { isLoggedIn, setIsLoggedIn } = useBetween(UseLoginState);
+    const handlelogin = () => {
+        setIsLoggedIn(true);
+    };
+    const handlelogout = () => {
+        setIsLoggedIn(false);
+    };
+    // setIsLoggedIn(true);
+
+    console.log(isLoggedIn);
     return (
         <Paper
             radius="md"
@@ -30,24 +43,16 @@ const PagesListItem = () => {
                 </List.Item>
                 <List.Item>
                     <Anchor c="dark" href="/promos" target="_blank">
-                        <Indicator
-                            inline
-                            label={'new'}
-                            color={'red'}
-                            position="middle-center"
-                            styles={{
-                                indicator: {
-                                    marginLeft: '45px',
-                                    padding: '8px 6px',
-                                },
-                            }}
-                        >
-                            Promos
-                        </Indicator>
+                        Promos
                     </Anchor>
                 </List.Item>
                 <List.Item>
                     <Anchor c="dark" href="/promo/details" target="_blank">
+                        Promo Details
+                    </Anchor>
+                </List.Item>
+                <List.Item>
+                    <Anchor c="dark" onClick={handlelogin}>
                         <Indicator
                             inline
                             label={'new'}
@@ -55,12 +60,30 @@ const PagesListItem = () => {
                             position="middle-center"
                             styles={{
                                 indicator: {
-                                    marginLeft: '65px',
+                                    marginLeft: '75px',
                                     padding: '8px 6px',
                                 },
                             }}
                         >
-                            Promo Details
+                            Show User Login
+                        </Indicator>
+                    </Anchor>
+                </List.Item>
+                <List.Item>
+                    <Anchor c="dark" onClick={handlelogout}>
+                        <Indicator
+                            inline
+                            label={'new'}
+                            color={'red'}
+                            position="middle-center"
+                            styles={{
+                                indicator: {
+                                    marginLeft: '85px',
+                                    padding: '8px 6px',
+                                },
+                            }}
+                        >
+                            Show Login Button
                         </Indicator>
                     </Anchor>
                 </List.Item>

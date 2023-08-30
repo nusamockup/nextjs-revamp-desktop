@@ -1,18 +1,17 @@
 import { Container, Group, Header, UnstyledButton } from '@ns-ui/core';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useBetween } from 'use-between';
 import { navlinks } from '../constants';
 import { NsLogo } from '../nslogo';
+import UseLoginState from '../shareable/use-loginstate';
 import CurrSelector from './curr-selector';
 import LoginBTN from './login-btn';
 import useStyles, { HEADER_HEIGHT } from './mainheader.styles';
 import UserAvatar from './user-avatar';
 
-type MainHeaderProps = {
-    isLoggedIn: boolean;
-};
-
-const MainHeader = (isLoggedIn: MainHeaderProps) => {
+const MainHeader = () => {
+    const { isLoggedIn, setIsLoggedIn } = useBetween(UseLoginState);
     const { classes, theme } = useStyles();
     const pathname = usePathname();
     const hrefTokens = pathname.split('/');

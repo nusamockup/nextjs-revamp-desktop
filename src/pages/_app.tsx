@@ -109,7 +109,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                 // emotionCache={cache}
             >
                 {/* <MainHeader /> */}
-                <MainHeader isLoggedIn={false} />
+                <MainHeader />
                 <Component {...pageProps} />
                 <NsFooterDark />
             </NsUIProvider>
