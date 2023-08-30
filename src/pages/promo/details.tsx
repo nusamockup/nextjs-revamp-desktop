@@ -1,6 +1,8 @@
 import { css, Global } from '@emotion/react';
 import {
+    Anchor,
     Box,
+    Button,
     Card,
     Container,
     List,
@@ -8,6 +10,8 @@ import {
     Text,
     Title,
 } from '@ns-ui/core';
+import Link from 'next/link';
+import FooterPre from 'src/comps/footer/footer-pre';
 import NsImage from 'src/comps/ns-image/ns-image';
 import TicketComp from 'src/comps/promo/ticket-comp';
 
@@ -37,7 +41,7 @@ const Details = () => {
                     <Card.Section>
                         <NsImage
                             src="/img/promo/5aa39bd085807260a29733e4b772eddb.png"
-                            height={396}
+                            height={338}
                         />
                     </Card.Section>
                 </Card>
@@ -127,7 +131,33 @@ const Details = () => {
                         berizin dan diawasi oleh Otoritas Jasa Keuangan (OJK)
                     </List.Item>
                 </List>
+
+                <SimpleGrid cols={2} spacing={30} mt={40} mb={20}>
+                    <Button fullWidth component={Link} href={'/flights'}>
+                        Cari Tiket
+                    </Button>
+                    <Button fullWidth component={Link} href={'/hotels'}>
+                        Cari Hotel
+                    </Button>
+                </SimpleGrid>
+                <Anchor
+                    c={'dark'}
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'end',
+                    }}
+                    component={Link}
+                    href={'/promos'}
+                >
+                    view all promos
+                </Anchor>
             </Container>
+
+            <Box bg="#F1F5F9" mt={120} mb="-7.5rem">
+                <Container size="lg">
+                    <FooterPre />
+                </Container>
+            </Box>
         </>
     );
 };

@@ -2,6 +2,7 @@ import { css, Global } from '@emotion/react';
 import {
     BackgroundImage,
     Box,
+    Button,
     Card,
     Container,
     Group,
@@ -23,6 +24,7 @@ import FaBed from 'src/comps/icons/FaBed';
 import SectionTitle from 'src/comps/section-title/section-title';
 import LatestPromoCard from 'src/comps/promo/latest-promo-card';
 import NsImage from 'src/comps/ns-image/ns-image';
+import FooterPre from 'src/comps/footer/footer-pre';
 
 const Promos = () => {
     const domestics = domesticdata.map((data, index) => (
@@ -253,6 +255,12 @@ const Promos = () => {
                     </Card>
                 </SimpleGrid>
             </Container>
+
+            <Box bg="#F1F5F9" mt={120} mb="-7.5rem">
+                <Container size="lg">
+                    <FooterPre />
+                </Container>
+            </Box>
         </>
     );
 };
