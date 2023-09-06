@@ -6,7 +6,7 @@ const World = dynamic(() => import('./world'), {
 });
 
 const SearchLocation = () => {
-    const [content, setContent] = useState('');
+    // const [content, setContent] = useState('');
     return (
         <>
             <World />
