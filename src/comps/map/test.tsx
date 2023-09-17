@@ -134,34 +134,34 @@ const Test = () => {
             >
                 <GeoJSON data={topoJsonData} />
             </MapContainer> */}
-                {/* <MapContainer
-                center={[-6.175447361080635, 106.82712101740546]}
-                zoom={14}
-                scrollWheelZoom={false}
-                style={{ height: '400px', width: '97%' }}
-                dragging={false}
-                zoomControl={false}
-            >
-                <TileLayer
-                    url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
-                    // url="/map-tiles/{z}/{x}/{y}"
-                    // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-                    // detectRetina={true}
-
-                    // zoomOffset={zoomOffset}
-                    // tileSize={256 / Math.pow(2, zoomOffset)}
-                    // maxZoom={20}
-                />
-                <Marker
-                    position={[-6.175447361080635, 106.82712101740546]}
-                    icon={markerIcon}
+                <MapContainer
+                    center={[-6.175447361080635, 106.82712101740546]}
+                    zoom={14}
+                    scrollWheelZoom={false}
+                    style={{ height: '400px', width: '97%' }}
+                    dragging={false}
+                    zoomControl={false}
                 >
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker>
-            </MapContainer> */}
+                    <TileLayer
+                        url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+                        // url="/map-tiles/{z}/{x}/{y}"
+                        // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+                        // detectRetina={true}
+
+                        // zoomOffset={zoomOffset}
+                        // tileSize={256 / Math.pow(2, zoomOffset)}
+                        // maxZoom={20}
+                    />
+                    <Marker
+                        position={[-6.175447361080635, 106.82712101740546]}
+                        icon={markerIcon}
+                    >
+                        <Popup>
+                            A pretty CSS3 popup. <br /> Easily customizable.
+                        </Popup>
+                    </Marker>
+                </MapContainer>
             </div>
         </>
     );

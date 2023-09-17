@@ -52,7 +52,7 @@ const PagesListItem = () => {
                 </List.Item>
                 <List.Item>
                     <Anchor c="dark" onClick={handlelogin}>
-                        <Indicator
+                        {/* <Indicator
                             inline
                             label={'new'}
                             color={'red'}
@@ -63,14 +63,14 @@ const PagesListItem = () => {
                                     padding: '8px 6px',
                                 },
                             }}
-                        >
-                            Show User Login
-                        </Indicator>
+                        > */}
+                        Show User Login
+                        {/* </Indicator> */}
                     </Anchor>
                 </List.Item>
                 <List.Item>
                     <Anchor c="dark" onClick={handlelogout}>
-                        <Indicator
+                        {/* <Indicator
                             inline
                             label={'new'}
                             color={'red'}
@@ -81,9 +81,9 @@ const PagesListItem = () => {
                                     padding: '8px 6px',
                                 },
                             }}
-                        >
-                            Show Login Button
-                        </Indicator>
+                        > */}
+                        Show Login Button
+                        {/* </Indicator> */}
                     </Anchor>
                 </List.Item>
             </List>

@@ -17,6 +17,7 @@ import HomeSearch from 'src/comps/home/home-search';
 import HotelSection from 'src/comps/home/hotel-section';
 import B2BPromoLightText from 'src/comps/home/hotel-section/b2b-promo-light-text';
 import MobileBanner from 'src/comps/home/mobile-banner';
+import SearcHistory from 'src/comps/home/searc-history';
 import WhyChoose from 'src/comps/home/why-choose';
 import FlightSection from '../comps/home/flight-section';
 import PromoBanner from '../comps/promo-banner/promo-banner';
@@ -95,6 +96,8 @@ const Home = () => {
                 </BackgroundImage>
             </Box>
             <Container size="xl">
+                <Space h="40px" />
+                <SearcHistory />
                 <Space h="82px" />
                 <PromoBanner />
                 <Space h="64px" />
