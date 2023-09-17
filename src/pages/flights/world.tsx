@@ -2,7 +2,6 @@ import { css, Global } from '@emotion/react';
 import {
     BackgroundImage,
     Box,
-    Button,
     Container,
     Flex,
     NavLink,
@@ -10,17 +9,19 @@ import {
     Paper,
     ScrollArea,
     SimpleGrid,
-    Space,
     Title,
 } from '@ns-ui/core';
 import { useRouter } from 'next/navigation';
 // import WorldMap from 'src/comps/map/world-map';
+import { IconMapPinFilled } from '@tabler/icons-react';
 import dynamic from 'next/dynamic';
 import { worldcountries } from 'src/comps/constants';
-import { IconMapPin, IconMapPinFilled } from '@tabler/icons-react';
 import FooterPre from 'src/comps/footer/footer-pre';
 
 const WorldMap = dynamic(() => import('src/comps/map/world-map'), {
+    ssr: false,
+});
+const TestMap = dynamic(() => import('src/comps/map/test'), {
     ssr: false,
 });
 
@@ -128,6 +129,8 @@ const FlightWorld = () => {
                 </div>
                 {/* <div>Flight World</div> */}
                 {/* <Space h="1082px" /> */}
+
+                <TestMap />
             </Container>
 
             <Box bg="#F1F5F9" mt={120} mb="-7.5rem">
