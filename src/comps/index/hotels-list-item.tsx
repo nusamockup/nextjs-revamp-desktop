@@ -23,6 +23,11 @@ const HotelsListItem = () => {
                         Index
                     </Anchor>
                 </List.Item>
+                <List.Item>
+                    <Anchor c="dark" href="/hotels/details" target="_blank">
+                        Details
+                    </Anchor>
+                </List.Item>
                 {/* <List.Item>
                     <Anchor c="dark" href="/forgotpassword" target="_blank">
                         Forgot Password
